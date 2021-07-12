@@ -1,0 +1,25 @@
+.error {
+    background: transparent;
+    font-weight: bold;
+    text-align: center;
+}
+
+.UP-Card {
+    border-radius: 10px;
+    border: 10px;
+    border-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.titleProfile {
+    font-size: 50px;
+}
+
+.LogoutBtn {
+    position: center;
+    align-items: center;
+    justify-content: center;
+}
