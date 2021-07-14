@@ -1,11 +1,14 @@
 .loginPage {
   background-color: #1A1A1A;
-  margin-top: -100px;
+  /* margin-top: -100px; */
   height: 100vh;
+  width: 100vw;
+  /* position: absolute; */
+  
 }
-
 .form-container {
     margin: 100px auto;
+    margin-top: 0px;
     width: 1000px;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
     position: relative;
@@ -13,6 +16,8 @@
     height: 600px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    /* top: 15vh;
+    bottom: 15vh; */
   }
   
   .close-btn {
@@ -68,7 +73,7 @@
     justify-content: center;
     align-items: center;
     background-color: #fff;
-  }
+  } 
   
   .form h1 {
     font-style: normal;
@@ -82,14 +87,16 @@
     /* position: fixed; */
   }
 
-  .form p {
+  .WelcomBack {
       background: transparent;
       padding-bottom: 20px;
       text-align: left;
       font-style: normal;
+      font-weight: bold;
       width: 80%;
       color: rgba(40, 44, 64, 0.6);
       background: transparent;
+      text-decoration: none;
       /* position: fixed; */
   }
   
@@ -175,7 +182,7 @@
     background: transparent;
   }
 
-  .forgotpass {
+  /* .forgotpass {
     font-size: 0.8rem;
     margin-top: 0px;
     color: #868BA0;
@@ -183,6 +190,18 @@
     text-align: start;
     background: transparent;
     padding-top: 10px;
+  } */
+
+  .forgotpasstext {
+    font-size: 0.8rem;
+    margin-top: 0px;
+    color: #868BA0;
+    width: 80%;
+    text-align: start;
+    background: transparent;
+    padding-top: 10px;
+    text-decoration: none;
+    font-weight: bold;
   }
 
   .logobtn {
@@ -221,4 +240,7 @@
     background: transparent;
     font-weight: bold;
     text-align: center;
+    color: yellow;
   }
+
+  

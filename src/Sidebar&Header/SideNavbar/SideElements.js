@@ -7,6 +7,7 @@ export const Nav = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  position: sticky;
 `;
 
 export const NavLogo = styled(Link)`
@@ -49,6 +50,34 @@ export const NavIconPfp = styled.div`
     transform: translate(-100%, 60%);
     font-size: 1.9rem;
     background: transparent;
+  }
+`;
+
+export const ErrorMSG = styled.div`
+  display: flex;
+  margin-left: 32%;
+  justify-content: center;
+  text-align: center;
+  background-color: white;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  // padding: 10px 20px;
+  border-radius: 20px;
+
+  @media screen and (max-width: 768px) {
+    margin-left: 10%;
+  }
+
+  @media screen and (max-width: 411px) {
+    display: none;
+    background: transparent;
+  }
+
+  @media screen and (max-width: 445px) {
+    display: none;
+    background: transparent;
+    
   }
 `;
 
@@ -108,7 +137,7 @@ export const SidebarNav = styled.nav`
   top: 0;
   left: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
   transition: 350ms;
-  z-index: 10;
+  z-index: 99999999;
 `;
 
 export const SidebarWrap = styled.div`

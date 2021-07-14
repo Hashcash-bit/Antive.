@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
 import {
   Nav,
   NavIcon,
@@ -11,6 +10,7 @@ import {
   NavIconPfp,
   LogoutBtnWrapper,
   LogoutRoute,
+  ErrorMSG
 } from "./SideElements";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
@@ -21,6 +21,7 @@ import SubMenu from "./SideMenu";
 import { IconContext } from "react-icons/lib";
 import { useAuth } from "../../Signin/context/AuthContext";
 import { useHistory } from "react-router-dom";
+import "./SideNavBar.css";
 
 const SideNavBar = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -49,7 +50,9 @@ const SideNavBar = () => {
           </NavIcon>
         </IconContext.Provider>
         <NavLogo to="/dashboard">Notify.</NavLogo>
-        {error && <p className="error">{error}</p>}
+        <ErrorMSG>
+          {error && <div className="errordashboard">{error}</div>}
+        </ErrorMSG>
         <IconContext.Provider value={{ color: "#FF7C5D" }}>
           <NavIconPfp>
             <CgProfile />

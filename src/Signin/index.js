@@ -5,8 +5,6 @@ import signin from './image/svg-signin.svg'
 import { Link } from "react-router-dom";
 
 
-
-
 const Form = () => {
   return (
     <div className='SignupPage'>

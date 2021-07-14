@@ -1,10 +1,10 @@
 import React from 'react';
-import './Login.css';
-import Login from './Login';
-import loginsvg from './image/login.svg'
+import './forgotpass.css';
+import ForgotPassword from './forgotpass';
+import forgotpass from './image/forgotpass.svg'
 import { Link} from "react-router-dom";
 
-const LoginForm = () => {
+const ForgotPass = () => {
   return (
       <div className='loginPage'>
         <div className='form-container'>        
@@ -15,16 +15,16 @@ const LoginForm = () => {
           <p className='subtextone'>
             Online Student Management Tool
           </p>
-            <img className='form-img' src={loginsvg} alt='login' />
+            <img className='form-img' src={forgotpass} alt='Forgot Pass?' />
             <span className='form-input-login'>
             Need an account? Signup <Link to='/signup'>here</Link>
           </span>
           </div>
-          <Login />
+          <ForgotPassword />
         </div>
       </div>
     
   );
 };
 
-export default LoginForm;
+export default ForgotPass;

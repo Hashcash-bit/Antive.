@@ -1,7 +1,7 @@
 import React, {useRef, useState, useEffect} from 'react';
 import './Login.css';
 import { useAuth } from '../Signin/context/AuthContext';
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export default function Login () {
   const emailRef = useRef()
@@ -32,7 +32,7 @@ export default function Login () {
         <h1>
           Log In
         </h1>
-        <p>
+        <p className='WelcomBack'>
           Welcome Back!
         </p>
         
@@ -61,7 +61,11 @@ export default function Login () {
         <button disabled={loading} className='form-input-btn' type='submit'>
           Login
         </button>
-        <p className='forgotpass'>Forgot Password?</p>
+        <div className='forgotpass'>
+          <Link to='/forgot-password' style={{ textDecoration: 'none' }}>
+          <p className='forgotpasstext'>Forgot Password?</p>
+          </Link>
+        </div>
       </form>
     </div>
   );

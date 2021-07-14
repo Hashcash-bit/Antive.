@@ -39,7 +39,7 @@ export const VideoBg = styled.video`
   -o-object-fit: cover;
   object-fit: cover;
   background: #232a34;
-  filter: brightness(20%);
+  filter: brightness(55%);
 `
 export const HeroContent = styled.div`
   z-index: 3;
@@ -57,10 +57,10 @@ export const HeroH1 = styled.h1`
   text-align: center;
   background: transparent;
 
-  @media screen and (max-wodth: 768px) {
+  @media screen and (max-width: 768px) {
     font-size: 40px
   }
-  @media screen and (max-wodth: 480px) {
+  @media screen and (max-width: 480px) {
     font-size: 32px
   }
 `
@@ -73,10 +73,10 @@ export const HeroP = styled.p`
   max-width: 600px;
   background: transparent;
 
-  @media screen and (max-wodth: 768px) {
+  @media screen and (max-width: 768px) {
     font-size: 24px
   }
-  @media screen and (max-wodth: 480px) {
+  @media screen and (max-width: 480px) {
     font-size: 18px
   }
 `

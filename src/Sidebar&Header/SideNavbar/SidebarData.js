@@ -17,12 +17,12 @@ export const SidebarData = [
     icon: <IoIcons.IoIosPaper />,
   },
   {
-    title: "Products",
+    title: "Budget",
     path: "/products",
     icon: <FaIcons.FaCartPlus />,
   },
   {
-    title: "Team",
+    title: "Notes",
     path: "/team",
     icon: <IoIcons.IoMdPeople />,
   },
@@ -32,9 +32,9 @@ export const SidebarData = [
     icon: <FaIcons.FaEnvelopeOpenText />,
   },
   {
-    title: "Support",
-    path: "/support",
-    icon: <IoIcons.IoMdHelpCircle />,
+    title: "Settings",
+    path: "/update-profile",
+    icon: <IoIcons.IoIosSettings />,
   },
 
   

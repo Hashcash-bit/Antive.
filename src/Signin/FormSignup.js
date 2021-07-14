@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react';
 import './Form.css';
 import { useAuth } from './context/AuthContext';
-import { useHistory } from 'react-router';
+import { useHistory } from "react-router-dom";
 
 export default function FormSignup () {
   const emailRef = useRef()
@@ -37,11 +37,11 @@ export default function FormSignup () {
 
   return (
     <div className='form-content-right'>
-      <form className='form' onSubmit={handleSubmit} noValidate>
+      <form className='form' onSubmit={handleSubmit}>
         <h1>
           Sign Up
         </h1>
-        <p>
+        <p className='DontAccount'>
           Don't have an account?
         </p>
         
@@ -80,7 +80,6 @@ export default function FormSignup () {
         <button disabled={loading} className='form-input-btn' type='submit'>
           Sign up
         </button>
-        <p className='forgotpass'>Forgot Password?</p>
       </form>
     </div>
   );

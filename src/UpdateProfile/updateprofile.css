@@ -1,24 +1,30 @@
-.SignupPage {
+.UpdatePage {
   background-color: #1a1a1a;
+  margin-top: -100px;
   height: 100vh;
   width: 100vw;
 }
 
-.form-container {
+.form-containerU {
   margin: 100px auto;
-  /* margin-left: auto;
-    margin-right: auto;
-    margin-top: 65px; */
-  top: 4.5%;
-  width: 100vw;
+  width: 1000px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
   border-radius: 10px;
-  height: 600px;
+  height: 550px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-.close-btn {
+@media screen and (max-width: 768px) {
+  .form-containerU {
+    width: 100vw;
+    height: 500px;
+    justify-content: center;
+  }
+}
+
+.close-btnU {
   position: absolute;
   top: 2%;
   right: 3%;
@@ -28,13 +34,20 @@
   cursor: pointer;
 }
 
-.form-content-left {
+.form-content-leftU {
   background: #282c40;
   border-radius: 10px 0 0 10px;
   position: relative;
 }
 
-.form-img {
+@media screen and (max-width: 1010px) {
+  .form-content-leftU {
+    display: none;
+    background-color: transparent;
+  }
+}
+
+.form-imgU {
   width: 80%;
   height: 80%;
   position: absolute;
@@ -44,7 +57,7 @@
   transform: translate(-50%, -50%);
 }
 
-.form-img-2 {
+.form-img-2U {
   width: 60%;
   height: 60%;
   position: absolute;
@@ -53,21 +66,21 @@
   transform: translate(-50%, -50%);
 }
 
-.form-success {
+.form-successU {
   text-align: center;
   font-size: 24px;
   margin-top: 80px;
   color: #fff;
 }
 
-.form-content-right {
+.form-content-rightU {
   border-radius: 0 10px 10px 0;
   position: relative;
   background-color: white;
   z-index: 999;
 }
 
-.form {
+.formU {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -81,7 +94,7 @@
   background-color: #fff;
 }
 
-.form h1 {
+.formU h1 {
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
@@ -94,17 +107,17 @@
 }
 
 /* .form p {
-      background: transparent;
-      padding-bottom: 20px;
-      text-align: left;
-      font-style: normal;
-      width: 80%;
-      color: rgba(40, 44, 64, 0.6);
-      background: transparent;
-      position: fixed;
-  } */
+        background: transparent;
+        padding-bottom: 20px;
+        text-align: left;
+        font-style: normal;
+        width: 80%;
+        color: rgba(40, 44, 64, 0.6);
+        background: transparent;
+        position: fixed;
+    } */
 
-.DontAccount {
+.DontAccountU {
   background: transparent;
   padding-bottom: 20px;
   text-align: left;
@@ -116,20 +129,20 @@
   /* position: fixed; */
 }
 
-.form-inputs {
+.form-inputsU {
   margin-bottom: 0.5rem;
   width: 80%;
   background: transparent;
 }
 
-.form-inputs p {
+.form-inputsU p {
   font-size: 0.8rem;
   padding-bottom: -0px;
   color: #f00e0e;
   background: transparent;
 }
 
-.form-label {
+.form-labelU {
   display: inline-block;
   font-size: 0.8rem;
   margin-bottom: 1px;
@@ -138,7 +151,7 @@
   background: transparent;
 }
 
-.form-input {
+.form-inputU {
   display: block;
   padding-left: 0px;
   outline: none;
@@ -151,13 +164,13 @@
   background: transparent;
 }
 
-.form-input::placeholder {
+.form-inputU::placeholder {
   color: #595959;
   font-size: 12px;
   text-decoration: none;
 }
 
-.form-input-btn {
+.form-input-btnU {
   width: 80%;
   height: 50px;
   margin-top: 10px;
@@ -170,7 +183,7 @@
   font-size: 1rem;
 }
 
-.form-input-btn:hover {
+.form-input-btnU:hover {
   cursor: pointer;
   background: #191919;
   color: #fff;
@@ -178,7 +191,7 @@
   transition: all 0.2s ease-out;
 }
 
-.form-input-login {
+.form-input-loginU {
   font-size: 0.8rem;
   margin-top: 10px;
   color: #868ba0;
@@ -191,14 +204,14 @@
   margin-left: 2.7rem;
 }
 
-.form-input-login a {
+.form-input-loginU a {
   text-decoration: none;
   color: rgb(196, 190, 190);
   font-weight: 600;
   background: transparent;
 }
 
-.forgotpass {
+.backtoDashboard {
   font-size: 0.8rem;
   margin-top: 0px;
   color: #868ba0;
@@ -206,9 +219,11 @@
   text-align: start;
   background: transparent;
   padding-top: 10px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.logobtn {
+.logobtnU {
   color: #ff7c5d;
   justify-self: flex-start;
   cursor: pointer;
@@ -224,7 +239,7 @@
   z-index: 999;
 }
 
-.subtextone {
+.subtextoneU {
   color: #868ba0;
   justify-self: flex-start;
   cursor: pointer;
@@ -239,7 +254,7 @@
   z-index: 1;
 }
 
-p.error {
+p.errorU {
   background: transparent;
   font-weight: bold;
   text-align: center;
