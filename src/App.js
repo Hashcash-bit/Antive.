@@ -8,15 +8,16 @@ import dashboardPage from './pages/dashboard'
 import PrivateRoute from './PrivateRoute'
 import ForgotPass from './pages/forgotpass'
 import Settings from './pages/settings'
+import Agenda from './pages/agenda'
+import {HeaderAgenda} from './Agenda/components/layout/HeaderAgenda'
 // import Dashboard from './Dashboard/dashboard';
 // import Login from './Login/Login';
 // import Form from './Signin'
 // import {RemoveScrollBar} from 'react-remove-scroll-bar';
 // import UpdateProfile from './UpdateProfile/index';
 
-function App() {
+export const App = () => {
   return (
-    
     <Router>
       <AuthProvider>
       <Switch>
@@ -25,6 +26,7 @@ function App() {
         <Route path='/login' component={login} exact/>
         <PrivateRoute path='/dashboard' component={dashboardPage} exact/>
         <PrivateRoute path='/update-profile' component={Settings} exact/>
+        <PrivateRoute path='/agenda' component={Agenda} exact/>
         <Route path='/forgot-password' component={ForgotPass} exact/>
       </Switch>
       </AuthProvider>
@@ -32,5 +34,3 @@ function App() {
     
   );
 }
-
-export default App;

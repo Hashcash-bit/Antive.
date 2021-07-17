@@ -8,6 +8,7 @@ export const Nav = styled.div`
   justify-content: flex-start;
   align-items: center;
   position: sticky;
+  z-index: 999999;
 `;
 
 export const NavLogo = styled(Link)`

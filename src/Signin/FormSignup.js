@@ -55,6 +55,7 @@ export default function FormSignup () {
             type='email'
             name='email'
             placeholder='Enter your email'
+            required
           />
         </div>
         <div className='form-inputs'>
@@ -65,6 +66,7 @@ export default function FormSignup () {
             type='password'
             name='password'
             placeholder='Enter your password'
+            required
           />
         </div>
         <div className='form-inputs'>
@@ -75,6 +77,7 @@ export default function FormSignup () {
             type='password'
             name='password2'
             placeholder='Confirm your password'
+            required
           />
         </div>
         <button disabled={loading} className='form-input-btn' type='submit'>
