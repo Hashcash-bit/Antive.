@@ -3,18 +3,16 @@ import PropTypes from 'prop-types';
 import { CgDarkMode } from "react-icons/cg";
 import { CgProfile } from "react-icons/cg";
 import { IconContext } from "react-icons/lib";
-import { useAuth } from "../../../Signin/context/AuthContext";
 import {
   ProfileEmailAgenda,
   EmailShownAgenda,
   NavIconPfpAgenda,
-} from "./HeaderAgendaElements.js";
+} from "./AgendaElements.js";
 import { AddTask } from "../AddTask";
 
 export const HeaderAgenda = ({ darkMode, setDarkMode }) => {
   const [shouldShowMain, setShouldShowMain] = useState(false);
   const [showQuickAddTask, setShowQuickAddTask] = useState(false);
-  const { currentUser, logout } = useAuth();
 
   return (
     <header className="header" data-testid="header">
@@ -34,29 +32,21 @@ export const HeaderAgenda = ({ darkMode, setDarkMode }) => {
                   setShowQuickAddTask(true);
                   setShouldShowMain(true);
                 }}
+                onKeyDown={() => {
+                  setShowQuickAddTask(true);
+                  setShouldShowMain(true);
+                }}
               >
                 +
               </button>
             </li>
-            <li className="settings__darkmode">
-              <button
-                data-testid="dark-mode-action"
-                aria-label="Darkmode on/off"
-                type="button"
-                onClick={() => setDarkMode(!darkMode)}
-              >
-                <CgDarkMode />
-              </button>
-            </li>
-
+            
             <IconContext.Provider value={{ color: "#FF7C5D" }}>
               <NavIconPfpAgenda>
                 <CgProfile />
               </NavIconPfpAgenda>
             </IconContext.Provider>
-            <ProfileEmailAgenda>
-              <EmailShownAgenda>{currentUser.email}</EmailShownAgenda>
-            </ProfileEmailAgenda>
+          
           </ul>
         </div>
       </nav>

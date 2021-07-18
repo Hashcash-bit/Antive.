@@ -2,16 +2,19 @@ import { useState, useEffect } from "react";
 import { firebase } from "../../Signin/firebase";
 import { collatedTasksExist } from "../helpers";
 import moment from "moment";
+import { useAuth } from "../../Signin/context/AuthContext";
 
 export const useTasks = selectedProject => {
   const [tasks, setTasks] = useState([]);
   const [archivedTasks, setArchivedTasks] = useState([]);
+  const {currentUser} = useAuth();
 
   useEffect(() => {
     let unsubscribe = firebase
       .firestore()
       .collection("tasks")
-      .where("userId", "==", "CVYC6dr56B7rb7B78t76");
+      // .where("userId", "==", "CVYC6dr56B7rb7B78t76");
+      .where("userId", '==', currentUser.uid)
 
     unsubscribe =
       selectedProject && !collatedTasksExist(selectedProject)
@@ -52,12 +55,14 @@ export const useTasks = selectedProject => {
 
 export const useProjects = () => {
     const [projects, setProjects] = useState([])
+    const {currentUser} = useAuth()
 
     useEffect(() => {
         firebase
         .firestore()
         .collection('projects')
-        .where('userId', '==', 'CVYC6dr56B7rb7B78t76')
+        // .where('userId', '==', 'CVYC6dr56B7rb7B78t76')
+        .where("userId", '==', currentUser.uid)
         .orderBy('projectId')
         .get()
         .then(snapshot => {

@@ -4,6 +4,7 @@ import { useTasks } from '../hooks';
 import { collatedTasks } from '../constants';
 import {getTitle, getCollatedTitle, collatedTasksExist} from '../helpers'
 import { useSelectedProjectValue, useProjectsValue } from '../context';
+import { AddTask } from './AddTask';
 
 export const Tasks = () => {
     const {selectedProject} = useSelectedProjectValue();
@@ -14,13 +15,19 @@ export const Tasks = () => {
 
     if (projects && selectedProject && !collatedTasksExist(selectedProject)) {
         projectName = getTitle(projects, selectedProject).name
-        console.log('projectName 1: ', projectName)
     }
 
-    if (collatedTasksExist(selectedProject) && selectedProject) {
+    if (
+        collatedTasksExist(selectedProject) && selectedProject) {
         projectName = getCollatedTitle(collatedTasks, selectedProject).name
-        console.log('projectName 2: ', projectName)
     }
+
+    if (projectName.length > 0 &&
+        selectedProject &&
+        !collatedTasksExist(selectedProject)
+        ) {
+            projectName = getTitle(projects, selectedProject).name
+        }
 
     useEffect(() => {
         document.title = `${projectName}: Notify`;
@@ -38,6 +45,7 @@ export const Tasks = () => {
                     </li>
                 ))}
             </ul>
+            <AddTask />
         </div>
     )
 }

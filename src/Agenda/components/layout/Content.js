@@ -1,5 +1,4 @@
 import React from 'react'
-import { HeaderAgenda } from './HeaderAgenda'
 import { SidebarAgenda } from './SidebarAgenda'
 import {Tasks} from '../Tasks'
 

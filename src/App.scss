@@ -12,24 +12,14 @@ html {
   box-sizing: inherit;
 }
 
-// body {
-//   margin: 0;
-//   padding: 0;
-//   line-height: 1;
-//   font-family: 'Roboto', sans-serif;
-//   color: #202020;
-//   // background-color: rgb(11, 145, 179);
-//   background: linear-gradient(45deg, rgb(85, 106, 230), rgb(241, 238, 33), rgb(214, 20, 156), rgb(243, 247, 43));
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-// }
+
 body {
   margin: 0;
   padding: 0;
   line-height: 1;
   font-family: "Roboto", sans-serif;
   color: #202020;
-  background-color: #fafafa;
+  background-color: #1a1a1a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -161,13 +151,13 @@ $generic-bg: #1a1a1a;
 /* Header
             ============================================ */
 header {
-  border-bottom: solid 1px #ca2100;
+  border-bottom: solid 1px #2f2f2f;
   background-color: $generic-bg;
   -webkit-transition: height 200ms ease-in;
   transition: height 200ms ease-in;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-  height: 44px;
+  height: 54px;
   z-index: 400;
   position: fixed;
   top: 0;
@@ -211,14 +201,14 @@ header {
         color: #ff7c5d;
         justify-self: flex-start;
         cursor: pointer;
-        font-size: 0.99rem;
-        // font-size: 1.75rem;
+        font-size: 1.5rem;
         display: flex;
         align-items: center;
         margin-left: 24px;
         font-weight: bold;
         text-decoration: none;
         background: transparent;
+        margin-top: 10px;
 
         img {
           width: 24px;
@@ -251,6 +241,7 @@ header {
 
           &.settings__add {
             margin-right: 15px;
+            margin-top: 10px;
             font-size: 30px;
 
             button {
@@ -292,7 +283,8 @@ header {
   overflow-x: hidden;
   overflow-y: hidden;
   border-right: $generic-border;
-  background-color: #fafafa;
+  background-color: #1a1a1a;
+  color: white;
 
   @include mq("900px") {
     display: none;
@@ -305,6 +297,7 @@ header {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
+      color: rgb(95, 94, 94);
     }
   }
 
@@ -330,14 +323,14 @@ header {
       display: none;
 
       svg {
-        color: #1a1a1a;
+        color: #fff;
       }
     }
 
     &.active,
     &:hover {
       font-weight: bold;
-      background-color: white;
+      background-color: #2f2f2f;
     }
 
     &:nth-child(1) {
@@ -391,7 +384,7 @@ header {
     cursor: pointer;
 
     span {
-      color: #0000008a;
+      color: white;
       margin-right: 10px;
 
       svg.hidden-projects {
@@ -402,7 +395,7 @@ header {
 
     h2 {
       margin: 0;
-      color: #333;
+      color: #fafafa;
       font-size: 15px;
       font-weight: bold;
       padding-bottom: 20px;
@@ -412,15 +405,16 @@ header {
   &__generic {
     li {
       list-style-type: none;
-      color: #333;
+      color: #fafafa;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       cursor: pointer;
-      line-height: 2.5rem;
+      line-height: 1.5;
       font-size: 15px;
-      padding-left: 10px;
+      padding-left: 0px;
       padding-right: 0;
+      // gap: 10px;
 
       div:nth-child(1) {
         display: -webkit-box;
@@ -428,9 +422,11 @@ header {
         display: flex;
         padding: 10px 0 10px 10px;
         width: 100%;
+        
 
         span:first-of-type {
           margin-right: 10px;
+          // margin-left: 10px;
           display: -webkit-box;
           display: -ms-flexbox;
           display: flex;
@@ -441,7 +437,7 @@ header {
           svg {
             width: 18px;
             height: 18px;
-            color: #555;
+            color: white;
           }
         }
       }
@@ -449,7 +445,7 @@ header {
       &.active,
       &:hover {
         font-weight: bold;
-        background-color: white;
+        background-color: #2f2f2f;
       }
     }
   }
@@ -514,15 +510,16 @@ header {
             ============================================ */
 .tasks {
   width: 656px;
-  background-color: white;
+  background-color: #292929;
   margin-left: 266px;
-  border-right: $generic-border;
+  // border-right: #ee2727;
   min-height: calc(100vh);
   vertical-align: top;
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 80px;
   padding-bottom: 84px;
+  color: white;
 
   @include mq("900px") {
     margin-left: 0;
@@ -533,6 +530,7 @@ header {
     font-size: 20px;
     font-weight: normal;
     margin: 0 30px 20px 0;
+    color: white;
   }
 
   .add-task {
@@ -544,12 +542,12 @@ header {
     display: -ms-flexbox;
     display: flex;
     line-height: 18px;
-    color: #333;
+    color: white;
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 14px;
     list-style-type: none;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #4e4d4d;
 
     .checkbox-holder {
       margin-right: 20px;
@@ -563,15 +561,16 @@ header {
       -ms-flex-pack: center;
       justify-content: center;
       line-height: 16px;
+      color: white;
 
       .checkbox {
         cursor: pointer;
-        border-color: gray;
+        border-color: white;
         color: #343434;
         height: 16px;
         width: 16px;
         display: block;
-        border: 1px solid gray;
+        border: 2px solid white;
         border-radius: 16px;
       }
     }
@@ -681,8 +680,7 @@ header {
   font-size: 18px;
 }
 
-.add-task__text,
-.add-project__text {
+.add-project__text, .add-task__text {
   display: inline-block;
   color: #545454;
   font-size: 14px;
@@ -704,11 +702,11 @@ header {
     div:nth-child(1) {
       padding: 10px;
       width: 100%;
-      display: -webkit-box;
-      display: -ms-flexbox;
+      // display: -webkit-box;
+      // display: -ms-flexbox;
       display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
+      // -webkit-box-align: center;
+      // -ms-flex-align: center;
       align-items: center;
 
       span:first-of-type {
