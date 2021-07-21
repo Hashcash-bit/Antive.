@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Nav,
   NavIcon,
@@ -10,8 +10,9 @@ import {
   NavIconPfp,
   LogoutBtnWrapper,
   LogoutRoute,
-  ErrorMSG
+  ErrorMSG,
 } from "./SideElements";
+import { BiDownArrow, BiCog, BiCaretDown } from "react-icons/bi";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
@@ -20,10 +21,11 @@ import { SidebarData } from "./SidebarData";
 import SubMenu from "./SideMenu";
 import { IconContext } from "react-icons/lib";
 import { useAuth } from "../../Signin/context/AuthContext";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import "./SideNavBar.css";
+import "../Header/HeaderComponent.css";
 
-const SideNavBar = () => {
+function SideNavBar () {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   const { currentUser, logout } = useAuth();
@@ -54,13 +56,15 @@ const SideNavBar = () => {
           {error && <div className="errordashboard">{error}</div>}
         </ErrorMSG>
         <IconContext.Provider value={{ color: "#FF7C5D" }}>
-          <NavIconPfp>
-            <CgProfile />
-          </NavIconPfp>
+            <NavItem icon={<CgProfile />}>
+              <DropdownMenu></DropdownMenu>
+            </NavItem>
         </IconContext.Provider>
+        <IconContext.Provider value={{ color: "#FF7C5D" }}>
         <ProfileEmail>
-          <EmailShown>{currentUser.email}</EmailShown>
+          <EmailShown><NavIconPfp><CgProfile /></NavIconPfp>{currentUser.email}</EmailShown>
         </ProfileEmail>
+        </IconContext.Provider>
       </Nav>
       <IconContext.Provider value={{ color: "#fff" }}>
         <SidebarNav sidebar={sidebar}>
@@ -84,6 +88,68 @@ const SideNavBar = () => {
       </IconContext.Provider>
     </>
   );
+  function NavbarComponent(props) {
+    return (
+      <nav className="navbar">
+        <ul className="navbar-nav">{props.children}</ul>
+      </nav>
+    );
+  }
+
+  function NavItem(props) {
+    const [open, setOpen] = useState(false);
+  
+    return (
+      <li className="nav-item">
+        <a className="icon-button" onClick={() => setOpen(!open)}>
+          {props.icon}
+        </a>
+  
+        {open && props.children}
+      </li>
+    );
+  }
+  
+  function DropdownMenu() {
+    const [activeMenu, setActiveMenu] = useState("main");
+    const [menuHeight, setMenuHeight] = useState(null);
+    const dropdownRef = useRef(null);
+    const { currentUser } = useAuth();
+  
+    useEffect(() => {
+      setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
+    }, []);
+  
+    function calcHeight(el) {
+      const height = el.offsetHeight;
+      setMenuHeight(height);
+    }
+  
+    function DropdownItem(props) {
+      return (
+        <a
+          className="menu-item"
+          onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
+        >
+          <span className="icon-button">{props.leftIcon}</span>
+          {props.children}
+          <span className="icon-right">{props.rightIcon}</span>
+        </a>
+      );
+    }
+  
+    return (
+      <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
+        <div className="menu">
+          <DropdownItem>{currentUser.email}</DropdownItem>
+          <Link to="/update-profile">
+            <DropdownItem leftIcon={<BiCog />}>Settings</DropdownItem>
+          </Link>
+        </div>
+      </div>
+    );
+  }
+  
 };
 
 export default SideNavBar;

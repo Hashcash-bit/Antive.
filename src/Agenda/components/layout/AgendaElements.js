@@ -71,3 +71,16 @@ export const EmailShownAgendaSidebar = styled.div`
   //   display: none;
   // }
 `;
+
+export const Searchbar = styled.div`
+position: relative;
+margin-left: auto;
+margin-right: -140px;
+margin-top: -34px;
+font-size: 15px;
+padding: 10px 10px 10px 10px;
+
+@media screen and (max-width: 500px) {
+  display: none;
+}
+`

@@ -73,7 +73,7 @@ export default function UpdatePf() {
             ref={passwordRef}
             type="password"
             name="password"
-            placeholder="Leave Black To Keep It The Same"
+            placeholder="Leave Blank To Keep It The Same"
           />
         </div>
         <div className="form-inputsU">
@@ -83,7 +83,7 @@ export default function UpdatePf() {
             ref={password2Ref}
             type="password"
             name="password2"
-            placeholder="Leave Black To Keep It The Same"
+            placeholder="Leave Blank To Keep It The Same"
           />
         </div>
         <button disabled={loading} className="form-input-btnU" type="submit">

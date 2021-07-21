@@ -26,32 +26,35 @@ export const NavLogo = styled(Link)`
 
 export const ProfileEmail = styled.div`
   margin-left: 100vh;
-  float: right;
-  padding: 10px 20px;
-  border-radius: 20px;
-  background-color: #ff7c5d;
+  padding: 0px 10px 0px 0px;
+  border-radius: 10px;
+  background-color: #292929;
   font-weight: bold;
   letter-spacing: 1.5px;
   position: absolute;
   right: 0;
   margin-right: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
   @media screen and (max-width: 768px) {
     background-color: transparent;
   }
 `;
 
 export const NavIconPfp = styled.div`
-  display: none;
-
-  @media screen and (max-width: 768px) {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%);
-    font-size: 1.9rem;
-    background: transparent;
-  }
+  font-size: 1.25rem;
+  background: #1f1f1f;
+  padding: 10px 20px;
+  border-radius: 10px 0px 0px 10px;
+  height: 100%;
+  vertical-align: center;
+  justify-content: center;
+  align-items: center
+  position: relative;
+  margin-right: 10px;
+  border: 1px;
+  border-color: #FF7C5D;
 `;
 
 export const ErrorMSG = styled.div`
@@ -78,7 +81,6 @@ export const ErrorMSG = styled.div`
   @media screen and (max-width: 445px) {
     display: none;
     background: transparent;
-    
   }
 `;
 
@@ -86,6 +88,9 @@ export const EmailShown = styled.p`
   display: flex;
   align-items: center;
   background: transparent;
+  gap: 10px;
+  // margin-right: 100px;
+
   @media screen and (max-width: 768px) {
     display: none;
   }

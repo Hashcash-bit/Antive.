@@ -9,6 +9,7 @@ import PrivateRoute from './PrivateRoute'
 import ForgotPass from './pages/forgotpass'
 import Settings from './pages/settings'
 import Agenda from './pages/agenda'
+import NoteTaking from './Notes/index'
 import {HeaderAgenda} from './Agenda/components/layout/HeaderAgenda'
 // import Dashboard from './Dashboard/dashboard';
 // import Login from './Login/Login';
@@ -27,6 +28,7 @@ export const App = () => {
         <PrivateRoute path='/dashboard' component={dashboardPage} exact/>
         <PrivateRoute path='/update-profile' component={Settings} exact/>
         <PrivateRoute path='/agenda' component={Agenda} exact/>
+        <PrivateRoute path='/notes' component={NoteTaking} exact/>
         <Route path='/forgot-password' component={ForgotPass} exact/>
       </Switch>
       </AuthProvider>
