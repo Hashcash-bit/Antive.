@@ -28,7 +28,7 @@ export const SidebarData = [
   },
   {
     title: "Messages",
-    path: "/messages",
+    path: "/message",
     icon: <FaIcons.FaEnvelopeOpenText />,
   },
   {

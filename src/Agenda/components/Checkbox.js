@@ -1,11 +1,11 @@
 
 import { firebase } from "../../Signin/firebase";
 import React from "react";
+import db from "../../Signin/firebase";
 
 export const Checkbox = ({ id }) => {
   const archiveTask = () => {
-    firebase
-    .firestore()
+    db
     .collection("tasks")
     .doc(id)
     .update({

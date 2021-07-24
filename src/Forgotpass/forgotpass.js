@@ -27,25 +27,25 @@ export default function ForgotPassword() {
   }
 
   return (
-    <div className="form-content-right">
-      <form className="form" onSubmit={handleSubmit} noValidate>
+    <div className="form-content-rightF">
+      <form className="formF" onSubmit={handleSubmit} noValidate>
         <h1>Forgot Password?</h1>
-        <p className="WelcomBack">Lets Get You Your Account Back!</p>
+        <p className="WelcomBackF">Lets Get You Your Account Back!</p>
 
         {error && <p className="error1">{error}</p>}
         {message && <p className="error1">{message}</p>}
 
-        <div className="form-inputs">
-          <label className="form-label">Email</label>
+        <div className="form-inputsF">
+          <label className="form-labelF">Email</label>
           <input
-            className="form-input"
+            className="form-inputF"
             ref={emailRef}
             type="email"
             name="email"
             placeholder="Enter your email"
           />
         </div>
-        <button disabled={loading} className="form-input-btn" type="submit">
+        <button disabled={loading} className="form-input-btnF" type="submit">
           Reset Password
         </button>
       </form>

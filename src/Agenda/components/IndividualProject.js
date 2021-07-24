@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { useProjectsValue, useSelectedProjectValue } from "../context";
 import { firebase } from "../../Signin/firebase";
+import db from "../../Signin/firebase";
 
 export const IndividualProject = ({ project }) => {
   const [showConfirm, setShowConfirm] = useState(false);
@@ -9,8 +10,7 @@ export const IndividualProject = ({ project }) => {
   const { setSelectedProject } = useSelectedProjectValue();
 
   const deleteProject = (docId) => {
-    firebase
-      .firestore()
+    db
       .collection("projects")
       .doc(docId)
       .delete()

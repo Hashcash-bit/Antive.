@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import PropTypes from 'prop-types';
-import { CgProfile } from "react-icons/cg";
-import { IconContext } from "react-icons/lib";
 import {
   Searchbar
 } from "./AgendaElements.js";
 import { AddTask } from "../AddTask";
 import { firebase } from "../../../Signin/firebase";
+import './HeaderAgenda.css'
+
 
 export const HeaderAgenda = ({ darkMode, setDarkMode }) => {
   const [shouldShowMain, setShouldShowMain] = useState(false);
@@ -16,18 +16,10 @@ export const HeaderAgenda = ({ darkMode, setDarkMode }) => {
     <header className="header" data-testid="header">
       <nav>
         <div className="logo">
-          {/* <img src="/image/logo.png" alt="Agenda" /> */}
           Agenda
         </div>
-
-        <Searchbar>
-        <input className='Searchbar' type='text' placeholder='Search Your Projects/Tasks' />
-        </Searchbar>
-
         <div className="settings">
-        
           <ul>
-            
             <li className="settings__add">
               <button
                 data-testid="quick-add-task-action"

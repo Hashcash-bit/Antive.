@@ -6,17 +6,17 @@ import { Link} from "react-router-dom";
 
 const ForgotPass = () => {
   return (
-      <div className='loginPage'>
-        <div className='form-container'>        
-          <div className='form-content-left'>
+      <div className='loginPageF'>
+        <div className='form-containerF'>        
+          <div className='form-content-leftF'>
           <Link to='/'>
-            <span className='logobtn' >Notify.</span>
+            <span className='logobtnF' >Notify.</span>
           </Link>
-          <p className='subtextone'>
+          <p className='subtextoneF'>
             Online Student Management Tool
           </p>
-            <img className='form-img' src={forgotpass} alt='Forgot Pass?' />
-            <span className='form-input-login'>
+            <img className='form-imgF' src={forgotpass} alt='Forgot Pass?' />
+            <span className='form-input-loginF'>
             Need an account? Signup <Link to='/signup'>here</Link>
           </span>
           </div>

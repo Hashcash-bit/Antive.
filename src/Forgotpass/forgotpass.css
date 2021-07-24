@@ -1,25 +1,39 @@
-.loginPage {
+/* .loginPageF {
   background-color: #1a1a1a;
-  /* margin-top: -100px; */
+  margin-top: -100px;
   height: 100vh;
   width: 100vw;
-  /* position: absolute; */
-}
-.form-container {
+  position: absolute;
+} */
+.form-containerF {
   margin: 100px auto;
-  margin-top: 0px;
   width: 1000px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
-  position: relative;
+  /* position: relative; */
+  border-radius: 10px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media screen and (max-height: 768px) {
+  .form-containerF {
+  margin-top: auto;
+  width: 1000px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   height: 600px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* top: 15vh;
-      bottom: 15vh; */
+  }
 }
 
-.close-btn {
+.close-btnF {
   position: absolute;
   top: 2%;
   right: 3%;
@@ -29,7 +43,7 @@
   cursor: pointer;
 }
 
-.form-content-left {
+.form-content-leftF {
   background: #282c40;
   border-radius: 10px 0 0 10px;
   position: relative;
@@ -39,7 +53,7 @@
       } */
 }
 
-.form-img {
+.form-imgF {
   width: 80%;
   height: 80%;
   position: absolute;
@@ -53,14 +67,14 @@
       } */
 }
 
-.form-content-right {
+.form-content-rightF {
   border-radius: 0 10px 10px 0;
   position: relative;
   background-color: white;
   z-index: 999;
 }
 
-.form {
+.formF {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -74,7 +88,7 @@
   background-color: #fff;
 }
 
-.form h1 {
+.formF h1 {
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
@@ -86,7 +100,7 @@
   /* position: fixed; */
 }
 
-.WelcomBack {
+.WelcomBackF {
   background: transparent;
   padding-bottom: 20px;
   text-align: left;
@@ -99,20 +113,20 @@
   /* position: fixed; */
 }
 
-.form-inputs {
+.form-inputsF {
   margin-bottom: 0.5rem;
   width: 80%;
   background: transparent;
 }
 
-.form-inputs p {
+.form-inputsF p {
   font-size: 0.8rem;
   padding-bottom: -0px;
   color: #f00e0e;
   background: transparent;
 }
 
-.form-label {
+.form-labelF {
   display: inline-block;
   font-size: 0.8rem;
   margin-bottom: 1px;
@@ -121,7 +135,7 @@
   background: transparent;
 }
 
-.form-input {
+.form-inputF {
   display: block;
   padding-left: 0px;
   outline: none;
@@ -134,13 +148,13 @@
   background: transparent;
 }
 
-.form-input::placeholder {
+.form-inputF::placeholder {
   color: #595959;
   font-size: 12px;
   text-decoration: none;
 }
 
-.form-input-btn {
+.form-input-btnF {
   width: 80%;
   height: 50px;
   margin-top: 10px;
@@ -153,7 +167,7 @@
   font-size: 1rem;
 }
 
-.form-input-btn:hover {
+.form-input-btnF:hover {
   cursor: pointer;
   background: #191919;
   color: #fff;
@@ -161,7 +175,7 @@
   transition: all 0.2s ease-out;
 }
 
-.form-input-login {
+.form-input-loginF {
   font-size: 0.8rem;
   margin-top: 10px;
   color: #868ba0;
@@ -174,7 +188,7 @@
   margin-left: 2.7rem;
 }
 
-.form-input-login a {
+.form-input-loginF a {
   text-decoration: none;
   color: rgb(196, 190, 190);
   font-weight: 600;
@@ -191,7 +205,7 @@
       padding-top: 10px;
     } */
 
-.forgotpasstext {
+.forgotpasstextF {
   font-size: 0.8rem;
   margin-top: 0px;
   color: #868ba0;
@@ -203,11 +217,11 @@
   font-weight: bold;
 }
 
-.forgotpasstext:hover {
+.forgotpasstextF:hover {
   text-decoration: none;
 }
 
-.logobtn {
+.logobtnF {
   color: #ff7c5d;
   justify-self: flex-start;
   cursor: pointer;
@@ -223,7 +237,7 @@
   z-index: 999;
 }
 
-.subtextone {
+.subtextoneF {
   color: #868ba0;
   justify-self: flex-start;
   cursor: pointer;

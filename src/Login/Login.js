@@ -2,8 +2,11 @@ import React, {useRef, useState, useEffect} from 'react';
 import './Login.css';
 import { useAuth } from '../Signin/context/AuthContext';
 import { Link, useHistory } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+import { provider, auth } from "../Signin/firebase";
 
-export default function Login () {
+
+export default function LoginFunction () {
   const emailRef = useRef()
   const passwordRef = useRef()
   const [error, setError] = useState('')
@@ -27,43 +30,53 @@ export default function Login () {
   }
 
   return (
-    <div className='form-content-right'>
-      <form className='form' onSubmit={handleSubmit} noValidate>
+    <div className='form-content-rightL'>
+      <form className='formL' onSubmit={handleSubmit} noValidate>
         <h1>
           Log In
         </h1>
-        <p className='WelcomBack'>
+        <p className='WelcomBackL'>
           Welcome Back!
         </p>
         
-        {error && <p className='error'>{error}</p>}  
+        {error && <p className='errorL'>{error}</p>}  
 
-        <div className='form-inputs'>
-          <label className='form-label'>Email</label>
+        <div className='form-inputsL'>
+          <label className='form-labelL'>Email</label>
           <input
-            className='form-input'
+            className='form-inputL'
             ref={emailRef}
             type='email'
             name='email'
             placeholder='Enter your email'
           />
         </div>
-        <div className='form-inputs'>
-          <label className='form-label'>Password</label>
+        <div className='form-inputsL'>
+          <label className='form-labelL'>Password</label>
           <input
-            className='form-input'
+            className='form-inputL'
             ref={passwordRef}
             type='password'
             name='password'
             placeholder='Enter your password'
           />
         </div>
-        <button disabled={loading} className='form-input-btn' type='submit'>
+        <button disabled={loading} className='form-input-btnL' type='submit'>
           Login
         </button>
-        <div className='forgotpass'>
+        <div className="form-input-btn-googleL"
+        type="submit">
+          <div className="googlebtntextL">Continue with</div>
+          <div className="googlebtnL">
+            <div className="googletextL">
+              Google
+            </div>
+            <FcGoogle />
+          </div>
+        </div>
+        <div className='forgotpassL'>
           <Link to='/forgot-password' style={{ textDecoration: 'none' }}>
-          <p className='forgotpasstext'>Forgot Password?</p>
+          <p className='forgotpasstextL'>Forgot Password?</p>
           </Link>
         </div>
       </form>

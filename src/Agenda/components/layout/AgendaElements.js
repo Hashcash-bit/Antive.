@@ -79,6 +79,7 @@ margin-right: -140px;
 margin-top: -34px;
 font-size: 15px;
 padding: 10px 10px 10px 10px;
+border-left: none;
 
 @media screen and (max-width: 500px) {
   display: none;

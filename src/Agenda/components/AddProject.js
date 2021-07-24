@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import db from "../../Signin/firebase";
 import { firebase } from "../../Signin/firebase";
 import { useProjectsValue } from "../context";
 import { generatePushId } from "../helpers";
@@ -14,13 +15,11 @@ export const AddProject = ({ shouldShow = false }) => {
 
   const addProject = () =>
     projectName &&
-    firebase
-      .firestore()
+    db
       .collection("projects")
       .add({
         projectId,
         name: projectName,
-        // userId: 'CVYC6dr56B7rb7B78t76',
         userId: currentUser.uid,
       })
       .then(() => {

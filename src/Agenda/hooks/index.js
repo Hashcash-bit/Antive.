@@ -3,6 +3,7 @@ import { firebase } from "../../Signin/firebase";
 import { collatedTasksExist } from "../helpers";
 import moment from "moment";
 import { useAuth } from "../../Signin/context/AuthContext";
+import db from "../../Signin/firebase";
 
 export const useTasks = selectedProject => {
   const [tasks, setTasks] = useState([]);
@@ -10,8 +11,7 @@ export const useTasks = selectedProject => {
   const {currentUser} = useAuth();
 
   useEffect(() => {
-    let unsubscribe = firebase
-      .firestore()
+    let unsubscribe = db
       .collection("tasks")
       // .where("userId", "==", "CVYC6dr56B7rb7B78t76");
       .where("userId", '==', currentUser.uid)
@@ -58,8 +58,7 @@ export const useProjects = () => {
     const {currentUser} = useAuth()
 
     useEffect(() => {
-        firebase
-        .firestore()
+        db
         .collection('projects')
         // .where('userId', '==', 'CVYC6dr56B7rb7B78t76')
         .where("userId", '==', currentUser.uid)
