@@ -5,13 +5,12 @@ import { SidebarAgenda } from "../Agenda/components/layout/SidebarAgenda";
 import { ProjectsProvider, SelectedProjectProvider } from "../Agenda/context";
 import SideNavBar from "../Sidebar&Header/SideNavbar";
 
-const Agenda = () => {
+const Agenda = ({currentUser}) => {
   return (
-    
     <SelectedProjectProvider>
       <ProjectsProvider>
         <div>
-        <SideNavBar />
+          <SideNavBar />
           <HeaderAgenda />
           <ContentAgenda />
         </div>

@@ -8,7 +8,7 @@ import { firebase } from "../../../Signin/firebase";
 import './HeaderAgenda.css'
 
 
-export const HeaderAgenda = ({ darkMode, setDarkMode }) => {
+export const HeaderAgenda = () => {
   const [shouldShowMain, setShouldShowMain] = useState(false);
   const [showQuickAddTask, setShowQuickAddTask] = useState(false);
 
@@ -50,9 +50,4 @@ export const HeaderAgenda = ({ darkMode, setDarkMode }) => {
       />
     </header>
   );
-};
-
-HeaderAgenda.propTypes = {
-  darkMode: PropTypes.bool.isRequired,
-  setDarkMode: PropTypes.func.isRequired,
 };

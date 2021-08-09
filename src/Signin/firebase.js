@@ -1,5 +1,3 @@
-
-// import firebase, { firestore, firebase } from 'firebase/app'
 import firebase from 'firebase'
 import 'firebase/firestore'
 import 'firebase/auth'
@@ -13,10 +11,29 @@ const firebaseConfig = {
     appId: process.env.REACT_APP_FIREBASE_APP_ID
 }
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);	
-const db = firebaseApp.firestore();	
-const auth = firebase.auth();	
-const provider = new firebase.auth.GoogleAuthProvider();
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-export { auth, provider };	
+const db = firebaseApp.firestore();
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
+const storage = firebase.storage();
+
+const apiResponse = (status, message, data) => {
+  return {
+    status,
+    message,
+    data,
+  };
+};
+
+export const database = {
+    folders: db.collection("folders"),
+    files: db.collection("files"),
+    getCurrentTimestamp: firebase.firestore.FieldValue.serverTimestamp,
+    formatDoc: (doc) => {
+      return { id: doc.id, ...doc.data() };
+    },
+  };
+
+export { auth, provider, storage, firebase, apiResponse};
 export default db;

@@ -1,16 +1,25 @@
-import React, { useEffect, useState } from "react";
+//React stuff
+import React, { useEffect, useState, Component } from "react";
 import './App.css';
 import {BrowserRouter as Router, Switch, Route, Redirect} from  'react-router-dom'
+//Auth Provider
+import {AuthProvider} from './Signin/context/AuthContext'
+//Firebase
+import db, {auth} from "./Signin/firebase";
+//Privater Router
+import PrivateRoute from './PrivateRoute'
+//Pages Or Component
+import ForgotPass from './pages/forgotpass';
+import Settings from './pages/settings';
+import Agenda from './pages/agenda';
+import Drive from './pages/drive';
+import dashboardPage from './pages/dashboard';
 import Home from './pages/index';
 import SigninPage from './pages/signin';
-import {AuthProvider} from './Signin/context/AuthContext'
 import Login from './pages/login'
-import dashboardPage from './pages/dashboard'
-import PrivateRoute from './PrivateRoute'
-import ForgotPass from './pages/forgotpass'
-import Settings from './pages/settings'
-import Agenda from './pages/agenda'
-import NoteTaking from './Notes/index'
+import PageNotFound from "./PageNotFound";
+// import NotesNewPages from "./pages/note";
+
 // import db from "./Signin/firebase";
 // import { auth, firebase } from "./Signin/firebase";
 // import { setUser } from "./Messaging/actions/userAction";
@@ -27,6 +36,7 @@ import NoteTaking from './Notes/index'
 
 export const App = () => {
   
+  
   return (
     <Router>
     <AuthProvider>
@@ -35,13 +45,16 @@ export const App = () => {
         <Route path='/signup' component={SigninPage} exact/>
         <Route path='/login' component={Login} exact/>
         <Route path='/forgot-password' component={ForgotPass} exact/>
-        <PrivateRoute path='/dashboard' component={dashboardPage} exact/>
-        <PrivateRoute path='/update-profile' component={Settings} exact/>
-        <PrivateRoute path='/agenda' component={Agenda} exact/>
-        <PrivateRoute path='/notes' component={NoteTaking} exact/>
-        {/* <PrivateRoute path='/message' component={MessagingFunction} exact/> */}
+        <PrivateRoute path='/dashboard' component={dashboardPage} />
+        <PrivateRoute path='/update-profile' component={Settings} />
+        <PrivateRoute path='/agenda' component={Agenda} />
+        {/* <PrivateRoute path='/notes' component={NotesNewPages} /> */}
+        <PrivateRoute path='/drive' component={Drive} />
+        <PrivateRoute path='/folder/:folderId' component={Drive} />
+        <Route component={PageNotFound}/>
       </Switch>
       </AuthProvider>
       </Router>
   );
+  
 }

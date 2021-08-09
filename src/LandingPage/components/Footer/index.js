@@ -16,7 +16,7 @@ const Footer = () => {
             <SocialLogo to='/' onClick={toggleHome}>
               Notify.
             </SocialLogo>
-            <WebsiteRights>Notify © {new Date().getFullYear()} All rights reserved.</WebsiteRights>
+            <WebsiteRights>Notify © 2006-{new Date().getFullYear()} All rights reserved.</WebsiteRights>
             <SocialIcons>
               <SocialIconLink href='/' target='_blank' arial-label='Facebook'>
                 <FaFacebook />

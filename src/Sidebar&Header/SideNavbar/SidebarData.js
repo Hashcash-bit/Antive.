@@ -27,8 +27,8 @@ export const SidebarData = [
     icon: <IoIcons.IoMdPeople />,
   },
   {
-    title: "Messages",
-    path: "/message",
+    title: "Your Drive",
+    path: "/drive",
     icon: <FaIcons.FaEnvelopeOpenText />,
   },
   {

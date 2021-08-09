@@ -13,7 +13,6 @@ export const useTasks = selectedProject => {
   useEffect(() => {
     let unsubscribe = db
       .collection("tasks")
-      // .where("userId", "==", "CVYC6dr56B7rb7B78t76");
       .where("userId", '==', currentUser.uid)
 
     unsubscribe =

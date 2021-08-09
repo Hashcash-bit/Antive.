@@ -55,6 +55,27 @@ export const NavIconPfp = styled.div`
   margin-right: 10px;
   border: 1px;
   border-color: #FF7C5D;
+  color: #FF7C5D;
+`;
+
+export const NavIconTrashPfp = styled.div`
+
+  &:hover {
+  // font-size: 1.25rem;
+  // padding: 10px 20px;
+  // border-radius: 10px 10px 10px 10px;
+  // height: 100%;
+  // vertical-align: center;
+  // justify-content: center;
+  // align-items: center
+  // position: relative;
+  // margin-right: 10px;
+  // border: 1px;
+  // border-color: white;
+  // font: white;
+  color: #FF7C5D;
+  }
+
 `;
 
 export const ErrorMSG = styled.div`

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Component } from "react";
 import {
   Nav,
   NavIcon,
@@ -11,11 +11,12 @@ import {
   LogoutBtnWrapper,
   LogoutRoute,
   ErrorMSG,
+  NavIconTrashPfp,
 } from "./SideElements";
 import { BiDownArrow, BiCog, BiCaretDown } from "react-icons/bi";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import { CgProfile } from "react-icons/cg";
+import { CgProfile, CgTrash } from "react-icons/cg";
 import { BiLogOut } from "react-icons/bi";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SideMenu";
@@ -24,13 +25,16 @@ import { useAuth } from "../../Signin/context/AuthContext";
 import { useHistory, Link } from "react-router-dom";
 import "./SideNavBar.css";
 import "../Header/HeaderComponent.css";
+import db, { firebase, auth } from "../../Signin/firebase";
 
-function SideNavBar () {
+const SideNavBar = () => {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-  const { currentUser, logout } = useAuth();
+  const { logout } = useAuth();
+  const { currentUser } = useAuth();
   const [error, setError] = useState("");
   const history = useHistory();
+
 
   async function handleLogout() {
     setError("");
@@ -56,15 +60,16 @@ function SideNavBar () {
           {error && <div className="errordashboard">{error}</div>}
         </ErrorMSG>
         <IconContext.Provider value={{ color: "#FF7C5D" }}>
-            <NavItem icon={<CgProfile />}>
-              <DropdownMenu></DropdownMenu>
-            </NavItem>
+          <NavItem icon={<CgProfile />}>
+            <DropdownMenu></DropdownMenu>
+          </NavItem>
         </IconContext.Provider>
-        <IconContext.Provider value={{ color: "#FF7C5D" }}>
+        {/* <IconContext.Provider value={{ color: "#FF7C5D" }}> */}
         <ProfileEmail>
           <EmailShown><NavIconPfp><CgProfile /></NavIconPfp>{currentUser.email}</EmailShown>
+          {/* <EmailShown><NavIconPfp><CgProfile /></NavIconPfp>{currentUser}</EmailShown> */}
         </ProfileEmail>
-        </IconContext.Provider>
+        {/* </IconContext.Provider> */}
       </Nav>
       <IconContext.Provider value={{ color: "#fff" }}>
         <SidebarNav sidebar={sidebar}>
@@ -75,8 +80,8 @@ function SideNavBar () {
             {SidebarData.map((item, index) => {
               return <SubMenu item={item} key={index} />;
             })}
-            <LogoutBtnWrapper>
-              <LogoutRoute onClick={handleLogout}>
+            <LogoutBtnWrapper onClick={handleLogout}>
+              <LogoutRoute >
                 <logoutIcon>
                   <BiLogOut />
                 </logoutIcon>
@@ -98,33 +103,33 @@ function SideNavBar () {
 
   function NavItem(props) {
     const [open, setOpen] = useState(false);
-  
+
     return (
       <li className="nav-item">
         <a className="icon-button" onClick={() => setOpen(!open)}>
           {props.icon}
         </a>
-  
+
         {open && props.children}
       </li>
     );
   }
-  
+
   function DropdownMenu() {
     const [activeMenu, setActiveMenu] = useState("main");
     const [menuHeight, setMenuHeight] = useState(null);
     const dropdownRef = useRef(null);
     const { currentUser } = useAuth();
-  
+
     useEffect(() => {
       setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
     }, []);
-  
+
     function calcHeight(el) {
       const height = el.offsetHeight;
       setMenuHeight(height);
     }
-  
+
     function DropdownItem(props) {
       return (
         <a
@@ -137,9 +142,13 @@ function SideNavBar () {
         </a>
       );
     }
-  
+
     return (
-      <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
+      <div
+        className="dropdown"
+        style={{ height: menuHeight }}
+        ref={dropdownRef}
+      >
         <div className="menu">
           <DropdownItem>{currentUser.email}</DropdownItem>
           <Link to="/update-profile">
@@ -149,7 +158,6 @@ function SideNavBar () {
       </div>
     );
   }
-  
-};
+}
 
 export default SideNavBar;

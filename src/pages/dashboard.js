@@ -3,11 +3,11 @@ import Dashboard from '../Dashboard/index'
 import SideNavBar from '../Sidebar&Header/SideNavbar/index'
 // import HeaderNav from '../Sidebar&Header/Header/index'
 
-const dashboardPage = () => {
+const dashboardPage = ({currentUser}) => {
     return (
         <div>
             {/* <HeaderNav /> */}
-            <SideNavBar />
+            <SideNavBar currentUser={currentUser}/>
             <Dashboard />
         </div>
     )

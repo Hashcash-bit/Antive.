@@ -1,0 +1,60 @@
+.errorpage {
+  background-image: url(./images/404error.gif);
+  /* Full height */
+  height: 100vh;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* .errorpagebtncontainer {
+  width: "100vw";
+  height: "100vh";
+} */
+
+/* .centererrorbtn {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+} */
+
+.errorpagebtn {
+  color: white;
+  background-color: blue;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.errorpagebtn:hover {
+  background-color: rgb(255, 255, 255);
+  color: #1a1a1a;
+  transition: all ease-in-out 0.2s;
+}
+
+.logotopleft {
+  color: #ff7c5d;
+  justify-self: flex-start;
+  cursor: pointer;
+  font-size: 1.75rem;
+  display: flex;
+  align-items: center;
+  margin-left: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  background: transparent;
+}

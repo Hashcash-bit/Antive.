@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import "./updateprofile.css";
 import { useAuth } from "../Signin/context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import db from "../Signin/firebase";
 
 export default function UpdatePf() {
   const emailRef = useRef();
@@ -11,9 +12,29 @@ export default function UpdatePf() {
   const [loading, setLoading] = useState(false);
   const { currentUser, updatePassword, updateEmail } = useAuth();
   const history = useHistory();
+  const [name, setName] = useState("");
 
-  function handleSubmit(e) {
+  function handleSubmit(e, docId) {
     e.preventDefault();
+    
+    if (currentUser.uid === "" ) {
+      db
+      .collection("NotGoogleUsers")
+      .add({
+        name: name,
+        userId: currentUser.uid
+      })
+    } else {
+      db
+      .collection('NotGoogleUsers')
+      .doc()
+      .update({ 
+        name: name,
+      })
+    }
+    
+    
+
     if (passwordRef.current.value !== password2Ref.current.value) {
       return setError("Please Confirm That Your Passwords Match");
     }
@@ -41,6 +62,7 @@ export default function UpdatePf() {
         setError("Failed To Update Account");
       })
       .finally(() => {
+        setError("Account Updated!")
         setLoading(false);
       });
 
@@ -54,6 +76,18 @@ export default function UpdatePf() {
 
         {error && <p className="errorU">{error}</p>}
 
+        <div className="form-inputsU">
+          <label className="form-labelU">Want a username?</label>
+          <input
+            className="form-inputU"
+            type="name"
+            name="name"
+            value={name}
+            id='name'
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Username... | or keep blank"
+          />
+        </div>
         <div className="form-inputsU">
           <label className="form-labelU">Email</label>
           <input
