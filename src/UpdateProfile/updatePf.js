@@ -97,7 +97,7 @@ export default function UpdatePf() {
             name="email"
             placeholder="Enter your email"
             defaultValue={currentUser.email}
-            required
+            // required
           />
         </div>
         <div className="form-inputsU">

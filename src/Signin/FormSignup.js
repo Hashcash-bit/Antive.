@@ -18,10 +18,36 @@ export default function FormSignup(props) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [password2, setPassword2] = useState('')
-
+  // const [userName, setUserName] = useState("");
   const history = useHistory();
   
   
+  // const checkUserName = (e) => {
+  //   setLoading({ ...loading, status1: "validating" });
+  //   db
+  //     .collection("users")
+  //     .where("userName", "==", e.target.value)
+  //     .limit(1)
+  //     .get()
+  //     .then((data) => {
+  //       if (data.docs.length) {
+  //         setLoading({
+  //           ...loading,
+  //           status1: "error",
+  //           help1: "This username already exists",
+  //         });
+  //       } else if (e.target.value === "") {
+  //         setLoading({
+  //           ...loading,
+  //           status1: "error",
+  //           help1: "Please input your username!",
+  //         });
+  //       } else {
+  //         setLoading({ ...loading, status1: "success", help1: "" });
+  //       }
+  //     });
+  // };
+
 
   async function handleSubmit(e) {
     e.preventDefault();     

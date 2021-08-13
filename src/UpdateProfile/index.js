@@ -16,13 +16,12 @@
 //             <p className="subtextoneU">Online Student Management Tool</p>
 //             <img className="form-imgU" src={updatePFsvg} alt="update" />
 //           </div>
-        
+
 //         <UpdatePf />
 //       </div>
 //     </div>
 //   );
 // }
-
 
 import React, { useRef, useState } from "react";
 import { useAuth } from "../Signin/context/AuthContext";
@@ -37,14 +36,14 @@ import {
   FormLabel,
   Input,
   Text,
-  Heading
+  Heading,
 } from "@chakra-ui/react";
 import CenterContainer from "../Drive/utilities/CenterContainer";
 
 export default function UpdateProfile() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
+  const password2Ref = useRef();
   const { currentUser, updatePassword, updateEmail } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -52,7 +51,7 @@ export default function UpdateProfile() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+    if (passwordRef.current.value !== password2Ref.current.value) {
       return setError("Passwords do not match");
     }
 
@@ -80,6 +79,7 @@ export default function UpdateProfile() {
   }
 
   return (
+    <div className="UpdateProfileBg">
     <CenterContainer>
       <Box w="sm" px="6" pt="8" borderWidth="2px" borderRadius="md">
         <Heading as="h2" fontSize="2xl" align="center" mb="4">
@@ -91,8 +91,8 @@ export default function UpdateProfile() {
             {error}
           </Alert>
         )}
+
         <Box as="form" onSubmit={handleSubmit}>
-          <FormControl mb="3" id="email">
           <FormControl mb="3" id="username">
             <FormLabel>Username</FormLabel>
             <Input
@@ -101,10 +101,12 @@ export default function UpdateProfile() {
               placeholder="Username... || Leave blank to keep the same"
             />
           </FormControl>
+          <FormControl mb="3" id="email">
             <FormLabel>Email</FormLabel>
             <Input
               variant="flushed"
               type="email"
+              name="email"
               ref={emailRef}
               required
               defaultValue={currentUser.email}
@@ -114,18 +116,20 @@ export default function UpdateProfile() {
             <FormLabel>New Password</FormLabel>
             <Input
               variant="flushed"
-              type="password"
               ref={passwordRef}
-              placeholder="Leave blank to keep the same"
+              type="password"
+              name="password"
+              placeholder="Leave Blank To Keep It The Same"
             />
           </FormControl>
           <FormControl mb="3" id="password-confirm">
             <FormLabel>Confirm New Password</FormLabel>
             <Input
               variant="flushed"
+              ref={password2Ref}
               type="password"
-              ref={passwordConfirmRef}
-              placeholder="Leave blank to keep the same"
+              name="password2"
+              placeholder="Leave Blank To Keep It The Same"
             />
           </FormControl>
           <Center>
@@ -150,5 +154,6 @@ export default function UpdateProfile() {
         </Link>
       </Box>
     </CenterContainer>
+    </div>
   );
 }

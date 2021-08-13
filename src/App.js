@@ -17,7 +17,7 @@ import dashboardPage from './pages/dashboard';
 import Home from './pages/index';
 import SigninPage from './pages/signin';
 import Login from './pages/login'
-import PageNotFound from "./PageNotFound";
+import PageNotFound from "./PageNotFound/PageNotFound";
 // import NotesNewPages from "./pages/note";
 
 // import db from "./Signin/firebase";
@@ -35,8 +35,6 @@ import PageNotFound from "./PageNotFound";
 
 
 export const App = () => {
-  
-  
   return (
     <Router>
     <AuthProvider>

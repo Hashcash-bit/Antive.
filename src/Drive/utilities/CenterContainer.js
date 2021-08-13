@@ -8,9 +8,15 @@ function CenterContainer({ children }) {
       alignItems="center"
       justifyContent="center"
       minH="100vh"
-      // backgroundColor="white"
     >
-      <Box as="div" width="100" maxW="400px" >
+      <Box 
+      as="div" 
+      width="100" 
+      maxW="400px"
+      //  backgroundImage="url('../../UpdateProfile/image/NotifyBg.jpg')" 
+      //  backgroundPosition="center" 
+      //  backgroundRepeat="no-repeat"
+       >
         {children}
       </Box>
     </Container>

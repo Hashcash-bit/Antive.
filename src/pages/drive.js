@@ -5,10 +5,12 @@ import theme from "../Drive/utilities/theme";
 
 const Drive = () => {
   return (
+    <div className="DrivePageBg">
       <ChakraProvider theme={theme}>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <DashboardDrive />
       </ChakraProvider>
+      </div>
   )
 }
 

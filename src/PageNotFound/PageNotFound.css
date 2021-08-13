@@ -1,60 +1,40 @@
-.errorpage {
-  background-image: url(./images/404error.gif);
-  /* Full height */
-  height: 100vh;
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.NotFoundPage {
+  text-align: center;
 }
 
-/* .errorpagebtncontainer {
-  width: "100vw";
-  height: "100vh";
-} */
+.errorpngpic {
+  width: 100%;
+  height: auto;
+  max-width: 625px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
 
-/* .centererrorbtn {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-} */
+.Oops {
+  font-weight: 800;
+  color: #f47a5f;
+  margin-bottom: 8px;
+}
 
-.errorpagebtn {
+.ThisPage {
   color: white;
-  background-color: blue;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  margin: 0;
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  padding: 10px 20px;
-  display: flex;
-  gap: 5px;
-  align-items: center;
+  padding-bottom: 20px;
 }
 
-.errorpagebtn:hover {
-  background-color: rgb(255, 255, 255);
-  color: #1a1a1a;
-  transition: all ease-in-out 0.2s;
-}
-
-.logotopleft {
-  color: #ff7c5d;
-  justify-self: flex-start;
-  cursor: pointer;
-  font-size: 1.75rem;
+.pagenotfoundbtn {
+  text-align: center;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  margin-left: 24px;
-  font-weight: bold;
-  text-decoration: none;
-  background: transparent;
+  justify-content: center;
+  width: auto;
+  gap: 10px;
+  margin-top: 20px;
 }
+
+.pagenotfoundbtn:hover {
+    color: grey;
+    border: 2px;
+    transition: all 0.2s ease-in-out;
+  }

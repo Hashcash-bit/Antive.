@@ -23,7 +23,6 @@ export default function LoginFunction() {
     setLoading(true);
 
     auth
-    
       .signInWithPopup(provider)
       .then((auth) => {
        history.push('/dashboard')
