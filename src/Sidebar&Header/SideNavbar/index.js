@@ -25,11 +25,15 @@ import { useAuth } from "../../Signin/context/AuthContext";
 import { useHistory, Link } from "react-router-dom";
 import "./SideNavBar.css";
 import "../Header/HeaderComponent.css";
+import { follow, unfollow } from '../../CommunityTab/adapters/follow';
 import db, { firebase, auth } from "../../Signin/firebase";
 
-const SideNavBar = () => {
+const SideNavBar = ({userProfile}) => {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
+  const [loading, setLoading] = useState(false);
+  const [showUnfollow, setShowUnfollow] = useState(false);
+  const [showMore, setShowMore] = useState(false);
   const { logout } = useAuth();
   const { currentUser } = useAuth();
   const [error, setError] = useState("");
@@ -67,7 +71,7 @@ const SideNavBar = () => {
         {/* <IconContext.Provider value={{ color: "#FF7C5D" }}> */}
         <ProfileEmail>
           <EmailShown><NavIconPfp><CgProfile /></NavIconPfp>{currentUser.email}</EmailShown>
-          {/* <EmailShown><NavIconPfp><CgProfile /></NavIconPfp>{currentUser}</EmailShown> */}
+          {/* <EmailShown><NavIconPfp><CgProfile /></NavIconPfp>{currentUser.username}</EmailShown> */}
         </ProfileEmail>
         {/* </IconContext.Provider> */}
       </Nav>

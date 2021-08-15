@@ -4,92 +4,41 @@ import { useAuth } from "./context/AuthContext";
 import { useHistory } from "react-router-dom";
 import db from "./firebase";
 
-
-
-
 export default function FormSignup(props) {
   const emailRef = useRef();
   const passwordRef = useRef();
   const password2Ref = useRef();
+  const userNameRef = useRef();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const { signup, currentUser } = useAuth();
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [password2, setPassword2] = useState('')
-  // const [userName, setUserName] = useState("");
+  const { signup } = useAuth();
   const history = useHistory();
-  
-  
-  // const checkUserName = (e) => {
-  //   setLoading({ ...loading, status1: "validating" });
-  //   db
-  //     .collection("users")
-  //     .where("userName", "==", e.target.value)
-  //     .limit(1)
-  //     .get()
-  //     .then((data) => {
-  //       if (data.docs.length) {
-  //         setLoading({
-  //           ...loading,
-  //           status1: "error",
-  //           help1: "This username already exists",
-  //         });
-  //       } else if (e.target.value === "") {
-  //         setLoading({
-  //           ...loading,
-  //           status1: "error",
-  //           help1: "Please input your username!",
-  //         });
-  //       } else {
-  //         setLoading({ ...loading, status1: "success", help1: "" });
-  //       }
-  //     });
-  // };
 
-
-  async function handleSubmit(e) {
-    e.preventDefault();     
-    console.log(username, email, password)
-
-    if (passwordRef.current.value !== password2Ref.current.value) {
-      return setError("Please Confirm That Your Passwords Match");
-    }
-
-    if (emailRef.current.value === "") {
-      return setError("Please Type In Your Credentials");
-    }
-
-    try {
-      setError("");
-      setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value).then((cred) => {
-        db.collection('users').doc(cred.user.uid).set({
-          Username: username,
-          Email: email,
-          Password: password,
-        }).then(() => {
-          setUsername("")
-          setEmail("")
-          setPassword("")
-          setPassword2("")
-        })
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setError('');
+    setLoading(true);
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    const username = userNameRef.current.value;
+    signup(email, password, username)
+      .then((id) => {
+        setLoading(false);
+        history.push(`/dashboard`);
       })
-      
-      history.push("/dashboard");
-    } catch {
-      setError("Account Creation Was Unsuccessful");
-    }
-
-    setLoading(false);
-  }
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  };
+  
   return (
     <div className="form-content-right">
       <form className="form" onSubmit={handleSubmit}>
         <h1>Sign Up</h1>
         <p className="DontAccount">Don't have an account?</p>
         {error && <p className="error">{error}</p>}
+
         <div className="form-inputs">
           <label className="form-label">Username</label>
           <input
@@ -97,11 +46,11 @@ export default function FormSignup(props) {
             type="text"
             name="username"
             placeholder="Enter your Username"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
+            ref={userNameRef}
             required
           />
         </div>
+
         <div className="form-inputs">
           <label className="form-label">Email</label>
           <input
@@ -110,11 +59,10 @@ export default function FormSignup(props) {
             type="email"
             name="email"
             placeholder="Enter your email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
             required
           />
         </div>
+
         <div className="form-inputs">
           <label className="form-label">Password</label>
           <input
@@ -123,11 +71,10 @@ export default function FormSignup(props) {
             type="password"
             name="password"
             placeholder="Enter your password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
             required
           />
         </div>
+
         <div className="form-inputs">
           <label className="form-label">Confirm Password</label>
           <input
@@ -136,11 +83,10 @@ export default function FormSignup(props) {
             type="password"
             name="password2"
             placeholder="Confirm your password"
-            value={password2}
-            onChange={e => setPassword2(e.target.value)}
             required
           />
         </div>
+
         <button disabled={loading} className="form-input-btn" type="submit">
           Sign up
         </button>
@@ -149,3 +95,92 @@ export default function FormSignup(props) {
   );
 }
 
+// export default function FormSignup(props) {
+//   const emailRef = useRef();
+//   const passwordRef = useRef();
+//   const password2Ref = useRef();
+//   const userNameRef = useRef();
+//   const [error, setError] = useState("");
+//   const [loading, setLoading] = useState(false);
+//   const { signup } = useAuth();
+//   const history = useHistory();
+
+//   async function handleSubmit(e) {
+//     e.preventDefault();
+
+//     if (passwordRef.current.value !== password2Ref.current.value) {
+//       return setError("Please Confirm That Your Passwords Match");
+//     }
+
+//     if (emailRef.current.value === "") {
+//       return setError("Please Type In Your Credentials");
+//     }
+
+//     try {
+//       setError("");
+//       setLoading(true);
+//       await signup(emailRef.current.value, passwordRef.current.value)
+//       history.push("/dashboard");
+//     } catch {
+//       setError("Account Creation Was Unsuccessful");
+//     }
+
+//     setLoading(false);
+//   }
+//   return (
+//     <div className="form-content-right">
+//       <form className="form" onSubmit={handleSubmit}>
+//         <h1>Sign Up</h1>
+//         <p className="DontAccount">Don't have an account?</p>
+//         {error && <p className="error">{error}</p>}
+//         <div className="form-inputs">
+//           <label className="form-label">Username</label>
+//           <input
+//             className="form-input"
+//             type="text"
+//             name="username"
+//             placeholder="Enter your Username"
+//             ref={userNameRef}
+//             required
+//           />
+//         </div>
+//         <div className="form-inputs">
+//           <label className="form-label">Email</label>
+//           <input
+//             className="form-input"
+//             ref={emailRef}
+//             type="email"
+//             name="email"
+//             placeholder="Enter your email"
+//             required
+//           />
+//         </div>
+//         <div className="form-inputs">
+//           <label className="form-label">Password</label>
+//           <input
+//             className="form-input"
+//             ref={passwordRef}
+//             type="password"
+//             name="password"
+//             placeholder="Enter your password"
+//             required
+//           />
+//         </div>
+//         <div className="form-inputs">
+//           <label className="form-label">Confirm Password</label>
+//           <input
+//             className="form-input"
+//             ref={password2Ref}
+//             type="password"
+//             name="password2"
+//             placeholder="Confirm your password"
+//             required
+//           />
+//         </div>
+//         <button disabled={loading} className="form-input-btn" type="submit">
+//           Sign up
+//         </button>
+//       </form>
+//     </div>
+//   );
+// }

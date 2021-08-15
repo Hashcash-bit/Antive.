@@ -22,8 +22,8 @@ export const SidebarData = [
     icon: <FaIcons.FaCartPlus />,
   },
   {
-    title: "Notes",
-    path: "/notes",
+    title: "CommunityTab",
+    path: "/CommunityTab",
     icon: <IoIcons.IoMdPeople />,
   },
   {
