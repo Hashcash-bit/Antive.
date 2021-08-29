@@ -2,13 +2,14 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Nav = styled.div`
-  background: #1a1a1a;
+  background: #111827;
   height: 80px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   position: sticky;
   z-index: 999999;
+  width: 100%;
 `;
 
 export const NavLogo = styled(Link)`
@@ -129,7 +130,7 @@ export const NavIcon = styled(Link)`
 export const LogoutBtnWrapper = styled.div`
   display: flex;
   justify-content: left;
-  margin-top: 100px;
+  margin-top: 60px;
 
   @media screean and (max-height: 480px) {
     margin-top: 70px;
@@ -155,7 +156,7 @@ export const LogoutRoute = styled(Link)`
 `;
 
 export const SidebarNav = styled.nav`
-  background: #1a1a1a;
+  background: #111827;
   width: 250px;
   height: 100vh;
   display: flex;

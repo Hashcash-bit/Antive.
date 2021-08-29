@@ -4,6 +4,7 @@
 html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 *,
 *:before,
@@ -13,13 +14,14 @@ html {
 }
 
 
+
 body {
   margin: 0;
   padding: 0;
   line-height: 1;
   font-family: "Roboto", sans-serif;
   // color: #202020;
-  background-color: #1a1a1a;
+  background-color: #1A202C;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -33,7 +35,7 @@ ul {
 $generic-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px,
   rgba(0, 0, 0, 0.1) 0px 4px 11px;
 $generic-border: 1px solid #f1f1f1;
-$generic-bg: #1a1a1a;
+$generic-bg: #1A202C;
 
 /* Mixins
         ============================================ */
@@ -284,7 +286,7 @@ header {
   overflow-x: hidden;
   overflow-y: hidden;
   border-right: $generic-border;
-  background-color: #1a1a1a;
+  background-color: #1A202C;
   color: white;
 
   @include mq("900px") {
@@ -331,7 +333,7 @@ header {
     &.active,
     &:hover {
       font-weight: bold;
-      background-color: #2f2f2f;
+      background-color: #111827;
     }
 
     &:nth-child(1) {
@@ -446,7 +448,7 @@ header {
       &.active,
       &:hover {
         font-weight: bold;
-        background-color: #2f2f2f;
+        background-color: #111827;
       }
     }
   }
@@ -465,7 +467,7 @@ header {
     padding: 10px;
     top: 10px;
     right: 0;
-    background-color: #1a1a1a;
+    background-color: #1A202C;
     position: relative; // added new lines
     flex-direction: column;
     text-align: center;
@@ -511,7 +513,7 @@ header {
             ============================================ */
 .tasks {
   width: 656px;
-  background-color: #292929;
+  background-color: #1A202C;
   margin-left: 266px;
   // border-right: #ee2727;
   min-height: calc(100vh);
@@ -521,6 +523,7 @@ header {
   padding-top: 80px;
   padding-bottom: 84px;
   color: white;
+  overflow: hidden;
 
   @include mq("900px") {
     margin-left: 0;
@@ -549,6 +552,7 @@ header {
     font-size: 14px;
     list-style-type: none;
     border-bottom: 1px solid #4e4d4d;
+    width: 100vw;
 
     .checkbox-holder {
       margin-right: 20px;

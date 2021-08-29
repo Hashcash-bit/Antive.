@@ -1,18 +1,24 @@
 import React, { useState } from "react";
+//Icons
 import {
   FaChevronDown,
   FaInbox,
   FaRegCalendarAlt,
   FaRegCalendar,
 } from "react-icons/fa";
+//Agenda Context
 import { useSelectedProjectValue } from "../../context";
 import { AddProject } from "../AddProject";
 import { Projects } from "../Projects";
+//Context
 import { useAuth } from "../../../Signin/context/AuthContext";
+//Styles/Elements
 import {
   ProfileEmailAgendaSidebar,
   EmailShownAgendaSidebar,
 } from "./AgendaElements";
+//Redux
+import { useSelector } from "react-redux";
 
 export const SidebarAgenda = () => {
   const { setSelectedProject } = useSelectedProjectValue();

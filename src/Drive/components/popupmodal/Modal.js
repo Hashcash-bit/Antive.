@@ -61,7 +61,7 @@ const CloseModalButton = styled(MdClose)`
 `;
 
 const Fldrbutton = styled.div`
-  background-color: #1a1a1a;
+  background-color: #1A202C;
   color: white;
   padding: 8px 10px;
   border-radius: 6px;

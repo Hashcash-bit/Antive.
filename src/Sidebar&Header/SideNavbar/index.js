@@ -25,21 +25,23 @@ import { useAuth } from "../../Signin/context/AuthContext";
 import { useHistory, Link } from "react-router-dom";
 import "./SideNavBar.css";
 import "../Header/HeaderComponent.css";
-import { follow, unfollow } from '../../CommunityTab/adapters/follow';
 import db, { firebase, auth } from "../../Signin/firebase";
+//redux
+import { useSelector, useDispatch } from "react-redux";
+
 
 const SideNavBar = ({userProfile}) => {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-  const [loading, setLoading] = useState(false);
-  const [showUnfollow, setShowUnfollow] = useState(false);
-  const [showMore, setShowMore] = useState(false);
+  // const [loading, setLoading] = useState(false);
+  // const [showUnfollow, setShowUnfollow] = useState(false);
+  // const [showMore, setShowMore] = useState(false);
   const { logout } = useAuth();
   const { currentUser } = useAuth();
   const [error, setError] = useState("");
   const history = useHistory();
 
-
+  
   async function handleLogout() {
     setError("");
 
@@ -59,7 +61,7 @@ const SideNavBar = ({userProfile}) => {
             <FaIcons.FaBars onClick={showSidebar} />
           </NavIcon>
         </IconContext.Provider>
-        <NavLogo to="/dashboard">Notify.</NavLogo>
+        <NavLogo to="/dashboard">Antive.</NavLogo>
         <ErrorMSG>
           {error && <div className="errordashboard">{error}</div>}
         </ErrorMSG>
@@ -70,8 +72,8 @@ const SideNavBar = ({userProfile}) => {
         </IconContext.Provider>
         {/* <IconContext.Provider value={{ color: "#FF7C5D" }}> */}
         <ProfileEmail>
-          <EmailShown><NavIconPfp><CgProfile /></NavIconPfp>{currentUser.email}</EmailShown>
-          {/* <EmailShown><NavIconPfp><CgProfile /></NavIconPfp>{currentUser.username}</EmailShown> */}
+          {/* <EmailShown><NavIconPfp><CgProfile /></NavIconPfp>{currentUser.displayName || currentUser.email}</EmailShown> */}
+          <EmailShown><NavIconPfp><CgProfile /></NavIconPfp>{currentUser.displayName || currentUser.email.substring(0, currentUser.email.lastIndexOf("@"))}</EmailShown>
         </ProfileEmail>
         {/* </IconContext.Provider> */}
       </Nav>

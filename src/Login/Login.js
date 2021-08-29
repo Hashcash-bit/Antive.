@@ -1,10 +1,117 @@
 import React, { useRef, useState, useEffect } from "react";
-import "./Login.css";
-import { useAuth } from "../Signin/context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+//Styles
+import "./Login.css";
+//Context
+import { useAuth } from "../Signin/context/AuthContext";
+//Icons
 import { FcGoogle } from "react-icons/fc";
+//Firebase
 import db, { provider, auth } from "../Signin/firebase";
+//Popups
 import { toastInfo } from "./toastInfo";
+//Redux
+import { useDispatch } from "react-redux";
+
+// const LoginFunction = () => {
+//   const dispatch = useDispatch();
+
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [isFirstTimeUser, setIsFirstTimeUser] = useState(false);
+
+//   const isEntered = () => {
+//     if (email !== "") {
+//       if (password !== "") {
+//         return true;
+//       } else {
+//         return false;
+//       }
+//     } else {
+//       return false;
+//     }
+//   };
+  
+//   async function signInGoogle(e) {
+//     e.preventDefault();
+//     const google = "google";
+//     setLoading(true);
+
+//     auth
+//       .signInWithPopup(provider)
+//       .then((auth) => {
+//        history.push('/dashboard')
+//       })
+//       .catch((error) => toastInfo(`${error}`, google, "top-center"));
+
+//       setLoading(false);
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+    
+//     auth
+//       .signInWithEmailAndPassword(email, password)
+//       .then(() => dispatch(SignInAction()))
+//       .catch((error) => alert(error));
+//   };
+
+//   return (
+//     <div className="form-content-rightL">
+//       <form className="formL" onSubmit={handleSubmit} noValidate>
+//         <h1>Log In</h1>
+//         <p className="WelcomBackL">Welcome Back!</p>
+
+//         {error && <p className="errorL">{error}</p>}
+
+//         <div className="form-inputsL">
+//           <label className="form-labelL">Email</label>
+//           <input
+//             className="form-inputL"
+//             type="email"
+//             placeholder="Enter your email"
+//             value={email}
+//             onChange={(e) => setEmail(e.target.value)}
+//             name="email"
+//             id="email"
+//             required
+//           />
+//         </div>
+
+//         <div className="form-inputsL">
+//           <label className="form-labelL">Password</label>
+//           <input
+//             className="form-inputL"
+//             type="password"
+//             placeholder="Enter your Password"
+//             value={password}
+//             onChange={(e) => setPassword(e.target.value)}
+//             name="password"
+//             id="password"
+//             required
+//           />
+//         </div>
+//         <button disabled={!isEntered()} className="form-input-btnL" type="submit">
+//           Login
+//         </button>
+//         <div className="form-input-btn-googleL" onClick={() => dispatch(SignInWith("google"))}>
+//           <div className="googlebtntextL">Continue with</div>
+//           <div className="googlebtnL">
+//             <div className="googletextL">Google</div>
+//             <FcGoogle />
+//           </div>
+//         </div>
+//         <div className="forgotpassL">
+//           <Link to="/forgot-password" style={{ textDecoration: "none" }}>
+//             <p className="forgotpasstextL">Forgot Password?</p>
+//           </Link>
+//         </div>
+//       </form>
+//     </div>
+//   );
+// }
+
+// export default LoginFunction
 
 export default function LoginFunction() {
   const emailRef = useRef();
@@ -12,6 +119,8 @@ export default function LoginFunction() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const history = useHistory();
 
   
@@ -30,22 +139,23 @@ export default function LoginFunction() {
       setLoading(false);
   };
 
-  const handleSubmit = (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
-    setError('');
-    setLoading(true);
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
-    login(email, password)
-      .then((id) => {
-        setLoading(false);
-        history.push(`/dashboard`);
+
+    try {
+      setError("");
+      setLoading(true);
+      await login(emailRef.current.value, passwordRef.current.value).then(() => {
+        setEmail("")
+        setPassword("")
       })
-      .catch((error) => {
-        setError(error.message);
-        setLoading(false);
-      });
-  };
+      history.push("/dashboard");
+    } catch {
+      setError("Failed To Log In");
+    }
+
+    setLoading(false);
+  }
 
   return (
     <div className="form-content-rightL">
@@ -63,11 +173,11 @@ export default function LoginFunction() {
             type="email"
             name="email"
             id="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
             placeholder="Enter your email"
-            required
           />
         </div>
-
         <div className="form-inputsL">
           <label className="form-labelL">Password</label>
           <input
@@ -76,11 +186,11 @@ export default function LoginFunction() {
             type="password"
             name="password"
             id="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
             placeholder="Enter your password"
-            required
           />
         </div>
-
         <button disabled={loading} className="form-input-btnL" type="submit">
           Login
         </button>
@@ -100,101 +210,3 @@ export default function LoginFunction() {
     </div>
   );
 }
-
-// export default function LoginFunction() {
-//   const emailRef = useRef();
-//   const passwordRef = useRef();
-//   const [error, setError] = useState("");
-//   const [loading, setLoading] = useState(false);
-//   const { login } = useAuth();
-//   const [email, setEmail] = useState('')
-//   const [password, setPassword] = useState('')
-//   const history = useHistory();
-
-  
-//   async function signInGoogle(e) {
-//     e.preventDefault();
-//     const google = "google";
-//     setLoading(true);
-
-//     auth
-//       .signInWithPopup(provider)
-//       .then((auth) => {
-//        history.push('/dashboard')
-//       })
-//       .catch((error) => toastInfo(`${error}`, google, "top-center"));
-
-//       setLoading(false);
-//   };
-
-//   async function handleSubmit(e) {
-//     e.preventDefault();
-
-//     try {
-//       setError("");
-//       setLoading(true);
-//       await login(emailRef.current.value, passwordRef.current.value).then(() => {
-//         setEmail("")
-//         setPassword("")
-//       })
-//       history.push("/dashboard");
-//     } catch {
-//       setError("Failed To Log In");
-//     }
-
-//     setLoading(false);
-//   }
-
-//   return (
-//     <div className="form-content-rightL">
-//       <form className="formL" onSubmit={handleSubmit} noValidate>
-//         <h1>Log In</h1>
-//         <p className="WelcomBackL">Welcome Back!</p>
-
-//         {error && <p className="errorL">{error}</p>}
-
-//         <div className="form-inputsL">
-//           <label className="form-labelL">Email</label>
-//           <input
-//             className="form-inputL"
-//             ref={emailRef}
-//             type="email"
-//             name="email"
-//             id="email"
-//             value={email}
-//             onChange={e => setEmail(e.target.value)}
-//             placeholder="Enter your email"
-//           />
-//         </div>
-//         <div className="form-inputsL">
-//           <label className="form-labelL">Password</label>
-//           <input
-//             className="form-inputL"
-//             ref={passwordRef}
-//             type="password"
-//             name="password"
-//             id="password"
-//             value={password}
-//             onChange={e => setPassword(e.target.value)}
-//             placeholder="Enter your password"
-//           />
-//         </div>
-//         <button disabled={loading} className="form-input-btnL" type="submit">
-//           Login
-//         </button>
-//         <div className="form-input-btn-googleL" onClick={signInGoogle}>
-//           <div className="googlebtntextL">Continue with</div>
-//           <div className="googlebtnL">
-//             <div className="googletextL">Google</div>
-//             <FcGoogle />
-//           </div>
-//         </div>
-//         <div className="forgotpassL">
-//           <Link to="/forgot-password" style={{ textDecoration: "none" }}>
-//             <p className="forgotpasstextL">Forgot Password?</p>
-//           </Link>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// }
