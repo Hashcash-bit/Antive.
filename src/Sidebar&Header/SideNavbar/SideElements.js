@@ -170,13 +170,14 @@ export const SidebarNav = styled.nav`
 
 export const SidebarWrap = styled.div`
   width: 100%;
+  
 `;
 
 export const SidebarLink = styled(Link)`
   display: flex;
   color: #808191;
   justify-content: space-between;
-  align-items: center;
+  // align-items: center;
   padding: 20px;
   list-style: none;
   height: 60px;

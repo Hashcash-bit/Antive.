@@ -1,14 +1,15 @@
+//React Shit
 import React from "react";
 
 //Components
-import Balance from "../../Budget/Balance";
-import Transaction from "../../Budget/Transaction";
+import DashboardExpenseCard from "../../Budget/DashboardExpenseCard";
+import TransactionDash from "../../Budget/TransactionDash";
 
 export default function BudgetDashPage() {
   return (
     <div>
-      <Balance />
-      <Transaction />
+      <DashboardExpenseCard />
+      <TransactionDash />
     </div>
   );
 }

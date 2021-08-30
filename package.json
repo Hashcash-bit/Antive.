@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^1.6.5",
+    "react-chat-engine": "^1.10.17",
+    "@ant-design/icons": "^4.6.2",
     "@craco/craco": "^6.2.0",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",

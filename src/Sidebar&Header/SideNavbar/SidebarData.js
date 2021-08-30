@@ -23,9 +23,9 @@ export const SidebarData = [
     icon: <FaIcons.FaMoneyCheck />,
   },
   {
-    title: "LandingPage",
-    path: "/Landing",
-    icon: <BsIcons.BsFillPeopleFill />,
+    title: "Chat",
+    path: "/chat",
+    icon: <IoIcons.IoMdPeople />,
   },
   {
     title: "Your Drive",

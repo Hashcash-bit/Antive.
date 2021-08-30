@@ -26,7 +26,7 @@ const useStyle = makeStyles({
 
 function ExpenseCard({ transaction, income, expense }) {
   const applyStyle = useStyle();
-  const amount = transaction.map((tran) => tran.amount);
+  // const amount = transaction.map((tran) => tran.amount);
   // const income = amount
   //   .filter((item) => item > 0)
   //   .reduce((acc, item) => (acc += item), 0)

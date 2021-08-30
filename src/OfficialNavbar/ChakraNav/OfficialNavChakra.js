@@ -91,9 +91,9 @@ export default function OfficialNavChakra() {
         <Link to="/agenda">
           <NavItem navSize={navSize} icon={IoIcons.IoIosPaper} title="Agenda" />
         </Link>
-        <NavItem
-        Link to="/dashboard"
-        navSize={navSize} icon={FiUser} title="Chat" />
+        <Link to="/chat">
+          <NavItem navSize={navSize} icon={FiUser} title="Chat" />
+        </Link>
         <Link to="/budget">
           <NavItem
             navSize={navSize}
@@ -133,7 +133,7 @@ export default function OfficialNavChakra() {
                   currentUser.email.lastIndexOf("@")
                 )}
             </Heading>
-            <Text color="gray">Logout</Text>
+            <Text onClick={handleLogout} cursor='pointer' color="gray" _hover={{ opacity: "50%" }}>Logout</Text>
           </Flex>
         </Flex>
       </Flex>

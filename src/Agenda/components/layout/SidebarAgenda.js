@@ -29,9 +29,9 @@ export const SidebarAgenda = () => {
   return (
     <div className="sidebar" data-testid="sidebar">
       <ul className="sidebar__generic">
-        <ProfileEmailAgendaSidebar>
+        {/* <ProfileEmailAgendaSidebar>
         Hi,<EmailShownAgendaSidebar> {currentUser.email}.</EmailShownAgendaSidebar> Welcome To the Agenda!
-        </ProfileEmailAgendaSidebar>
+        </ProfileEmailAgendaSidebar> */}
 
         <li
           data-testid="inbox"

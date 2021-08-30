@@ -11,9 +11,9 @@ import Projects from "./assets/starred.svg";
 import Documents from "./assets/draft.svg";
 import PowerOff from "./assets/power-off-solid.svg";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import { useAuth } from "../Signin/context/AuthContext";
-import NewLogo from './assets/newlogo.png'
+import NewLogo from "./assets/newlogo.png";
 
 //Icons
 import { FiLogOut } from "react-icons/fi";
@@ -22,10 +22,16 @@ import { ErrorMSG } from "../Sidebar&Header/SideNavbar/SideElements";
 import { RiDashboardFill } from "react-icons/ri";
 import * as FaIcons from "react-icons/fa";
 import * as IoIcons from "react-icons/io";
+import { CgProfile } from "react-icons/cg";
+import * as BiIcons from "react-icons/bi";
 
 
 const Container = styled.div`
   position: fixed;
+  z-index: 999999999;
+  margin-top: 1.6rem;
+  // background-color: #1A202C;
+  border: none;
   .active {
     border-right: 4px solid white;
     img {
@@ -36,17 +42,19 @@ const Container = styled.div`
 `;
 
 const Button = styled.button`
-  background-color: black;
+  background-color: #081225;
   border: none;
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
   margin: 0.5rem 0 0 0.5rem;
+  // margin-top: 50px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  // z-index: 99999999999999999999999999999999999999999999999;
   &::before,
   &::after {
     content: "";
@@ -67,7 +75,7 @@ const Button = styled.button`
 `;
 
 const SidebarContainer = styled.div`
-  background-color: black;
+  background-color: #081225;
   width: 3.5rem;
   height: 80vh;
   margin-top: 1rem;
@@ -94,24 +102,28 @@ const SlickBar = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: black;
+  background-color: #081225;
   padding: 2rem 0;
   position: absolute;
-  top: 6rem;
+  top: 4rem;
   left: 0;
   width: ${(props) => (props.clicked ? "12rem" : "3.5rem")};
   transition: all 0.5s ease;
   border-radius: 0 30px 30px 0;
 `;
 
-const Item = styled(NavLink)`
+const Item = styled(Link)`
   text-decoration: none;
   color: white;
   width: 100%;
-  padding: 1rem 0;
+  // gap: 10px;
+  align-items: center;
+  height: 60px;
+  // padding: 1rem 0;
   cursor: pointer;
   display: flex;
   padding-left: 1rem;
+  // background-color: yellow;
   &:hover {
     border-right: 4px solid white;
     img {
@@ -135,27 +147,23 @@ const Text = styled.span`
 `;
 
 const Profile = styled.div`
-  width: ${(props) => (props.clicked ? "16rem" : "3rem")};
-  height: 3rem;
-  padding: 0.5rem 1rem;
+  width: ${(props) => (props.clicked ? "17rem" : "2rem")};
+  // width: ${(props) => (props.clicked ? "auto" : "2rem")};
+  height: ${(props) => (props.clicked ? "3rem" : "2rem")};
+  z-index: 999999999999999999999999999999;
+  // padding: 0.5rem 1rem;
   /* border: 2px solid var(--white); */
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: ${(props) => (props.clicked ? "9rem" : "0")};
-  background-color: black;
+  margin-right: ${(props) => (props.clicked ? "auto" : "0")};
+  background-color: #010b1d;
   color: white;
-  transition: all 0.3s ease;
-  img {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  &:hover {
     cursor: pointer;
-    &:hover {
-      border: 2px solid white;
-      padding: 2px;
-    }
+    height: 3rem;
   }
 `;
 
@@ -167,10 +175,12 @@ const Details = styled.div`
 
 const Name = styled.div`
   padding: 0 1.5rem;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-weight: bold;
   h4 {
     display: inline-block;
   }
@@ -179,7 +189,9 @@ const Name = styled.div`
     text-decoration: none;
     color: grey;
     &:hover {
-      text-decoration: underline;
+      color: white;
+      font-size: 0.82rem;
+      transition: all 0.3s ease-in-out
     }
   }
 `;
@@ -190,6 +202,7 @@ const Logout = styled.button`
   height: 2rem;
   background-color: transparent;
   font-size: 20px;
+  
   // gap: 10px;
 
     &:hover {
@@ -198,6 +211,21 @@ const Logout = styled.button`
       padding: 0;
       opacity: 0.5;
     }
+  }
+`;
+
+const LogoutIcon = styled(FiLogOut)`
+  margin-left: auto;
+`;
+
+const ProfileIcon = styled(CgProfile)`
+  background-color: none;
+  font-size: 20px;
+  margin-left: 0 auto;
+  &:hover {
+    height: 3rem;
+    opacity: 50%;
+    transition: all 0.3s ease-in-out;
   }
 `;
 
@@ -211,14 +239,13 @@ const OfficialNav = () => {
   const [error, setError] = useState("");
   const history = useHistory();
 
-  
   async function handleLogout() {
     setError("");
 
     try {
       await logout();
       history.push("/login");
-      window.location.reload(false);
+      // window.location.reload(false);
     } catch {
       setError("Failed to log out");
     }
@@ -226,21 +253,19 @@ const OfficialNav = () => {
 
   return (
     <Container>
-      <Button clicked={click} onClick={() => handleClick()}>
-        Click
-      </Button>
+      <Button clicked={click} onClick={() => handleClick()} />
       <SidebarContainer>
         <Logo>
           <img src={NewLogo} alt="logo" />
         </Logo>
         <SlickBar clicked={click}>
+          <Link to="/dashboard"></Link>
           <Item
             onClick={() => setClick(false)}
             exact
             activeClassName="active"
             to="/dashboard"
           >
-            {/* <img src={Home} alt="Home" /> */}
             <RiDashboardFill />
             <Text clicked={click}>Dashboard</Text>
           </Item>
@@ -249,7 +274,6 @@ const OfficialNav = () => {
             activeClassName="active"
             to="/agenda"
           >
-            {/* <img src={Team} alt="Team" /> */}
             <IoIcons.IoIosPaper />
             <Text clicked={click}>Agenda</Text>
           </Item>
@@ -258,55 +282,59 @@ const OfficialNav = () => {
             activeClassName="active"
             to="/budget"
           >
-            {/* <img src={Calender} alt="Calender" /> */}
             <FaIcons.FaMoneyCheck />
             <Text clicked={click}>Budget</Text>
           </Item>
           <Item
             onClick={() => setClick(false)}
             activeClassName="active"
-            to="/drive"
+            to="/chat"
           >
-            {/* <img src={Documents} alt="Documents" /> */}
-            <FaIcons.FaSave />
-            <Text clicked={click}>Drive</Text>
+            <IoIcons.IoMdPeople />
+            <Text clicked={click}>Chat</Text>
           </Item>
           <Item
             onClick={() => setClick(false)}
             activeClassName="active"
+            to="/drive"
+          >
+            <BiIcons.BiLockAlt />
+            <Text clicked={click}>Vault</Text>
+          </Item>
+          {/* <Item
+            onClick={() => setClick(false)}
+            activeClassName="active"
             to="/update-profile"
           >
-            {/* <img src={Projects} alt="Projects" /> */}
             <IoIcons.IoIosSettings />
             <Text clicked={click}>Settings</Text>
-          </Item>
+          </Item> */}
         </SlickBar>
 
         <Profile clicked={profileClick}>
-          <img
-            onClick={() => handleProfileClick()}
-            src="https://picsum.photos/200"
-            alt="Profile"
-          />
+          <ProfileIcon onClick={() => handleProfileClick()} />
+
           <Details clicked={profileClick}>
             <Name>
-              <h4>{currentUser.displayName || currentUser.email.substring(0, currentUser.email.lastIndexOf("@"))}</h4>
-              {/* <Link to="/update-profile">
-              <a>update&nbsp;profile</a>
-              </ Link> */}
+              <h4>
+                {currentUser.displayName ||
+                  currentUser.email.substring(
+                    0,
+                    currentUser.email.lastIndexOf("@")
+                  )}
+              </h4>
+              <a href="/#">want to update profile?</a>
             </Name>
 
             <Logout onClick={handleLogout}>
-              <IconContext.Provider value={{ color: "#fff" }}>
-                {/* <img src={PowerOff} alt="logout" /> */}
-                <FiLogOut />
-              </IconContext.Provider>
+              {/* <img src={PowerOff} alt="logout" /> */}
+              <LogoutIcon />
             </Logout>
           </Details>
         </Profile>
       </SidebarContainer>
       <ErrorMSG>
-          {error && <div className="errordashboard">{error}</div>}
+        {error && <div className="errordashboard">{error}</div>}
       </ErrorMSG>
     </Container>
   );

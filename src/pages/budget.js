@@ -9,6 +9,7 @@ import { HeaderAgenda } from "../Agenda/components/layout/HeaderAgenda";
 import SideNavBar from "../Sidebar&Header/SideNavbar";
 import db from '../Signin/firebase';
 import { useAuth } from "../Signin/context/AuthContext";
+import OfficialNav from '../OfficialNavbar/OfficialNav';
 
 
 const useStyle= makeStyles({
@@ -119,7 +120,8 @@ function Budget() {
 
   return (
     <div className="">
-        <SideNavBar />
+        {/* <SideNavBar /> */}
+        <OfficialNav />
         <div className="budget">
         <Box className={applyStyle.box} >
             <Box>

@@ -1,47 +1,59 @@
+//Styles
 import {
-    Box,
-    Center,
-    Progress,
-    Text,
-    Button,
-    useMediaQuery,
-    Menu,
-    MenuButton,
-    MenuList,
-    MenuDivider,
-    Skeleton,
-  } from "@chakra-ui/react";
-  import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-  import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-  import React, { useState } from "react";
-  import { useLocation, useParams } from "react-router-dom";
-  import { useFolder } from "../../hooks/useFolder";
-  import AddFileButton from "../Buttons/AddFileButton";
-  import AddFolderButton from "../Buttons/AddFolderButton";
-  import HomeButton from "../Buttons/HomeButton";
-  import FilesEmptyState from "../files/FilesEmptyState";
-  import FolderBreadCrumbs from "./FolderBreadCrumbs";
-  import FilesTable from "../files/FilesTable";
-  import FilesTableSkeleton from "../files/FilesTableSkeleton";
-  import FolderGrid from "../folders/FolderGrid";
+  Box,
+  Center,
+  Progress,
+  Text,
+  Button,
+  useMediaQuery,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuDivider,
+  Skeleton,
+} from "@chakra-ui/react";
+import { DriveTitle, DriveIconWrapper, DriveTextWrapper } from "./DashboardDriveElements";
+
+//Icons
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as FaIcons from "react-icons/fa";
+import * as BiIcons from "react-icons/bi";
+
+
+//React Shit
+import React, { useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
+
+//Components or Functionality
+import { useFolder } from "../../hooks/useFolder";
+import AddFileButton from "../Buttons/AddFileButton";
+import AddFolderButton from "../Buttons/AddFolderButton";
+import HomeButton from "../Buttons/HomeButton";
+import FilesEmptyState from "../files/FilesEmptyState";
+import FolderBreadCrumbs from "./FolderBreadCrumbs";
+import FilesTable from "../files/FilesTable";
+import FilesTableSkeleton from "../files/FilesTableSkeleton";
+import FolderGrid from "../folders/FolderGrid";
 
 function DashboardDrive() {
   const { folderId } = useParams();
   const { state = {} } = useLocation();
-  const {
-    folder,
-    childFolders,
-    childFiles,
-    loading,
-    foldersLoading,
-  } = useFolder(folderId, state.folder);
+  const { folder, childFolders, childFiles, loading, foldersLoading } =
+    useFolder(folderId, state.folder);
   const [uploadingFiles, setUploadingFiles] = useState([]);
   const [progress, setProgress] = useState(0);
   const [isSmallerThan700] = useMediaQuery("(max-width: 700px)");
 
   return (
     <>
-      <Box width="100%" px="8" py="4">
+      <DriveTitle>
+        <DriveIconWrapper>
+          <BiIcons.BiLockAlt />
+        </DriveIconWrapper>
+        <DriveTextWrapper>Vault</DriveTextWrapper>
+      </DriveTitle>
+      <Box width="95%" px="8" py="4" marginLeft="2rem">
         {/* TOP BUTTONS */}
         {isSmallerThan700 ? (
           <Menu isLazy placement="bottom">
@@ -55,7 +67,7 @@ function DashboardDrive() {
               Menu
             </MenuButton>
             <MenuList w="inherit">
-              <HomeButton variant="ghost" />
+              {/* <HomeButton variant="ghost" /> */}
               <MenuDivider />
               <AddFileButton
                 currentFolder={folder}
@@ -83,7 +95,7 @@ function DashboardDrive() {
             fontSize="xl"
             flexWrap="wrap"
           >
-            <HomeButton variant="outline" />
+            {/* <HomeButton variant="outline" /> */}
             <AddFileButton
               currentFolder={folder}
               uploadingFiles={uploadingFiles}
@@ -130,7 +142,7 @@ function DashboardDrive() {
           )}
           {!loading && childFiles.length === 0 && (
             <>
-              <Text fontSize="3xl" fontWeight="600" mb={4}>
+              <Text fontSize="30px" fontWeight="600" mb={4}>
                 Your Files
               </Text>
               <FilesEmptyState />
@@ -182,4 +194,4 @@ function DashboardDrive() {
   );
 }
 
-export default DashboardDrive
+export default DashboardDrive;

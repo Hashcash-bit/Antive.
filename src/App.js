@@ -36,6 +36,8 @@ import SigninPage from "./pages/signin";
 import Login from "./pages/login";
 import PageNotFound from "./PageNotFound/PageNotFound";
 import Budget from "./pages/budget";
+import Chat from "./Chat/components/Chats";
+
 
 //Discarded Shit && Styles:
 //import SaaSProductLandingPage from "./OfficialLandingPage/demos/SaaSProductLandingPage"
@@ -75,6 +77,7 @@ export function App() {
           <PrivateRoute path="/drive" component={Drive} />
           <PrivateRoute path="/folder/:folderId" component={Drive} />
           <PrivateRoute path="/budget" component={Budget} />
+          <PrivateRoute path="/chat" component={Chat} />
           <Route component={PageNotFound} />
           
           {/* <ParentContainer>

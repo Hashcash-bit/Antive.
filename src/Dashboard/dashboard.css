@@ -1,5 +1,38 @@
+.DashboardTitle{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  /* margin-top: 20px; */
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  /* z-index: 99999999999999999999; */
+  margin-left: 4.1rem;
+  border-bottom: 2px solid #081225;
+  /* border-left: 2px solid #081225; */
+  width: auto;
+  /* width: auto; */
+ 
+}
+
+.Dashname{
+  margin-top: 2rem;
+}
+
+.dashicon{
+  margin-top: 2rem;
+}
+
+.DashboardTitle:hover{
+  cursor: default;
+  border-bottom: 2px solid #EDEEEE;
+  transition: all 0.5s ease-in-out;
+}
+
 .DashboardContainer {
   display: flex;
+  margin-left: 3rem;
+  overflow-x: hidden;
   /* justify-content: center; */
   /* align-items: center; */
 }
@@ -10,10 +43,42 @@
     flex-direction: column;
   }
 }
-@media screen and (max-width: 900px) {
-  .InboxContainer {
-    margin-left: 260px;
+
+
+.LeftSection {
+  /* display: flex; */
+  /* flex-direction: column; */
+  margin-left: 20px;
+  width: 50%;
+  /* border-right: yellow; */
+  /* border: 5px; */
+}
+
+@media screen and (max-width: 1000px) {
+  .LeftSection{
+    width: 100%;
   }
+}
+
+/* @media screen and (min-width: 1001px) {
+  .LeftSection{
+    width: 50%;
+  }
+} */
+
+@media screen and (max-width: 1000px) {
+  .LeftSection{
+    width: 100%;
+  }
+}
+
+.RightSection {
+  margin-right: 40px;
+  width: auto;
+  /* border-left: 2px solid yellow; */
+  /* padding: 10px;
+  margin-left: 20px; */
+  
 }
 
 @media screen and (max-width: 1000px) {
@@ -25,31 +90,35 @@
   }
 }
 
-.LeftSection {
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  margin-left: 20px;
-  /* width: 50%; */
-  border-right: yellow;
-  border: 5px;
+
+@media screen and (max-width: 1000px) {
+  .RightSection{
+    width: 100%;
+  }
 }
 
 .RightContainer {
-  /* overflow: -moz-hidden-unscrollable; */
-  /* background-color: yellow; */
   align-content: left;
-  height: 780px;
+  height: 530px;
   margin-left: -240px;
   margin-top: -50px;
   overflow-y: scroll;
+  width: auto;
 }
 
 .InboxContainer {
+  width: auto;
   margin-top: -85px;
   overflow-x: hidden;
   overflow-y: scroll;
   margin-right: auto;
+}
+
+@media screen and (max-width: 1000px) {
+  .InboxContainer {
+    margin-left: 220px;
+    /* margin-left: 260px; */
+  }
 }
 
 .AgendaText {
@@ -68,7 +137,7 @@
 }
 
 .TopContainer {
-  border-color: yellow;
+  border-color: #1A202C;
 }
 
 .BudgetContainer {

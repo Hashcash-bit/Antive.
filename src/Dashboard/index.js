@@ -11,9 +11,15 @@ import DriveDashPage from "./pages/DriveDashPage";
 import TaskDashPage from "./pages/TaskDashPage";
 import BudgetDashPage from "./pages/BudgetDashPage";
 
+//Icon
+import { RiDashboardFill } from "react-icons/ri";
+
 export default function Dashboard() {
   return (
     <>
+    <div className="DashboardTitle">
+     <RiDashboardFill className="dashicon" /> <h1 className="Dashname">Dashboard</h1>
+    </div>
       <div className="DashboardContainer">
         <div className="LeftSection">
           <div className="TopContainer">
