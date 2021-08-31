@@ -37,6 +37,7 @@ import Login from "./pages/login";
 import PageNotFound from "./PageNotFound/PageNotFound";
 import Budget from "./pages/budget";
 import Chat from "./Chat/components/Chats";
+import Chatdisplaypage from "./Chat2/page/Chatdisplaypage";
 
 
 //Discarded Shit && Styles:
@@ -77,6 +78,7 @@ export function App() {
           <PrivateRoute path="/drive" component={Drive} />
           <PrivateRoute path="/folder/:folderId" component={Drive} />
           <PrivateRoute path="/budget" component={Budget} />
+          {/* <PrivateRoute path="/chat" component={Chatdisplaypage} /> */}
           <PrivateRoute path="/chat" component={Chat} />
           <Route component={PageNotFound} />
           

@@ -13,7 +13,18 @@
     top: 0px;
     left: 0px;
     width: 100vw;
-    height: 100vh;
+    /* margin-left: 50px; */
+    height: 100%;
+    padding-left: 4rem;
+    padding-top: 2rem;
+    background-color: #F0F0F0;
+  }
+
+  @media screen and (max-width: 840px) {
+    .chats-page{
+      display: none;
+    }
+    
   }
   
   .nav-bar {
@@ -28,7 +39,7 @@
     top: 12px;
     font-size: 32px;
     font-weight: 700;
-    color: white;
+    color: yellow;
   }
   
   .logout-tab {
@@ -63,7 +74,7 @@
     padding-bottom: 66px;
     width: 420px;
     text-align: center;
-    background-color: white;
+    /* background-color: yellow; */
     border-radius: 22px;
   }
   
@@ -99,4 +110,6 @@
     left: calc(50vw - 33px);
     top: calc(50vh - 22px);
   }
+
+
   

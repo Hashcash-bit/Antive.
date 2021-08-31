@@ -1,14 +1,22 @@
+//React Shit
 import React, { useRef, useState, useEffect } from "react";
-
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+
+//Chat Api
 import { ChatEngine } from "react-chat-engine";
 
+//Context
 import { useAuth } from "../../Signin/context/AuthContext";
 
+//Components/Functionality
 import { auth } from "../../Signin/firebase";
 import SideNavBar from "../../Sidebar&Header/SideNavbar";
 import OfficialNav from "../../OfficialNavbar/OfficialNav";
+import ResizePage from "../../PageResize/PageResize";
+
+//Styles
+import '../index.css'
 
 export default function Chats() {
   const didMountRef = useRef(false);
@@ -38,7 +46,7 @@ export default function Chats() {
       method: "post",
       url: "https://api.chatengine.io/users/",
       headers: {
-        "PRIVATE-KEY": "6efea3f7-0e00-47bd-a720-ebf19039cfc9",
+        "PRIVATE-KEY": "3d772f6e-87ca-4301-b1ae-2083340fc296",
       },
       data: data,
     };
@@ -55,7 +63,7 @@ export default function Chats() {
     axios
       .get("https://api.chatengine.io/users/me/", {
         headers: {
-          "project-id": "d3236bb5-7cde-475b-88c0-e5b434f93ac2",
+          "project-id": "dd16ef6f-3567-4699-ab02-b0e7370f7d3e",
           "user-name": currentUser.email,
           "user-secret": currentUser.uid,
         },
@@ -74,7 +82,7 @@ export default function Chats() {
           axios
             .post("https://api.chatengine.io/users/", formdata, {
               headers: {
-                "private-key": "6efea3f7-0e00-47bd-a720-ebf19039cfc9",
+                "private-key": "3d772f6e-87ca-4301-b1ae-2083340fc296",
               },
             })
             .then(() => setLoading(false))
@@ -89,12 +97,13 @@ export default function Chats() {
   return (
     <>
       <OfficialNav />
+      <div className="pageresizepls">
+        <ResizePage />
+      </div>
       <div className="chats-page">
-        {/* <SideNavBar /> */}
-
         <ChatEngine
           height="calc(100vh - 66px)"
-          projectID="d3236bb5-7cde-475b-88c0-e5b434f93ac2"
+          projectID="dd16ef6f-3567-4699-ab02-b0e7370f7d3e"
           userName={currentUser.email}
           userSecret={currentUser.uid}
         />
