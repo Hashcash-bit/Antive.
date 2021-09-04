@@ -1,4 +1,4 @@
-.DashboardTitle{
+.DashboardTitle {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -11,21 +11,21 @@
   border-bottom: 2px solid #081225;
   /* border-left: 2px solid #081225; */
   width: auto;
+  /* background-color: yellow; */
   /* width: auto; */
- 
 }
 
-.Dashname{
+.Dashname {
   margin-top: 2rem;
 }
 
-.dashicon{
+.dashicon {
   margin-top: 2rem;
 }
 
-.DashboardTitle:hover{
+.DashboardTitle:hover {
   cursor: default;
-  border-bottom: 2px solid #EDEEEE;
+  border-bottom: 2px solid #edeeee;
   transition: all 0.5s ease-in-out;
 }
 
@@ -37,13 +37,12 @@
   /* align-items: center; */
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1037px) {
   .DashboardContainer {
     display: flex;
     flex-direction: column;
   }
 }
-
 
 .LeftSection {
   /* display: flex; */
@@ -54,20 +53,20 @@
   /* border: 5px; */
 }
 
-@media screen and (max-width: 1000px) {
-  .LeftSection{
+@media screen and (max-width: 1037px) {
+  .LeftSection {
     width: 100%;
   }
 }
 
-/* @media screen and (min-width: 1001px) {
-  .LeftSection{
+@media screen and (min-width: 1001px) {
+  .LeftSection {
     width: 50%;
   }
-} */
+}
 
-@media screen and (max-width: 1000px) {
-  .LeftSection{
+@media screen and (max-width: 1037px) {
+  .LeftSection {
     width: 100%;
   }
 }
@@ -78,10 +77,9 @@
   /* border-left: 2px solid yellow; */
   /* padding: 10px;
   margin-left: 20px; */
-  
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1037px) {
   .RightSection {
     margin-left: -29px;
   }
@@ -90,18 +88,17 @@
   }
 }
 
-
-@media screen and (max-width: 1000px) {
-  .RightSection{
+@media screen and (max-width: 1037px) {
+  .RightSection {
     width: 100%;
   }
 }
 
 .RightContainer {
   align-content: left;
-  height: 530px;
+  height: 40rem;
   margin-left: -240px;
-  margin-top: -50px;
+  margin-top: -4.5rem;
   overflow-y: scroll;
   width: auto;
 }
@@ -112,9 +109,10 @@
   overflow-x: hidden;
   overflow-y: scroll;
   margin-right: auto;
+  margin-top: -6.5rem;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1037px) {
   .InboxContainer {
     margin-left: 220px;
     /* margin-left: 260px; */
@@ -137,12 +135,28 @@
 }
 
 .TopContainer {
-  border-color: #1A202C;
+  height: auto;
 }
 
-.BudgetContainer {
+/* .BudgetContainer {
   border-style: solid;
-  border-color: yellow;
+  height: 500px;
+  overflow-y: scroll;
+} */
+
+.TransactionHistoryContainer {
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.DashboardCS {
+  margin-top: -5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .DasboardCS {
+    margin-top: 0rem;
+  }
 }
 
 .BudgetTitleText {
@@ -153,14 +167,12 @@
 }
 
 .BottomContainer {
-  border-color: pink;
   margin-left: -30px;
   /* width: 670px; */
 }
 
 .DriveContainer {
   border-style: solid;
-  border-color: blue;
   /* margin-right: 30px; */
 }
 

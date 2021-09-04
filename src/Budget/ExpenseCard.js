@@ -1,4 +1,7 @@
+//React Shit
 import React from "react";
+
+//Styles
 import {
   Card,
   CardContent,
@@ -7,20 +10,45 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import "./styles.css";
+import styled from "styled-components";
+
+const IncomeContainer = styled.div`
+  color: #edeeee;
+  font-size: 1.5rem;
+  font-weight: bold;
+`;
+
+const ExpenseContainer = styled.div`
+  color: #edeeee;
+  font-size: 1.5rem;
+  font-weight: bold;
+`;
 
 const useStyle = makeStyles({
   container: {
     display: "flex",
+    // flexDirection: "column",
+    border: "2px",
+    borderColor: "yellow",
+
     "& > *": {
-      padding: 10,
+      // padding: 10,
       flex: 1,
+      background: "transparent",
+      border: "0px",
     },
   },
   income: {
-    color: "green",
+    color: "#EDEEEE",
+    // backgroundColor: "#EDEEEE",
+    fontSize: "1.1rem",
+    fontWeight: "bold",
   },
   expense: {
-    color: "red",
+    color: "#EDEEEE",
+    // backgroundColor: "#EDEEEE",
+    fontSize: "1.1rem",
+    fontWeight: "bold",
   },
 });
 
@@ -65,7 +93,8 @@ function ExpenseCard({ transaction, income, expense }) {
       <Box className={applyStyle.container}>
         <Card>
           <CardContent>
-            <Typography>Income</Typography>
+            {/* <Typography>Income</Typography> */}
+            <IncomeContainer>Income</IncomeContainer>
             <Typography className={applyStyle.income}> $ {income}</Typography>
             {/* <div class="distribution">
               <div class="skill" style={incomeCss}>
@@ -76,7 +105,7 @@ function ExpenseCard({ transaction, income, expense }) {
         </Card>
         <Card>
           <CardContent>
-            <Typography>Expense</Typography>
+            <ExpenseContainer>Expense</ExpenseContainer>
             <Typography className={applyStyle.expense}> $ {expense}</Typography>
             {/* <div class="distribution">
               <div class="skill" style={expenseCss}>

@@ -9,7 +9,7 @@ export default function BudgetDashPage() {
   return (
     <div>
       <DashboardExpenseCard />
-      <TransactionDash />
+      {/* <TransactionDash /> */}
     </div>
   );
 }

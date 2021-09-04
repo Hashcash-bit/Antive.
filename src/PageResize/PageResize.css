@@ -13,7 +13,7 @@
   
   .ResizeOops {
     font-weight: 800;
-    color: #081225;
+    color: #090E14;
     margin-bottom: 8px;
   }
 
@@ -24,8 +24,6 @@
     transition: all 0.3s ease-in-out;
     cursor: default;
   }
-
-
   
   .ResizeThisPage {
     color: white;

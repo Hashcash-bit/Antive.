@@ -3,13 +3,13 @@ import { FaRegListAlt, FaRegCalendarAlt } from "react-icons/fa";
 import moment from "moment";
 import PropTypes from "prop-types";
 import db from "../../Signin/firebase";
-import { firebase } from "../../Signin/firebase";
+// import { firebase } from "../../Signin/firebase";
 import { useSelectedProjectValue } from "../context";
 import { ProjectOverlay } from "./ProjectOverlay";
 import { TaskDate } from "./TaskDate";
 import { useAuth } from "../../Signin/context/AuthContext";
 //redux
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 
 
 // export const AddTask = ({

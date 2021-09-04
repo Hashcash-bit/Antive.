@@ -1,8 +1,37 @@
-import React from 'react'
+import React from "react";
 // import { Button } from '../ButtonElements'
-import { InfoContainer, InfoWrapper, InfoRow, Column1, Column2, TextWrapper, TopLine, Heading, Subtitle, BtnWrap, ImgWrap, Img } from './InfoElements'
+import {
+  InfoContainer,
+  InfoWrapper,
+  InfoRow,
+  Column1,
+  Column2,
+  TextWrapper,
+  TopLine,
+  Heading,
+  Subtitle,
+  BtnWrap,
+  ImgWrap,
+  Img,
+  ToolsTitle,
+} from "./InfoElements";
 
-const Info = ({lightBg, id, imgStart, topLine, lightText, headline, darkText, description, buttonLabel, alt, img, primary, dark, dark2 }) => {
+const Info = ({
+  lightBg,
+  id,
+  imgStart,
+  topLine,
+  lightText,
+  headline,
+  darkText,
+  description,
+  buttonLabel,
+  alt,
+  img,
+  primary,
+  dark,
+  dark2,
+}) => {
   return (
     <>
       <InfoContainer lightBg={lightBg} id={id}>
@@ -13,21 +42,19 @@ const Info = ({lightBg, id, imgStart, topLine, lightText, headline, darkText, de
                 <TopLine>{topLine}</TopLine>
                 <Heading lightText={lightText}>{headline}</Heading>
                 <Subtitle darkText={darkText}>{description}</Subtitle>
-                <BtnWrap>
-                  
-                </BtnWrap>
+                <BtnWrap></BtnWrap>
               </TextWrapper>
             </Column1>
             <Column2>
               <ImgWrap>
-                <Img src={img} alt={alt}/>
+                <Img src={img} alt={alt} />
               </ImgWrap>
             </Column2>
           </InfoRow>
         </InfoWrapper>
       </InfoContainer>
     </>
-  )
-}
+  );
+};
 
-export default Info
+export default Info;

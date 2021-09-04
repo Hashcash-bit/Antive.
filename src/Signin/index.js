@@ -11,7 +11,7 @@ const Form = () => {
       <div className='form-container'>        
         <div className='form-content-left'>
         <Link to='/'>
-          <span className='logobtn' >Notify.</span>
+          <span className='logobtn' >Antive.</span>
         </Link>
         <p className='subtextone'>
           Online Student Management Tool

@@ -12,7 +12,7 @@ export const Nav = styled.nav`
   font-size: 1rem;
   position: sticky;
   top:0;
-  z-index:10; 
+  z-index:999; 
   @media screen and (max-width: 960px) {
     transition: 0.8s all ease;
   }
@@ -29,7 +29,7 @@ export const NavbarContainer = styled.div`
   background: transparent;
 `
 export const NavLogo = styled(LinkR) `
-  color: #FF7C5D;
+  color: #EDEEEE;
   justify-self: flex-start;
   cursor: pointer;
   font-size: 1.75rem;
@@ -89,20 +89,21 @@ export const NavBtn = styled.nav`
   display: flex;
   align-items: center;
   background: transparent;
+  // float: right;
   @media screen and (max-width: 768px) {
     display: none;
   }
 `
 export const NavBtnLink = styled(LinkR)`
   border-radius: 10px;
-  background: #FF7C5D;
+  background: #081225;
   white-space: nowrap;
   padding: 10px 26px;
-  color: #1A202C;
+  color: #EDEEEE;
   font-size: 16px;
   font-weight: bold;
   outline: none;
-  border: none;
+  border: 2px solid #EDEEEE;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
@@ -110,5 +111,21 @@ export const NavBtnLink = styled(LinkR)`
     transition: all 0.2s ease-in-out;
     background: #fff;
     color: #010606;
+    border: 2px solid #081225;
+  }
+`
+
+export const NavBtnContainer = styled.nav`
+float: right;
+display: flex;
+gap: 2rem;
+align-items: center;
+`
+
+export const AntiveLogo = styled.div`
+  width: 2rem;
+  img {
+    width: 100%;
+    height: auto;
   }
 `

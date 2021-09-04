@@ -1,10 +1,10 @@
 import React from 'react'
-import Icon1 from '../../images/ToolUnity.svg'
-import Icon2 from '../../images/EasyAccess.svg'
-import Icon3 from '../../images/Privacy.svg'
+import Icon1 from '../../images/ToolUnity1.svg'
+import Icon2 from '../../images/VarietyOptions.svg'
+import Icon3 from '../../images/Security.svg'
 import {ServicesContainer, ServicesH1, ServicesWrapper, ServicesCard, ServicesIcon, ServicesH2, ServicesP} from './ServiceElements'
 
-const Services = () => {
+const ServicesLandingPage = () => {
   return (
     <ServicesContainer id="services">
       <ServicesH1>Our Benefits</ServicesH1>
@@ -27,7 +27,7 @@ const Services = () => {
           <ServicesIcon src={Icon3} />
           <ServicesH2>Privacy</ServicesH2>
           <ServicesP>
-            Notify doesn't share any data to second or third parties!
+            Antive doesn't share any data to second or third parties!
           </ServicesP>
         </ServicesCard>
       </ServicesWrapper>
@@ -35,4 +35,4 @@ const Services = () => {
   );
 };
 
-export default Services
+export default ServicesLandingPage

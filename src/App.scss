@@ -651,6 +651,7 @@ header {
     -webkit-transition: opacity 0.2s ease-in;
     transition: opacity 0.2s ease-in;
     height: calc(100vh);
+    // color: black;
 
     .add-task__main {
       @include mq("900px") {
@@ -723,6 +724,7 @@ header {
     width: 100%;
     border: 1px solid #ddd;
     background-color: white !important;
+    color: black;
     border-radius: 3px;
     height: 35px;
     padding-left: 10px;

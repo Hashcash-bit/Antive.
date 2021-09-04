@@ -17,7 +17,7 @@ const Hero = () => {
       </HeroBg>
       <HeroContent>
         <HeroH1> Student Organization Tool</HeroH1>
-        <HeroP>Strategically develope, grow and organize yourself while establishing a relationship to help build awareness with, Notify.</HeroP>
+        <HeroP>Strategically develope, grow and organize yourself while establishing a relationship to help build awareness with, Antive.</HeroP>
         <HeroBtnWrapper>
           <Button to='/signup' onMouseEnter={onHover} onMouseLeave={onHover} primary='true' dark='false' smooth={true} duration={500} spy={true} exact='true' offset={-80}>
             Get Started {hover ? <ArrowForward /> : <ArrowRight/>}

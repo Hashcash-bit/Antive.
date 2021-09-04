@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const InfoContainer = styled.div`
   color: #fff;
-  background: ${({lightBg}) => (lightBg ? '#f9f9f9' : '#010606')};
+  background: ${({lightBg}) => (lightBg ? '#090E14' : '#090E14')};
+  width: 100%;
   @media screen and  (max-width: 768px) {
     padding: 100px 0;
   }
@@ -10,8 +11,8 @@ export const InfoContainer = styled.div`
 export const InfoWrapper = styled.div`
   display: grid;
   z-index: 1;
-  height: 860px;
-  width: 100%auto;
+  height: 660px;
+  width: 100% auto;
   max-width: 1100px;
   margin-right: auto;
   margin-left: auto;
@@ -24,8 +25,10 @@ export const InfoRow = styled.div`
   grid-auto-columns: minmax(auto, 1fr);
   align-items: center;
   background: transparent;
+  gap: 20%;
   grid-template-areas: ${({imgStart}) => (imgStart ? `'col2 col1'` : `'col1 col2'`)};
   @media screen and (max-width: 768px) {
+    gap: 0;
     grid-template-areas: ${({imgStart}) => (imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`)}
   }
 `
@@ -76,7 +79,7 @@ export const Subtitle  = styled.p`
   font-size: 18px;
   line-height: 24px;
   background: transparent;
-  color: ${({darkText}) => (darkText ? '#010606' : '#fff')};
+  color: ${({darkText}) => (darkText ? 'grey' : 'grey')};
 `
 export const BtnWrap = styled.div`
   display:flex;
@@ -93,3 +96,7 @@ export const Img = styled.img`
   padding-right: 0;
   background: transparent;
 `;
+
+export const ToolsTitle = styled.div`
+font-size: 60px;
+`

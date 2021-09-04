@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   Box,
   Button,
@@ -10,6 +10,7 @@ import { MailOutlineSharp } from "@material-ui/icons";
 import "./styles.css";
 import { useAuth } from "../Signin/context/AuthContext";
 import db from "../Signin/firebase";
+import { useHistory } from "react-router";
 
 const useStyle = makeStyles({
   container: {
@@ -24,14 +25,15 @@ const useStyle = makeStyles({
     background: "#445A6F",
     color: "#fff",
   },
-  multilineColor:{
-    color:'white'
-  }
+  multilineColor: {
+    color: "white",
+  },
 });
 function NewTransaction({ addTrans }) {
+  const history = useHistory();
   const apply = useStyle();
-  const [text, setText] = useState();
-  const [amount, setAmount] = useState();
+  const [text, setText] = useState("");
+  const [amount, setAmount] = useState(0);
   const { currentUser } = useAuth();
 
   let newDate = new Date();
@@ -42,87 +44,66 @@ function NewTransaction({ addTrans }) {
   }
   let year = newDate.getFullYear();
   let fulldate = `${date}/${month}/${year}`;
-  let balance = 0
-  
+  let balance = 0;
+
   const newTrans = () => {
-    // let total = 0
-    // db
-    //   .collection("budget")
-    //   .onSnapshot((querySnapshot) => {
-    //     const items = [];
-    //     querySnapshot.forEach((doc) => {
-    //       items.push(doc.data());
-    //     });
-    //     for (let i = 0; i < items.length; i++ ) {
-    //       total += parseInt(items[i].amount)
-    //       console.log(items[i].amount)
-    //     }
-    //     console.log(total)
-    //     total = 0
-    //   });
-
-    
-    console.log(balance) 
-
     const transaction = {
       id: Math.floor(Math.random() * 1000),
       text: text,
       amount: +amount,
     };
-    
     if (amount >= 0 || amount <= 0) {
       if (text == undefined) {
-        db
-          .collection("budget")
-          .add({
-            name: "",
-            amount: transaction.amount,
-            userId: currentUser.uid,
-            date: fulldate,
-          })
+        db.collection("budget").add({
+          name: "",
+          amount: transaction.amount,
+          userId: currentUser.uid,
+          date: fulldate,
+        });
       } else {
-        db
-          .collection("budget")
-          .add({
-            name: transaction.text,
-            amount: transaction.amount,
-            userId: currentUser.uid,
-            date: fulldate
-          })
+        db.collection("budget").add({
+          name: transaction.text,
+          amount: transaction.amount,
+          userId: currentUser.uid,
+          date: fulldate,
+        });
       }
     }
 
     addTrans(transaction);
+    setAmount(0);
   };
 
   return (
     <Box className={apply.container}>
       <Typography variant="h5">New Transaction</Typography>
       <TextField
-        label="Enter Expense"
+        label="Enter Transaction Label"
         InputLabelProps={{
-            style: { color: '#fff' },
+          style: { color: "#fff" },
         }}
         InputProps={{
-            className: apply.multilineColor
+          className: apply.multilineColor,
         }}
+        value={text}
         onChange={(e) => setText(e.target.value)}
+        required
       />
       <TextField
-        label="Total Amount"
+        label="Total Amount (Enter negative value to indicate expense)"
         InputLabelProps={{
-            style: { color: '#fff' },
+          style: { color: "#fff" },
         }}
         InputProps={{
-            className: apply.multilineColor
+          className: apply.multilineColor,
         }}
+        value={amount}
         onChange={(e) => setAmount(e.target.value)}
+        required
       />
       <div className="btnbackground">
         <button className="addbtn" onClick={newTrans} variant="contained">
-          {" "}
-          +{" "}
-        {/* {window.location.reload(false)} */}
+          +
         </button>
         <div className="textbtn">
           <h5 className="text">Add Income or Expense</h5>

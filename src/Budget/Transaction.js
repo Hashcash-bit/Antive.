@@ -36,28 +36,48 @@ function Transaction({transaction, deleteTransaction}) {
     let [values, setValues] = useState([])
     let [docId, setDocId] = useState("")
     const { currentUser } = useAuth()
-
+    const [transactions,setTransactions] = useState([])
+    useEffect(() => {
+        db.collection("budget").onSnapshot((changes) => {
+            var newTransactions  = [];
+            changes.forEach((c)=>{
+                newTransactions.push(c.data());
+            })
+            setTransactions(newTransactions);
+            
+        })
+        
+    },[])
     useEffect(() => {
         setName([])
         setAmount([])
         setDate([])
         setValues([])
+        
+        
       db
       .collection("budget")
       .get()
       .then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
             if (currentUser.uid === doc.data().userId) {
+                setName([])
+                setAmount([])
+                setDate([])
+                setValues([])
                 name.push(doc.data().name)
                 amount.push(doc.data().amount)
                 date.push(doc.data().date)
                 console.log(doc.data())
+                // setName(...name, doc.data().name)
+                // setAmount(...amount,doc.data().amount)
+                // setDate(...date,doc.data().date) 
             }
         })
-        setName([])
-        setAmount([])
-        setDate([])
-        setValues([])
+        // setName([])
+        // setAmount([])
+        // setDate([])
+        // setValues([])
         setName(name)
         setAmount(amount)
         setDate(date) 
@@ -65,8 +85,6 @@ function Transaction({transaction, deleteTransaction}) {
       }, [transaction]);
 
     const apply = useStyle()
-    const history = useHistory()
-    // history.go(0)
     // window.location.reload(false);
     return (
         <div>
@@ -74,19 +92,15 @@ function Transaction({transaction, deleteTransaction}) {
                 <Typography className={apply.text} variant="h5">Transaction History</Typography>
                 <Divider />   
                 <List className={apply.overflow}>
-                    {/* <h1>{name} {amount}</h1> */}
-                    {/* {amount.map(function(item, i){
-                        return <li key={i}>{name} {amount}</li>
-                    })
-                    } */}
-                    {/* <ul>
-                        {amount.map((value, index) => {
-                            return <li key={index}>{value}</li>
-                        })}
-                    </ul> */}
-                    {
+                    {/* {
                         amount.map((value, index) =>{
                             return <TransactionIterate key={index} name={name[index]} amount={value} date={date[index]} deleteTransaction={deleteTransaction}/>
+                        })
+                    } */}
+                    {
+                        transactions.map((v, index) =>{
+                            // console.log(v)
+                            return <TransactionIterate key={index} name={v.name} amount={v.amount} date={v.date} deleteTransaction={deleteTransaction}/>
                         })
                     }
                 </List> 

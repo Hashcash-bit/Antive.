@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import db from "../../Signin/firebase";
-import { firebase } from "../../Signin/firebase";
+// import { firebase } from "../../Signin/firebase";
 import { useProjectsValue } from "../context";
 import { generatePushId } from "../helpers";
 import { useAuth } from "../../Signin/context/AuthContext";
 //redux
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 
 
 // export const AddProject = ({ shouldShow = false }) => {

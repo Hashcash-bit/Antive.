@@ -13,105 +13,6 @@ import { toastInfo } from "./toastInfo";
 //Redux
 import { useDispatch } from "react-redux";
 
-// const LoginFunction = () => {
-//   const dispatch = useDispatch();
-
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [isFirstTimeUser, setIsFirstTimeUser] = useState(false);
-
-//   const isEntered = () => {
-//     if (email !== "") {
-//       if (password !== "") {
-//         return true;
-//       } else {
-//         return false;
-//       }
-//     } else {
-//       return false;
-//     }
-//   };
-  
-//   async function signInGoogle(e) {
-//     e.preventDefault();
-//     const google = "google";
-//     setLoading(true);
-
-//     auth
-//       .signInWithPopup(provider)
-//       .then((auth) => {
-//        history.push('/dashboard')
-//       })
-//       .catch((error) => toastInfo(`${error}`, google, "top-center"));
-
-//       setLoading(false);
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-    
-//     auth
-//       .signInWithEmailAndPassword(email, password)
-//       .then(() => dispatch(SignInAction()))
-//       .catch((error) => alert(error));
-//   };
-
-//   return (
-//     <div className="form-content-rightL">
-//       <form className="formL" onSubmit={handleSubmit} noValidate>
-//         <h1>Log In</h1>
-//         <p className="WelcomBackL">Welcome Back!</p>
-
-//         {error && <p className="errorL">{error}</p>}
-
-//         <div className="form-inputsL">
-//           <label className="form-labelL">Email</label>
-//           <input
-//             className="form-inputL"
-//             type="email"
-//             placeholder="Enter your email"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//             name="email"
-//             id="email"
-//             required
-//           />
-//         </div>
-
-//         <div className="form-inputsL">
-//           <label className="form-labelL">Password</label>
-//           <input
-//             className="form-inputL"
-//             type="password"
-//             placeholder="Enter your Password"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//             name="password"
-//             id="password"
-//             required
-//           />
-//         </div>
-//         <button disabled={!isEntered()} className="form-input-btnL" type="submit">
-//           Login
-//         </button>
-//         <div className="form-input-btn-googleL" onClick={() => dispatch(SignInWith("google"))}>
-//           <div className="googlebtntextL">Continue with</div>
-//           <div className="googlebtnL">
-//             <div className="googletextL">Google</div>
-//             <FcGoogle />
-//           </div>
-//         </div>
-//         <div className="forgotpassL">
-//           <Link to="/forgot-password" style={{ textDecoration: "none" }}>
-//             <p className="forgotpasstextL">Forgot Password?</p>
-//           </Link>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default LoginFunction
 
 export default function LoginFunction() {
   const emailRef = useRef();
@@ -119,11 +20,11 @@ export default function LoginFunction() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const history = useHistory();
+  const width = window.screen.width;
 
-  
   async function signInGoogle(e) {
     e.preventDefault();
     const google = "google";
@@ -132,12 +33,12 @@ export default function LoginFunction() {
     auth
       .signInWithPopup(provider)
       .then((auth) => {
-       history.push('/dashboard')
+        history.push("/dashboard");
       })
       .catch((error) => toastInfo(`${error}`, google, "top-center"));
 
-      setLoading(false);
-  };
+    setLoading(false);
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -145,10 +46,12 @@ export default function LoginFunction() {
     try {
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value).then(() => {
-        setEmail("")
-        setPassword("")
-      })
+      await login(emailRef.current.value, passwordRef.current.value).then(
+        () => {
+          setEmail("");
+          setPassword("");
+        }
+      );
       history.push("/dashboard");
     } catch {
       setError("Failed To Log In");
@@ -174,7 +77,7 @@ export default function LoginFunction() {
             name="email"
             id="email"
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
           />
         </div>
@@ -187,7 +90,7 @@ export default function LoginFunction() {
             name="password"
             id="password"
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter your password"
           />
         </div>
@@ -195,11 +98,7 @@ export default function LoginFunction() {
           Login
         </button>
         <div className="form-input-btn-googleL" onClick={signInGoogle}>
-          <div className="googlebtntextL">Continue with</div>
-          <div className="googlebtnL">
-            <div className="googletextL">Google</div>
-            <FcGoogle />
-          </div>
+          <div className="googlebtntextL">Continue with Google</div>
         </div>
         <div className="forgotpassL">
           <Link to="/forgot-password" style={{ textDecoration: "none" }}>

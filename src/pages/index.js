@@ -4,7 +4,7 @@ import Hero from '../LandingPage/components/Hero'
 import Info from '../LandingPage/components/Info'
 import { homeObjOne, homeObjTwo, homeObjThree, homeObjFour} from '../LandingPage/components/Info/Data';
 import Navbar from '../LandingPage/components/Navbar'
-import Services from '../LandingPage/components/Services';
+import ServicesLandingPage from '../LandingPage/components/Services';
 import Sidebar from '../LandingPage/components/SideBar'
 
 const Home = () => {
@@ -23,7 +23,7 @@ const Home = () => {
       <Info {...homeObjTwo}/>
       <Info {...homeObjThree}/>
       <Info {...homeObjFour}/>
-      <Services />
+      <ServicesLandingPage />
       <Footer />
     </>
   )

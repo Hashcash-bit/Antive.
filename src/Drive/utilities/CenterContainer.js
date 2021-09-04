@@ -13,9 +13,6 @@ function CenterContainer({ children }) {
       as="div" 
       width="100" 
       maxW="400px"
-      //  backgroundImage="url('../../UpdateProfile/image/NotifyBg.jpg')" 
-      //  backgroundPosition="center" 
-      //  backgroundRepeat="no-repeat"
        >
         {children}
       </Box>

@@ -37,5 +37,5 @@ export const database = {
     },
   };
 
-export { auth, provider, storage, firebase, apiResponse};
+export { auth, provider, storage, firebaseApp, apiResponse};
 export default db;

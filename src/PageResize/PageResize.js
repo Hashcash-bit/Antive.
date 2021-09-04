@@ -22,7 +22,7 @@ const ResizePage = () => {
       <img src={resizepng} className="Resizepngpic" />
       <Link to="/dashboard">
           <div
-            className="Resizepagebtn"
+            className="Resizebtn"
             onMouseEnter={onHover}
             onMouseLeave={onHover}
             primary="true"

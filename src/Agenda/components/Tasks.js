@@ -30,7 +30,7 @@ export const Tasks = () => {
         }
 
     useEffect(() => {
-        document.title = `${projectName}: Notify`;
+        document.title = `${projectName}: Antive.`;
     })
 
     return (

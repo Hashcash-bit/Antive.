@@ -4,7 +4,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 //Chat Api
-import { ChatEngine } from "react-chat-engine";
+import { ChatEngine, IsTyping } from "react-chat-engine";
 
 //Context
 import { useAuth } from "../../Signin/context/AuthContext";
@@ -16,7 +16,7 @@ import OfficialNav from "../../OfficialNavbar/OfficialNav";
 import ResizePage from "../../PageResize/PageResize";
 
 //Styles
-import '../index.css'
+import "../index.css";
 
 export default function Chats() {
   const didMountRef = useRef(false);
@@ -29,7 +29,6 @@ export default function Chats() {
     let data = await response.blob();
     return new File([data], "test.jpg", { type: "image/jpeg" });
   }
-
   useEffect(() => {
     if (!currentUser || currentUser === null) {
       history.push("/");
@@ -106,7 +105,9 @@ export default function Chats() {
           projectID="dd16ef6f-3567-4699-ab02-b0e7370f7d3e"
           userName={currentUser.email}
           userSecret={currentUser.uid}
+          renderIsTyping={(typers) => {}}
         />
+        {/* <IsTyping /> */}
       </div>
     </>
   );

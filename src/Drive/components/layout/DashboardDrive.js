@@ -153,7 +153,7 @@ function DashboardDrive() {
               <Text fontSize="3xl" fontWeight="600" mb={4}>
                 Your Files
               </Text>
-              <FilesTable childFiles={childFiles} />
+              <FilesTable childFiles={childFiles}  />
             </>
           )}
         </Box>

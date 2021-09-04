@@ -23,7 +23,7 @@ const SkeletonRow = ({ width }) => (
 
 const FilesTableSkeleton = () => {
   return (
-    <Box borderWidth="3px" borderRadius="xl">
+    <Box borderWidth="3px" borderRadius="xl" >
       <Table>
         <thead>
           <Tr>

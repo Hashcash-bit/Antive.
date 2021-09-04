@@ -1,28 +1,3 @@
-// import React from "react";
-// import {LeftFormUP} from './UpdateElemets'
-// import "./updateprofile.css";
-// import UpdatePf from "./updatePf";
-// import updatePFsvg from "./image/updatePF.svg";
-// import { Link } from "react-router-dom";
-
-// export default function UpdateProfile() {
-//   return (
-//     <div className="UpdatePage">
-//       <div className="form-containerU">
-//           <div className="form-content-leftU">
-//             <Link to="/dashboard">
-//               <span className="logobtnU">Notify.</span>
-//             </Link>
-//             <p className="subtextoneU">Online Student Management Tool</p>
-//             <img className="form-imgU" src={updatePFsvg} alt="update" />
-//           </div>
-
-//         <UpdatePf />
-//       </div>
-//     </div>
-//   );
-// }
-
 import React, { useRef, useState } from "react";
 import { useAuth } from "../Signin/context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
@@ -93,14 +68,6 @@ export default function UpdateProfile() {
         )}
 
         <Box as="form" onSubmit={handleSubmit}>
-          <FormControl mb="3" id="username">
-            <FormLabel>Username</FormLabel>
-            <Input
-              variant="flushed"
-              type="test"
-              placeholder="Username... || Leave blank to keep the same"
-            />
-          </FormControl>
           <FormControl mb="3" id="email">
             <FormLabel>Email</FormLabel>
             <Input

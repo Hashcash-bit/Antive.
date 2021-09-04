@@ -25,9 +25,9 @@ import { useAuth } from "../../Signin/context/AuthContext";
 import { useHistory, Link } from "react-router-dom";
 import "./SideNavBar.css";
 import "../Header/HeaderComponent.css";
-import db, { firebase, auth } from "../../Signin/firebase";
+// import db, { firebase, auth } from "../../Signin/firebase";
 //redux
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 
 
 const SideNavBar = ({userProfile}) => {

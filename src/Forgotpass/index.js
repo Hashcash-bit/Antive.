@@ -10,7 +10,7 @@ const ForgotPass = () => {
         <div className='form-containerF'>        
           <div className='form-content-leftF'>
           <Link to='/'>
-            <span className='logobtnF' >Notify.</span>
+            <span className='logobtnF' >Antive.</span>
           </Link>
           <p className='subtextoneF'>
             Online Student Management Tool

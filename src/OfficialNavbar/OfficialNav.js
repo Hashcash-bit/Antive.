@@ -216,6 +216,7 @@ const Logout = styled.button`
 
 const LogoutIcon = styled(FiLogOut)`
   margin-left: auto;
+  color: white;
 `;
 
 const ProfileIcon = styled(CgProfile)`
@@ -311,8 +312,8 @@ const OfficialNav = () => {
           </Item> */}
         </SlickBar>
 
-        <Profile clicked={profileClick}>
-          <ProfileIcon onClick={() => handleProfileClick()} />
+        <Profile clicked={profileClick} onClick={() => handleProfileClick()}>
+          <ProfileIcon />
 
           <Details clicked={profileClick}>
             <Name>
@@ -323,7 +324,7 @@ const OfficialNav = () => {
                     currentUser.email.lastIndexOf("@")
                   )}
               </h4>
-              <a href="/#">want to update profile?</a>
+              <a href="/update-profile">want to update profile?</a>
             </Name>
 
             <Logout onClick={handleLogout}>

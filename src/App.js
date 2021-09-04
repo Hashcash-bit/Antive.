@@ -5,11 +5,10 @@ import {
   Switch,
   Route,
   Redirect,
-  useLocation
+  useLocation,
 } from "react-router-dom";
-import AOS from 'aos'
-import { focusHandling } from 'cruip-js-toolkit';
-
+import AOS from "aos";
+import { focusHandling } from "cruip-js-toolkit";
 
 //Styles
 import "./App.css";
@@ -38,7 +37,14 @@ import PageNotFound from "./PageNotFound/PageNotFound";
 import Budget from "./pages/budget";
 import Chat from "./Chat/components/Chats";
 import Chatdisplaypage from "./Chat2/page/Chatdisplaypage";
-
+import ComingSoon from "./ComingSoon/ComingSoon";
+import OfficialLandingpage from "./pages/officialLandingpage";
+import BudgetPages from "./Budget/BudgetPages";
+import TOS from "./TOS/TermsOfService";
+import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy";
+import OfficialLogin from "./OfficialLogin/OfficialLogin";
+import OfficialSignup from "./OfficialSignup/OfficialSignup";
+import OfficialForgotPass from "./OfficialForgotPass/OfficialForgotPass";
 
 //Discarded Shit && Styles:
 //import SaaSProductLandingPage from "./OfficialLandingPage/demos/SaaSProductLandingPage"
@@ -62,26 +68,34 @@ import Chatdisplaypage from "./Chat2/page/Chatdisplaypage";
 // import "react-toastify/dist/ReactToastify.css";
 
 export function App() {
-
   return (
     <Router>
       <AuthProvider>
         <Switch>
-          <Route path="/" component={Home} exact />
+          <Route path="/" component={OfficialLandingpage} exact />
           <Route path="/Landing" component={ChakraNavPage} exact />
-          <Route path="/signup" component={SigninPage} exact />
-          <Route path="/login" component={Login} exact />
-          <Route path="/forgot-password" component={ForgotPass} exact />
+          <Route path="/signup" component={OfficialSignup} exact />
+          <Route path="/login" component={OfficialLogin} exact />
+          {/* <Route path="/login" component={Login} exact /> */}
+          <Route path="/forgot-password" component={OfficialForgotPass} exact />
+          <Route path="/termsofservice" component={TOS} exact />
+          <Route path="/privacypolicy" component={PrivacyPolicy} exact />
           <PrivateRoute path="/dashboard" component={dashboardPage} />
           <PrivateRoute path="/update-profile" component={Settings} />
           <PrivateRoute path="/agenda" component={Agenda} />
           <PrivateRoute path="/drive" component={Drive} />
           <PrivateRoute path="/folder/:folderId" component={Drive} />
           <PrivateRoute path="/budget" component={Budget} />
-          {/* <PrivateRoute path="/chat" component={Chatdisplaypage} /> */}
+          <PrivateRoute path="/budget1" component={BudgetPages} />
           <PrivateRoute path="/chat" component={Chat} />
           <Route component={PageNotFound} />
-          
+
+          {/* <Route path="/" component={Home} exact /> */}
+          {/* <Route path="/signup" component={SigninPage} exact /> */}
+          {/* <Route path="/login" component={Login} exact /> */}
+          {/* <PrivateRoute path="/budget" component={ComingSoon} /> */}
+          {/* <PrivateRoute path="/chat" component={Chatdisplaypage} /> */}
+          {/* <Route path="/forgot-password" component={ForgotPass} exact /> */}
           {/* <ParentContainer>
             <GlobalStyle />
             <PrivateRoute path="/CommunityTab" component={HomeTab} />
@@ -93,4 +107,4 @@ export function App() {
       </AuthProvider>
     </Router>
   );
-};
+}

@@ -5,9 +5,12 @@ const useStyle = makeStyles({
     balance:{
         fontSize: 30,
         marginBottom: 20,
-        color : "DarkGreen",
-        background : "white",
-        padding: 20
+        color : "#EDEEEE",
+        fontWeight: "bold"
+        // background : "white",
+        // padding: 20,
+        // borderRadius: "10px",
+        
     }
 })
 function Balance({bal}) {
@@ -19,7 +22,7 @@ function Balance({bal}) {
         <div>
             <Box>
                 <Typography className={applyStyleToBox.balance}>
-                 Balance: $ {bal}
+                 Your Balance: $ {bal}
                 </Typography>
             </Box>
         </div>

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { AddTask } from "../AddTask";
 
 //Firebase
-import { firebase } from "../../../Signin/firebase";
+// import { firebase } from "../../../Signin/firebase";
 
 //Styles
 import './HeaderAgenda.css'
