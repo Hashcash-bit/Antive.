@@ -8,6 +8,7 @@ import styled from "styled-components";
 import ServicesLandingPage from "../../LandingPage/components/Services";
 import Info from "../../LandingPage/components/Info";
 import { homeObjFour, homeObjOne, homeObjThree, homeObjTwo } from "../../LandingPage/components/Info/Data";
+import SingleCol from "../components/FAQS/SingleCol";
 
 const Container = styled.div`
   display: flex;
@@ -29,6 +30,7 @@ const OfficialHome = () => {
       <Info {...homeObjFour} /> */}
       <Testimonials />
       <ServicesLandingPage />
+      <SingleCol />
     </Container>
   );
 };
