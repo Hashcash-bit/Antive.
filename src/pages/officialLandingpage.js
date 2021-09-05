@@ -5,6 +5,7 @@ import { GlobalStyle } from "../OfficialLandingPage/globalStyles";
 import Navbar from "../LandingPage/components/Navbar";
 import Sidebar from "../LandingPage/components/SideBar";
 import Footer from "../LandingPage/components/Footer";
+import MinimalFooter from "../OfficialLandingPage/Sections/PlainFooter/MinimalFooter"
 
 const OfficialHome = lazy(() => import("../OfficialLandingPage/Pages/Home"));
 
@@ -28,11 +29,11 @@ function OfficialLandingpage() {
     <>
       <Suspense fallback={null}>
         <GlobalStyle />
-        {/* <ScrollToTop /> */}
         <Navbar toggle={toggle} />
         <Sidebar isOpen={isOpen} toggle={toggle} />
         <OfficialHome />
-        <Footer />
+        {/* <Footer /> */}
+        <MinimalFooter />
       </Suspense>
     </>
   );

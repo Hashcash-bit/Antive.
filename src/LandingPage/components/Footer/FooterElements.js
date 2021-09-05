@@ -54,9 +54,12 @@ export const FooterLinkItems = styled.div`
 `;
 export const FooterLinkTitle = styled.h1`
   font-size: 14px;
-  margin-bottom: 16px;
+  // margin-bottom: 16px;
   background: transparent;
   align-items: center;
+  @media screen and (max-width: 820px) {
+    margin-bottom: 16px;
+  }
 `;
 export const FooterLink = styled(Link)`
   color: #fff;
@@ -85,6 +88,7 @@ export const SocialMediaWrap = styled.div`
   max-width: 1100px;
   margin: 40px auto 0 auto;
   background: transparent;
+
   @media screen and (max-width: 820px) {
     flex-direction: column;
     background: transparent;
@@ -99,7 +103,7 @@ export const SocialLogo = styled(Link)`
   font-size: 1.5rem;
   display: flex;
   align-items: center;
-  margin-bottom: 16px;
+  // margin-bottom: 16px;
   font-weight: bold;
   background: transparent;
   &:hover {
@@ -108,11 +112,17 @@ export const SocialLogo = styled(Link)`
     transition: all 0.1s ease-in-out;
     cursor: pointer;
   }
+  @media screen and (max-width: 820px) {
+    margin-bottom: 16px;
+  }
 `;
 export const WebsiteRights = styled.small`
   color: #edeeee;
-  margin-bottom: 16px;
+  // margin-bottom: 16px;
   background: transparent;
+  @media screen and (max-width: 820px) {
+    margin-bottom: 16px;
+  }
 `;
 export const SocialIcons = styled.div`
   display: flex;
@@ -136,9 +146,10 @@ export const SocialIconLink = styled.a`
 `;
 
 export const LegalStuff = styled.div`
-// margin-left: -4rem;
-align-items: center;
-text-align: center;
+  // margin-left: -4rem;
+  align-items: center;
+  text-align: center;
+  background-color: transparent;
 `;
 
 export const PrivacyPolicy = styled(Link)`

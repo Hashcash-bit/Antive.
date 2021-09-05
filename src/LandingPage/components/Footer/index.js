@@ -38,13 +38,13 @@ const Footer = () => {
               Antive © 2006-{new Date().getFullYear()} All rights reserved.
             </WebsiteRights>
             <LegalStuff>
-              <TermsOfService to="/termsofservice">Terms Of Use</TermsOfService>
-              <PrivacyPolicy to="/privacypolicy">Privacy Policy</PrivacyPolicy>
+              <TermsOfService to="/termsofservice" target="_blank">Terms Of Use</TermsOfService>
+              <PrivacyPolicy to="/privacypolicy" target="_blank">Privacy Policy</PrivacyPolicy>
             </LegalStuff>
 
             <SocialIcons>
               <SocialIconLink
-                href="//www.instagram.com/leonardtcomdt/"
+                href="https://www.instagram.com/antive.team/"
                 target="_blank"
                 arial-label="Instagram"
               >
