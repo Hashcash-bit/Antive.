@@ -230,6 +230,9 @@ const ProfileIcon = styled(CgProfile)`
   }
 `;
 
+const UpdateProfileLink = styled(Link)`
+`
+
 const OfficialNav = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
@@ -324,7 +327,8 @@ const OfficialNav = () => {
                     currentUser.email.lastIndexOf("@")
                   )}
               </h4>
-              <a href="/update-profile">want to update profile?</a>
+
+              <a><UpdateProfileLink to="/update-profile">want to update profile?</UpdateProfileLink></a>
             </Name>
 
             <Logout onClick={handleLogout}>

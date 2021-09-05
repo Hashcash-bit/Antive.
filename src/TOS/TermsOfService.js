@@ -18,6 +18,11 @@ const Heading = styled.div`
 const TermsOfServiceContainer = styled.div`
   background-color: #1a202c;
   z-index: 999;
+  text-align: justify;
+  @media screen and (max-width: 1300px) {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 `;
 const HeadingRow = tw.div`flex`;
 const Text = styled.div`

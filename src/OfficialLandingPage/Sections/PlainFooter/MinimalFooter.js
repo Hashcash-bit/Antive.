@@ -3,9 +3,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { Container as ContainerBase } from "../PlainServices/misc/Layouts";
 import logo from "../../assets/newlogo.png";
-// import { ReactComponent as FacebookIcon } from "../../images/facebook-icon.svg";
-// import { ReactComponent as TwitterIcon } from "../../images/twitter-icon.svg";
-// import { ReactComponent as YoutubeIcon } from "../../images/youtube-icon.svg";
+import { Link } from "react-router-dom";
 import { ReactComponent as FacebookIcon } from "feather-icons/dist/icons/instagram.svg";
 import { FaDiscord as DiscordIcon } from "react-icons/fa";
 import { FaLinkedin as LinkedIcon } from "react-icons/fa";
@@ -20,7 +18,7 @@ const LogoImg = tw.img`w-10 -mr-3`;
 const LogoText = tw.h5`ml-2 text-2xl font-black tracking-wider`;
 
 const LinksContainer = tw.div`mt-8 font-medium flex flex-wrap justify-center items-center flex-col sm:flex-row`;
-const Link = tw.a`border-b-2 border-transparent hocus:text-gray-300 hocus:border-gray-300 pb-1 transition duration-300 mt-2 mx-4`;
+const LinkI = tw.a`border-b-2 border-transparent hocus:text-gray-300 hocus:border-gray-300 pb-1 transition duration-300 mt-2 mx-4`;
 
 const SocialLinksContainer = tw.div`mt-10`;
 const SocialLink = styled.a`
@@ -41,11 +39,21 @@ function MinimalFooter() {
             <LogoText>ntive.</LogoText>
           </LogoContainer>
           <LinksContainer>
-            <Link href="#">Home</Link>
-            <Link href="/termsofservice">Terms Of Use</Link>
-            <Link href="/privacypolicy">Privacy Policy</Link>
-            <Link href="/login">Login</Link>
-            <Link href="/signup">Signup</Link>
+            <Link to="/">
+              <LinkI>Home</LinkI>
+            </Link>
+            <Link to="/termsofservice">
+              <LinkI>Terms Of Use</LinkI>
+            </Link>
+            <Link to="/privacypolicy">
+              <LinkI>Privacy Policy</LinkI>
+            </Link>
+            <Link to="/login">
+              <LinkI>Login</LinkI>
+            </Link>
+            <Link to="/signup">
+              <LinkI>Signup</LinkI>
+            </Link>
           </LinksContainer>
           <SocialLinksContainer>
             <SocialLink
