@@ -1,3 +1,4 @@
+//React Shit
 import React, { lazy, Suspense, useState } from "react";
 import { GlobalStyle } from "../OfficialLandingPage/globalStyles";
 

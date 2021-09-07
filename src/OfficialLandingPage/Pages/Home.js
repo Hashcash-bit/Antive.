@@ -25,10 +25,10 @@ import TwoColHorizontalFeaturesthree from "../Sections/PlainServices/TwoColWithT
 import TwoColHorizontalFeaturesfour from "../Sections/PlainServices/TwoColWithTwoHorizontalFeaturesAndButton/TwoColHorizontalFeaturesfour";
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
   /* position: relative; */
 `;
 
@@ -54,19 +54,6 @@ const OfficialHome = () => {
     <Container>
       <HeroSection />
       <About />
-      {/* <Services /> */}
-      {/* <Infoonecontainer>
-        <Info {...homeObjOne} />
-      </Infoonecontainer>
-      <Infotwocontainer>
-        <Info {...homeObjTwo} />
-      </Infotwocontainer>
-      <Infothreecontainer>
-        <Info {...homeObjThree} />
-      </Infothreecontainer>
-      <Infofourcontainer>
-        <Info {...homeObjFour} />
-      </Infofourcontainer> */}
       <TwoColHorizontalFeatures />
       <TwoColHorizontalFeaturestwo />
       <TwoColHorizontalFeaturesthree />

@@ -7,7 +7,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 //Components
 import Navbar from "../LandingPage/components/Navbar";
 import Sidebar from "../LandingPage/components/SideBar";
-import Footer from "../LandingPage/components/Footer";
+import MinimalFooter from "../OfficialLandingPage/Sections/PlainFooter/MinimalFooter";
 
 const Heading = styled.div`
   color: white;
@@ -825,7 +825,7 @@ function TOS() {
             <strong>notify.executives@gmail.com</strong>
           </Text>
         </ContentWithPaddingXl>
-        <Footer />
+        <MinimalFooter />
       </Container>
     </TermsOfServiceContainer>
   );

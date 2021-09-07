@@ -15,6 +15,9 @@ import styled from "styled-components";
 import { useAuth } from "../Signin/context/AuthContext";
 import NewLogo from "./assets/newlogo.png";
 
+//Style
+import "./OfficialNav.css"
+
 //Icons
 import { FiLogOut } from "react-icons/fi";
 import { IconContext } from "react-icons/lib";
@@ -25,10 +28,9 @@ import * as IoIcons from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import * as BiIcons from "react-icons/bi";
 
-
 const Container = styled.div`
   position: fixed;
-  z-index: 999999999;
+  z-index: 99;
   margin-top: 1.6rem;
   // background-color: #1A202C;
   border: none;
@@ -110,6 +112,7 @@ const SlickBar = styled.ul`
   width: ${(props) => (props.clicked ? "12rem" : "3.5rem")};
   transition: all 0.5s ease;
   border-radius: 0 30px 30px 0;
+  overflow-y: scroll;
 `;
 
 const Item = styled(Link)`
@@ -191,7 +194,7 @@ const Name = styled.div`
     &:hover {
       color: white;
       font-size: 0.82rem;
-      transition: all 0.3s ease-in-out
+      transition: all 0.3s ease-in-out;
     }
   }
 `;
@@ -230,8 +233,7 @@ const ProfileIcon = styled(CgProfile)`
   }
 `;
 
-const UpdateProfileLink = styled(Link)`
-`
+const UpdateProfileLink = styled(Link)``;
 
 const OfficialNav = () => {
   const [click, setClick] = useState(false);
@@ -242,6 +244,7 @@ const OfficialNav = () => {
   const { currentUser } = useAuth();
   const [error, setError] = useState("");
   const history = useHistory();
+  const [isShown, setIsShown] = useState(false);
 
   async function handleLogout() {
     setError("");
@@ -256,6 +259,7 @@ const OfficialNav = () => {
   }
 
   return (
+    <>
     <Container>
       <Button clicked={click} onClick={() => handleClick()} />
       <SidebarContainer>
@@ -292,29 +296,22 @@ const OfficialNav = () => {
           <Item
             onClick={() => setClick(false)}
             activeClassName="active"
-            to="/chat"
-          >
-            <IoIcons.IoMdPeople />
-            <Text clicked={click}>Chat</Text>
-          </Item>
-          <Item
-            onClick={() => setClick(false)}
-            activeClassName="active"
             to="/drive"
           >
             <BiIcons.BiLockAlt />
             <Text clicked={click}>Vault</Text>
           </Item>
-          {/* <Item
+          <Item
             onClick={() => setClick(false)}
             activeClassName="active"
-            to="/update-profile"
+            to="/chat"
+            onMouseEnter={() => setIsShown(true)}
+            onMouseLeave={() => setIsShown(false)}
           >
-            <IoIcons.IoIosSettings />
-            <Text clicked={click}>Settings</Text>
-          </Item> */}
+            <IoIcons.IoMdPeople />
+            <Text clicked={click}>Chat</Text>
+          </Item>
         </SlickBar>
-
         <Profile clicked={profileClick} onClick={() => handleProfileClick()}>
           <ProfileIcon />
 
@@ -328,7 +325,11 @@ const OfficialNav = () => {
                   )}
               </h4>
 
-              <a><UpdateProfileLink to="/update-profile">want to update profile?</UpdateProfileLink></a>
+              <a>
+                <UpdateProfileLink to="/update-profile">
+                  want to update profile?
+                </UpdateProfileLink>
+              </a>
             </Name>
 
             <Logout onClick={handleLogout}>
@@ -342,6 +343,9 @@ const OfficialNav = () => {
         {error && <div className="errordashboard">{error}</div>}
       </ErrorMSG>
     </Container>
+    {isShown && <div className="HoverText">On Phone? Rotate to Landscape to create your first chat!</div>}
+
+    </>
   );
 };
 

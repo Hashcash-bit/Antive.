@@ -9,6 +9,12 @@
   margin-left: 2.4rem;
 }
 
+@media screen and (max-height: 554px) {
+  .budget {
+    margin-left: 0rem;
+  }
+}
+
 .BudgetTitle {
   display: flex;
   align-items: center;
@@ -28,9 +34,17 @@
   /* width: auto; */
 }
 
-.BudgetTitle:hover{
+@media screen and (max-height: 554px) {
+  .BudgetTitle {
+    padding-top: 60px;
+    height: 150px;
+    margin-left: 1.7rem;
+  }
+}
+
+.BudgetTitle:hover {
   cursor: default;
-  border-bottom: 2px solid #EDEEEE;
+  border-bottom: 2px solid #edeeee;
   transition: all 0.5s ease-in-out;
 }
 

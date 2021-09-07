@@ -17,6 +17,7 @@ export const IndividualProject = ({ project }) => {
       .then(() => {
         setProjects([...projects]);
         setSelectedProject("INBOX");
+        window.location.reload()
       });
   };
 

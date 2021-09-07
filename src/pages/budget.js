@@ -9,8 +9,14 @@ import db from "../Signin/firebase";
 import { useAuth } from "../Signin/context/AuthContext";
 import { useHistory } from "react-router";
 import OfficialNav from "../OfficialNavbar/OfficialNav";
+import ResizeHeight from "../ResizeHeight/PageResize";
+import SideNavBar from "../Sidebar&Header/SideNavbar";
+
 //Icons
 import { FaMoneyCheck } from "react-icons/fa";
+
+//Styles
+import "../Dashboard/dashboard.css";
 
 const useStyle = makeStyles({
   header: {
@@ -117,8 +123,14 @@ function Budget() {
   };
 
   return (
-    <div className="">
-      <OfficialNav />
+    <>
+      <div className="ResizeHeight">
+        {/* <ResizeHeight /> */}
+        <SideNavBar currentUser={currentUser} />
+      </div>
+      <div className="WholeDashboard">
+        <OfficialNav />
+      </div>
       <div className="BudgetTitle">
         <FaMoneyCheck className="BudgetIcon" />
         <div className="BudgetName">Budget</div>
@@ -142,7 +154,7 @@ function Budget() {
           </Box>
         </Box>
       </div>
-    </div>
+    </>
   );
 }
 

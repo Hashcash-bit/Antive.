@@ -16,21 +16,6 @@ function OfficialLogin() {
   const [password, setPassword] = useState("");
   const history = useHistory();
 
-  // const signInGoogle = (e) => {
-  //   e.preventDefault();
-  //   const google = "google";
-  //   // setLoading(true);
-
-  //   auth
-  //     .signInWithPopup(provider)
-  //     .then((auth) => {
-  //       history.push("/dashboard");
-  //     })
-  //     .catch((error) => toastInfo(`${error}`, google, "top-center"));
-
-  //   // setLoading(false);
-  // };
-
   async function signInGoogle(e) {
     e.preventDefault();
     const google = "google";

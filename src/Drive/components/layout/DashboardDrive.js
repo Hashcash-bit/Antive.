@@ -13,6 +13,9 @@ import {
   Skeleton,
 } from "@chakra-ui/react";
 import { DriveTitle, DriveIconWrapper, DriveTextWrapper } from "./DashboardDriveElements";
+import styled from "styled-components";
+//import "../Dashboard/dashboard.css";
+import "../../../Dashboard/dashboard.css"
 
 //Icons
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
@@ -35,6 +38,7 @@ import FolderBreadCrumbs from "./FolderBreadCrumbs";
 import FilesTable from "../files/FilesTable";
 import FilesTableSkeleton from "../files/FilesTableSkeleton";
 import FolderGrid from "../folders/FolderGrid";
+import OfficialNav from "../../../OfficialNavbar/OfficialNav";
 
 function DashboardDrive() {
   const { folderId } = useParams();
@@ -44,16 +48,33 @@ function DashboardDrive() {
   const [uploadingFiles, setUploadingFiles] = useState([]);
   const [progress, setProgress] = useState(0);
   const [isSmallerThan700] = useMediaQuery("(max-width: 700px)");
+  // const [isSmallerThan554] = useMediaQuery("(max-height: 554px)");
+  const marginLeft554 = styled.div`
+  @media screen and (max-height: 554px) {
+      margin-left: 1rem;
+    }
+  }
+  `
+  // const marginLeftnormal = styled.div`
+  // @media screen and (min-height: 555px) {
+  //     margin-left: 2rem;
+  //   }
+  // }
+  // `
 
   return (
     <>
+      <div className="WholeDashboard">
+        <OfficialNav />
+      </div>
       <DriveTitle>
         <DriveIconWrapper>
           <BiIcons.BiLockAlt />
         </DriveIconWrapper>
         <DriveTextWrapper>Vault</DriveTextWrapper>
       </DriveTitle>
-      <Box width="95%" px="8" py="4" marginLeft="2rem">
+      <Box width="95%" px="8" py="4" pl="20">
+      {/* <Box width="95%" px="8" py="4" marginLeft="2rem"> */}
         {/* TOP BUTTONS */}
         {isSmallerThan700 ? (
           <Menu isLazy placement="bottom">

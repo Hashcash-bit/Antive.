@@ -151,7 +151,7 @@ $generic-bg: #1a202c;
 /* Header
             ============================================ */
 header {
-  border-bottom: 2px solid  #081225;
+  border-bottom: 2px solid #081225;
   background-color: $generic-bg;
   -webkit-transition: height 200ms ease-in;
   transition: height 200ms ease-in;
@@ -169,7 +169,7 @@ header {
   // margin-top: 1.8rem;
 
   &:hover {
-    border-bottom: 2px solid #EDEEEE ;
+    border-bottom: 2px solid #edeeee;
     cursor: default;
     transition: all 0.5s ease-in-out;
   }
@@ -261,8 +261,6 @@ header {
             background-color: rgba(255, 255, 255, 0.2);
           }
 
-          
-
           &.settings__add {
             margin-right: 4rem;
             margin-top: 10px;
@@ -325,6 +323,14 @@ header {
   }
 }
 
+@media screen and (max-height: 554px) {
+  .header {
+    padding-top: 90px;
+    height: 148.5px;
+    margin-left: 2rem;
+  }
+}
+
 /* Sidebar
             ============================================ */
 .sidebar {
@@ -335,7 +341,7 @@ header {
   // padding-top: 74px;
   position: fixed;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: scroll;
   border-right: $generic-border;
   background-color: #1a202c;
   color: white;
@@ -561,6 +567,12 @@ header {
   // margin-left: 4rem;
 }
 
+@media screen and (max-height: 554px) {
+  .content {
+    padding-top: 80px;
+  }
+}
+
 /* Tasks
             ============================================ */
 .tasks {
@@ -772,7 +784,9 @@ header {
   @include box-overlay();
   background-color: #fff;
   width: 200px;
+  height: 90px;
   right: 0;
+  overflow-y: scroll;
 
   &__list li {
     @include task-item();
@@ -781,12 +795,14 @@ header {
     div:nth-child(1) {
       padding: 10px;
       width: 100%;
+      // border-bottom: 2px solid black;
       // display: -webkit-box;
       // display: -ms-flexbox;
       display: flex;
       // -webkit-box-align: center;
       // -ms-flex-align: center;
       align-items: center;
+      // text-align: center;
 
       span:first-of-type {
         margin-right: 10px;

@@ -26,6 +26,12 @@ export const DriveTitle = styled.div`
     cursor: default;
     transition: all 0.5s ease-in-out;
   }
+
+@media screen and (max-height: 554px) {
+  padding-top: 80px;
+    margin-left: 1rem;
+  }
+}
 `;
 
 export const DriveTextWrapper = styled.div`
@@ -34,4 +40,8 @@ export const DriveTextWrapper = styled.div`
 
 export const DriveIconWrapper = styled.div`
   margin-top: 2rem;
+  @media screen and (max-height: 554px) {
+    margin-left: 1.3rem;
+  }
+}
 `;

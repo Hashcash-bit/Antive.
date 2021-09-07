@@ -8,7 +8,11 @@ import { ReactComponent as FacebookIcon } from "feather-icons/dist/icons/instagr
 import { FaDiscord as DiscordIcon } from "react-icons/fa";
 import { FaLinkedin as LinkedIcon } from "react-icons/fa";
 
-const Container = tw(ContainerBase)`bg-gray-900 text-gray-100 -mx-8 -mb-8`;
+const Container = tw(ContainerBase)`bg-gray-800 text-gray-100
+// -mx-8
+-mb-8
+w-full
+`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 
 const Row = tw.div`flex items-center justify-center flex-col px-8`;
@@ -39,13 +43,13 @@ function MinimalFooter() {
             <LogoText>ntive.</LogoText>
           </LogoContainer>
           <LinksContainer>
-            <Link to="/">
+            <Link href="/">
               <LinkI>Home</LinkI>
             </Link>
-            <Link to="/termsofservice">
+            <Link to="/termsofservice" target="_blank">
               <LinkI>Terms Of Use</LinkI>
             </Link>
-            <Link to="/privacypolicy">
+            <Link to="/privacypolicy" target="_blank">
               <LinkI>Privacy Policy</LinkI>
             </Link>
             <Link to="/login">
@@ -69,14 +73,14 @@ function MinimalFooter() {
               <DiscordIcon />
             </SocialLink>
             <SocialLink
-              // href="https://youtube.com"
+              href="https://www.linkedin.com/company/antivecompany/about/"
               target="_blank"
             >
               <LinkedIcon />
             </SocialLink>
           </SocialLinksContainer>
           <CopyrightText>
-            Antive. © 2006-{new Date().getFullYear()}. All Rights Reserved.
+            Antive. © 2020-{new Date().getFullYear()}. All Rights Reserved.
           </CopyrightText>
         </Row>
       </Content>

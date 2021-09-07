@@ -2,18 +2,18 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Nav = styled.div`
-  background: #111827;
+  background: #081225;
   height: 80px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  position: sticky;
-  z-index: 999999;
-  width: 100%;
+  position: fixed;
+  z-index: 999;
+  width: 100vw;
 `;
 
 export const NavLogo = styled(Link)`
-  color: #ff7c5d;
+  color: #edeeee;
   justify-self: flex-start;
   cursor: pointer;
   font-size: 1.75rem;
@@ -29,7 +29,7 @@ export const ProfileEmail = styled.div`
   margin-left: 100vh;
   padding: 0px 10px 0px 0px;
   border-radius: 10px;
-  background-color: #292929;
+  background-color: #1a202c;
   font-weight: bold;
   letter-spacing: 1.5px;
   position: absolute;
@@ -45,7 +45,7 @@ export const ProfileEmail = styled.div`
 
 export const NavIconPfp = styled.div`
   font-size: 1.25rem;
-  background: #1f1f1f;
+  background: #0A0B10;
   padding: 10px 20px;
   border-radius: 10px 0px 0px 10px;
   height: 100%;
@@ -55,28 +55,26 @@ export const NavIconPfp = styled.div`
   position: relative;
   margin-right: 10px;
   border: 1px;
-  border-color: #FF7C5D;
-  color: #FF7C5D;
+  // border-color: #FF7C5D;
+  color: #EDEEEE;
 `;
 
 export const NavIconTrashPfp = styled.div`
-
   &:hover {
-  // font-size: 1.25rem;
-  // padding: 10px 20px;
-  // border-radius: 10px 10px 10px 10px;
-  // height: 100%;
-  // vertical-align: center;
-  // justify-content: center;
-  // align-items: center
-  // position: relative;
-  // margin-right: 10px;
-  // border: 1px;
-  // border-color: white;
-  // font: white;
-  color: #FF7C5D;
+    // font-size: 1.25rem;
+    // padding: 10px 20px;
+    // border-radius: 10px 10px 10px 10px;
+    // height: 100%;
+    // vertical-align: center;
+    // justify-content: center;
+    // align-items: center
+    // position: relative;
+    // margin-right: 10px;
+    // border: 1px;
+    // border-color: white;
+    // font: white;
+    color: #ff7c5d;
   }
-
 `;
 
 export const ErrorMSG = styled.div`
@@ -132,8 +130,8 @@ export const LogoutBtnWrapper = styled.div`
   justify-content: left;
   margin-top: 60px;
 
-  @media screean and (max-height: 480px) {
-    margin-top: 70px;
+  @media screen and (max-height: 480px) {
+    margin-top: 10px;
   }
 `;
 export const LogoutRoute = styled(Link)`
@@ -149,6 +147,9 @@ export const LogoutRoute = styled(Link)`
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   font-weight: bold;
+  display: flex;
+  text-align: center;
+  align-items: center;
   &:hover {
     transition: all 0.2s ease-in-out;
     background: #3f8cff;
@@ -166,6 +167,7 @@ export const SidebarNav = styled.nav`
   left: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
   transition: 350ms;
   z-index: 99999999;
+  overflow-y: scroll;
 `;
 
 export const SidebarWrap = styled.div`
@@ -176,8 +178,10 @@ export const SidebarWrap = styled.div`
 export const SidebarLink = styled(Link)`
   display: flex;
   color: #808191;
-  justify-content: space-between;
-  // align-items: center;
+  // justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
   padding: 20px;
   list-style: none;
   height: 60px;
@@ -202,14 +206,19 @@ export const SidebarLabel = styled.span`
 export const DropdownLink = styled(Link)`
   background: #414757;
   height: 60px;
-  padding-left: 3rem;
+  padding-left: 0rem;
   display: flex;
   align-items: center;
   text-decoration: none;
   color: #f5f5f5;
-  font-size: 18px;
+  font-size: auto;
   &:hover {
     background: #632ce4;
     cursor: pointer;
   }
+`;
+
+export const AllowScroll = styled.div`
+  overflow-y: scroll;
+  text-align: center;
 `;

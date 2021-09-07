@@ -12,10 +12,10 @@ import {
   NavBtn,
   NavBtnLink,
   NavBtnContainer,
-  AntiveLogo
+  AntiveLogo,
 } from "./NavbarElements";
 
-import antivelogo from "../../../OfficialNavbar/assets/newlogo.png"
+import antivelogo from "../../../OfficialNavbar/assets/newlogo.png";
 import { animateScroll as scroll } from "react-scroll";
 
 const Navbar = ({ toggle }) => {
@@ -42,7 +42,10 @@ const Navbar = ({ toggle }) => {
         <Nav scrollNav={scrollNav}>
           <NavbarContainer>
             <NavLogo to="/" onClick={toggleHome}>
-            <AntiveLogo><img src={antivelogo} alt="logo" /> </AntiveLogo>ntive.
+              <AntiveLogo>
+                <img src={antivelogo} alt="logo" />{" "}
+              </AntiveLogo>
+              ntive.
             </NavLogo>
             <MobileIcon onClick={toggle}>
               <FaAlignRight />

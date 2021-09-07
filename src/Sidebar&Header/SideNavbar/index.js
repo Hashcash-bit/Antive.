@@ -12,6 +12,7 @@ import {
   LogoutRoute,
   ErrorMSG,
   NavIconTrashPfp,
+  AllowScroll
 } from "./SideElements";
 import { BiDownArrow, BiCog, BiCaretDown } from "react-icons/bi";
 import * as FaIcons from "react-icons/fa";
@@ -29,8 +30,7 @@ import "../Header/HeaderComponent.css";
 //redux
 // import { useSelector, useDispatch } from "react-redux";
 
-
-const SideNavBar = ({userProfile}) => {
+const SideNavBar = ({ userProfile }) => {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   // const [loading, setLoading] = useState(false);
@@ -41,7 +41,6 @@ const SideNavBar = ({userProfile}) => {
   const [error, setError] = useState("");
   const history = useHistory();
 
-  
   async function handleLogout() {
     setError("");
 
@@ -65,7 +64,7 @@ const SideNavBar = ({userProfile}) => {
         <ErrorMSG>
           {error && <div className="errordashboard">{error}</div>}
         </ErrorMSG>
-        <IconContext.Provider value={{ color: "#FF7C5D" }}>
+        <IconContext.Provider value={{ color: "#EDEEEE" }}>
           <NavItem icon={<CgProfile />}>
             <DropdownMenu></DropdownMenu>
           </NavItem>
@@ -73,7 +72,16 @@ const SideNavBar = ({userProfile}) => {
         {/* <IconContext.Provider value={{ color: "#FF7C5D" }}> */}
         <ProfileEmail>
           {/* <EmailShown><NavIconPfp><CgProfile /></NavIconPfp>{currentUser.displayName || currentUser.email}</EmailShown> */}
-          <EmailShown><NavIconPfp><CgProfile /></NavIconPfp>{currentUser.displayName || currentUser.email.substring(0, currentUser.email.lastIndexOf("@"))}</EmailShown>
+          <EmailShown>
+            <NavIconPfp>
+              <CgProfile />
+            </NavIconPfp>
+            {currentUser.displayName ||
+              currentUser.email.substring(
+                0,
+                currentUser.email.lastIndexOf("@")
+              )}
+          </EmailShown>
         </ProfileEmail>
         {/* </IconContext.Provider> */}
       </Nav>
@@ -83,17 +91,19 @@ const SideNavBar = ({userProfile}) => {
             <NavIcon to="#">
               <AiIcons.AiOutlineClose onClick={showSidebar} />
             </NavIcon>
-            {SidebarData.map((item, index) => {
-              return <SubMenu item={item} key={index} />;
-            })}
-            <LogoutBtnWrapper onClick={handleLogout}>
-              <LogoutRoute >
-                <logoutIcon>
-                  <BiLogOut />
-                </logoutIcon>
-                Log Out
-              </LogoutRoute>
-            </LogoutBtnWrapper>
+            <AllowScroll>
+              {SidebarData.map((item, index) => {
+                return <SubMenu item={item} key={index} />;
+              })}
+              <LogoutBtnWrapper onClick={handleLogout}>
+                <LogoutRoute>
+                  <logoutIcon>
+                    <BiLogOut />
+                  </logoutIcon>
+                  Log Out
+                </LogoutRoute>
+              </LogoutBtnWrapper>
+            </AllowScroll>
           </SidebarWrap>
         </SidebarNav>
       </IconContext.Provider>
@@ -164,6 +174,6 @@ const SideNavBar = ({userProfile}) => {
       </div>
     );
   }
-}
+};
 
 export default SideNavBar;

@@ -17,6 +17,7 @@ import ResizePage from "../../PageResize/PageResize";
 
 //Styles
 import "../index.css";
+import ResizeHeight from "../../ResizeHeight/PageResize";
 
 export default function Chats() {
   const didMountRef = useRef(false);
@@ -95,10 +96,16 @@ export default function Chats() {
 
   return (
     <>
-      <OfficialNav />
-      <div className="pageresizepls">
-        <ResizePage />
+      <div className="ResizeHeightChat">
+        {/* <ResizeHeight /> */}
+        <SideNavBar currentUser={currentUser} />
       </div>
+      {/* <div className="WholeChatPage">
+        <OfficialNav />
+      </div> */}
+      {/* <div className="pageresizepls">
+        <ResizePage />
+      </div> */}
       <div className="chats-page">
         <ChatEngine
           height="calc(100vh - 66px)"
