@@ -107,13 +107,13 @@ const Testimonials = () => {
 
           <Card
             text="Using Antive as a main organizer has increase my productivity, the ease and variety of tools helped me fix up my time management skills."
-            name="Gagan Deep Singh"
-            image="Gagan"
+            name="Andrews Sterling"
+            image="randomguy"
           />
 
           <Card
             text="I just started using Antive and I feel as if I am part of a greater community, the chat feature lets me connect with others or ask for help/advice."
-            name="Anujan Kopu"
+            name=""
             image="Kopu"
           />
         </Slider>

@@ -12,6 +12,7 @@ const useStyle = makeStyles({
   lists: {
     marginTop: 10,
     border: "1px solid #f6f6f6",
+    // width: "95%",
   },
 });
 

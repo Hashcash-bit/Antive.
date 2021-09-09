@@ -1,21 +1,20 @@
 //React shit
-import { Link as LinkR } from 'react-router-dom'
-import React, {useState} from "react"
+import { Link as LinkR } from "react-router-dom";
+import React, { useState } from "react";
 
 //Styles
 import styled, { keyframes } from "styled-components";
 // import { ArrowForward, ArrowRight } from "../../../LandingPage/components/Hero/HeroElements";
 
 //Assets
-import pinkBlob from "../../assets/blobPink.png";
-import purpleBlob from "../../assets/blob purple.png";
-import whiteBlob from "../../assets/blob white.png";
+import pinkBlob from "../../assets/LogoBlob.png";
+import purpleBlob from "../../assets/NavbarBlob.png";
+import whiteBlob from "../../assets/BgBlob.png";
 import arrow from "../../assets/Arrow Right.svg";
 import Mobile from "../../assets/HeroImage.svg";
 
 //Icons
 import { MdArrowForward, MdKeyboardArrowRight } from "react-icons/md";
-
 
 const move = keyframes`
 0% { transform: translateY(-5px)  }
@@ -26,7 +25,7 @@ const move = keyframes`
 const HomeSection = styled.section`
   width: 100vw;
   height: 45vw;
-  background-color: #090E14;
+  background-color: #090e14;
   display: flex;
   justify-content: center;
   position: relative;
@@ -127,7 +126,7 @@ const Topic = styled.span`
   align-items: center;
   justify-content: center;
   background-color: var(--nav);
-  color: #EDEEEE;
+  color: #edeeee;
   font-weight: 700;
   font-size: calc(0.4rem + 0.4vw);
   padding: 0.5rem 1rem;
@@ -139,7 +138,7 @@ const Circle = styled.span`
   width: 1rem;
   height: 1rem;
   border-radius: 50%;
-  background-color: #9E32F7;
+  background-color: #9e32f7;
   margin-right: 0.5rem;
 `;
 
@@ -159,7 +158,7 @@ const CTA = styled(LinkR)`
   // width: 100px;
   // height: 50px;
   gap: 20px;
-  color:  #EDEEEE;
+  color: #edeeee;
   // padding: 0.5rem 5rem;
   margin-top: 1rem;
   border-radius: 20px;
@@ -179,14 +178,13 @@ const CTA = styled(LinkR)`
   &:hover {
     // transform: scale(1.1);
     transition: all 0.2s ease-in-out;
-    background: #EDEEEE;
-    color: #090E14;
-    border: 1px solid #1A202C;
+    background: #edeeee;
+    color: #090e14;
+    border: 1px solid #1a202c;
     padding: 0.2rem 0.8rem;
   }
   &:active {
     transform: scale(0.9);
-    
   }
 `;
 
@@ -194,31 +192,31 @@ const ArrowForward = styled(MdArrowForward)`
   // margin-left: 8px;
   font-size: 1px;
   background: transparent;
-`
+`;
 const ArrowRight = styled(MdKeyboardArrowRight)`
   // margin-left: 8px;
   font-size: 10px;
   background: transparent;
-`
+`;
 
 const HeroSection = () => {
   const [hover, setHover] = useState(false);
 
   const onHover = () => {
-    setHover(!hover)
-  }
+    setHover(!hover);
+  };
   return (
     <HomeSection id="home">
       <Blobs>
-        <PinkBlob>
+        {/* <PinkBlob>
           <img src={pinkBlob} alt="" width="400" height="400" />{" "}
-        </PinkBlob>
+        </PinkBlob> */}
         <WhiteBlob>
-          <img src={whiteBlob} alt="" width="400" height="400" />
-        </WhiteBlob>
-        <PurpleBlob>
           <img src={purpleBlob} alt="" width="400" height="400" />
-        </PurpleBlob>
+        </WhiteBlob>
+        {/* <PurpleBlob>
+          <img src={purpleBlob} alt="" width="400" height="400" />
+        </PurpleBlob> */}
       </Blobs>
 
       <MainContent id="home">
@@ -229,10 +227,11 @@ const HeroSection = () => {
           </Topic>
           <Title>Managment Tools For Success.</Title>
           <SubText>
-            Get organized with the free tools provided by Antive to manage your busy lives.
+            Get organized with the free tools provided by Antive to manage your
+            busy lives.
           </SubText>
-          <CTA to="/signup" onMouseEnter={onHover} onMouseLeave={onHover} primary='true' dark='false' smooth={true} duration={500} spy={true} exact='true' offset={-80}>
-            Get Started {hover ? <ArrowForward /> : <ArrowRight/>}
+          <CTA to="/signup">
+            Get Started
             {/* <img src={arrow} alt="cta" width="100" height="100" /> */}
           </CTA>
         </Lb>

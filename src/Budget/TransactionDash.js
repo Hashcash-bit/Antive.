@@ -61,7 +61,9 @@ function TransactionDash({ transaction, deleteTransaction }) {
     db.collection("budget").onSnapshot((changes) => {
       var newTransactions = [];
       changes.forEach((c) => {
-        newTransactions.push(c.data());
+        if (currentUser.uid === c.data().userId) {
+          newTransactions.push(c.data());
+        }
       });
       setTransactions(newTransactions);
     });

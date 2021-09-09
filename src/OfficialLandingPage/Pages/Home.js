@@ -23,6 +23,7 @@ import TwoColHorizontalFeatures from "../Sections/PlainServices/TwoColWithTwoHor
 import TwoColHorizontalFeaturestwo from "../Sections/PlainServices/TwoColWithTwoHorizontalFeaturesAndButton/TwoColHorizontalFeaturestwo";
 import TwoColHorizontalFeaturesthree from "../Sections/PlainServices/TwoColWithTwoHorizontalFeaturesAndButton/TwoColHorizontalFeaturesthree";
 import TwoColHorizontalFeaturesfour from "../Sections/PlainServices/TwoColWithTwoHorizontalFeaturesAndButton/TwoColHorizontalFeaturesfour";
+import NewTestTestimonial from "../Sections/PlainTestimonials/TwoColRate+Img";
 
 const Container = styled.div`
   // display: flex;
@@ -58,7 +59,8 @@ const OfficialHome = () => {
       <TwoColHorizontalFeaturestwo />
       <TwoColHorizontalFeaturesthree />
       <TwoColHorizontalFeaturesfour />
-      <Testimonials />
+      {/* <Testimonials /> */}
+      <NewTestTestimonial />
       <ServicesLandingPage />
       <SingleCol />
     </Container>

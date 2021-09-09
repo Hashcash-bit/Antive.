@@ -120,9 +120,11 @@ $generic-bg: #1a202c;
   border-bottom: 1px solid #f0f0f0;
   padding-left: 10px;
   cursor: pointer;
+  border-radius: 3px;
 
   &:hover {
-    background-color: #f9f9f9;
+    background-color: #b6b6b6;
+    border-radius: 3px;
   }
 }
 
@@ -734,13 +736,15 @@ header {
 
   &__content {
     width: 100%;
-    border: 1px solid #ddd;
+    // border: 1px solid #ddd;
     background-color: white !important;
     color: black;
     border-radius: 3px;
     height: 35px;
     padding-left: 10px;
     padding-right: 10px;
+    border: 1px solid grey;
+    outline: none !important;
   }
 
   &__cancel,

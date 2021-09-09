@@ -16,7 +16,7 @@ import { useAuth } from "../Signin/context/AuthContext";
 import NewLogo from "./assets/newlogo.png";
 
 //Style
-import "./OfficialNav.css"
+import "./OfficialNav.css";
 
 //Icons
 import { FiLogOut } from "react-icons/fi";
@@ -260,91 +260,94 @@ const OfficialNav = () => {
 
   return (
     <>
-    <Container>
-      <Button clicked={click} onClick={() => handleClick()} />
-      <SidebarContainer>
-        <Logo>
-          <img src={NewLogo} alt="logo" />
-        </Logo>
-        <SlickBar clicked={click}>
-          <Link to="/dashboard"></Link>
-          <Item
-            onClick={() => setClick(false)}
-            exact
-            activeClassName="active"
-            to="/dashboard"
-          >
-            <RiDashboardFill />
-            <Text clicked={click}>Dashboard</Text>
-          </Item>
-          <Item
-            onClick={() => setClick(false)}
-            activeClassName="active"
-            to="/agenda"
-          >
-            <IoIcons.IoIosPaper />
-            <Text clicked={click}>Agenda</Text>
-          </Item>
-          <Item
-            onClick={() => setClick(false)}
-            activeClassName="active"
-            to="/budget"
-          >
-            <FaIcons.FaMoneyCheck />
-            <Text clicked={click}>Budget</Text>
-          </Item>
-          <Item
-            onClick={() => setClick(false)}
-            activeClassName="active"
-            to="/drive"
-          >
-            <BiIcons.BiLockAlt />
-            <Text clicked={click}>Vault</Text>
-          </Item>
-          <Item
-            onClick={() => setClick(false)}
-            activeClassName="active"
-            to="/chat"
-            onMouseEnter={() => setIsShown(true)}
-            onMouseLeave={() => setIsShown(false)}
-          >
-            <IoIcons.IoMdPeople />
-            <Text clicked={click}>Chat</Text>
-          </Item>
-        </SlickBar>
-        <Profile clicked={profileClick} onClick={() => handleProfileClick()}>
-          <ProfileIcon />
+      <Container>
+        <Button clicked={click} onClick={() => handleClick()} />
+        <SidebarContainer>
+          <Logo>
+            <img src={NewLogo} alt="logo" />
+          </Logo>
+          <SlickBar clicked={click}>
+            <Link to="/dashboard"></Link>
+            <Item
+              onClick={() => setClick(false)}
+              exact
+              activeClassName="active"
+              to="/dashboard"
+            >
+              <RiDashboardFill />
+              <Text clicked={click}>Dashboard</Text>
+            </Item>
+            <Item
+              onClick={() => setClick(false)}
+              activeClassName="active"
+              to="/agenda"
+            >
+              <IoIcons.IoIosPaper />
+              <Text clicked={click}>Agenda</Text>
+            </Item>
+            <Item
+              onClick={() => setClick(false)}
+              activeClassName="active"
+              to="/budget"
+            >
+              <FaIcons.FaMoneyCheck />
+              <Text clicked={click}>Budget</Text>
+            </Item>
+            <Item
+              onClick={() => setClick(false)}
+              activeClassName="active"
+              to="/drive"
+            >
+              <BiIcons.BiLockAlt />
+              <Text clicked={click}>Vault</Text>
+            </Item>
+            <Item
+              onClick={() => setClick(false)}
+              activeClassName="active"
+              to="/chat"
+              onMouseEnter={() => setIsShown(true)}
+              onMouseLeave={() => setIsShown(false)}
+            >
+              <IoIcons.IoMdPeople />
+              <Text clicked={click}>Chat</Text>
+            </Item>
+          </SlickBar>
+          <Profile clicked={profileClick} onClick={() => handleProfileClick()}>
+            <ProfileIcon />
 
-          <Details clicked={profileClick}>
-            <Name>
-              <h4>
-                {currentUser.displayName ||
-                  currentUser.email.substring(
-                    0,
-                    currentUser.email.lastIndexOf("@")
-                  )}
-              </h4>
+            <Details clicked={profileClick}>
+              <Name>
+                <h4>
+                  {currentUser.displayName ||
+                    currentUser.email.substring(
+                      0,
+                      currentUser.email.lastIndexOf("@")
+                    )}
+                </h4>
 
-              <a>
-                <UpdateProfileLink to="/update-profile">
-                  want to update profile?
-                </UpdateProfileLink>
-              </a>
-            </Name>
+                <a>
+                  <UpdateProfileLink to="/update-profile">
+                    want to update profile?
+                  </UpdateProfileLink>
+                </a>
+              </Name>
 
-            <Logout onClick={handleLogout}>
-              {/* <img src={PowerOff} alt="logout" /> */}
-              <LogoutIcon />
-            </Logout>
-          </Details>
-        </Profile>
-      </SidebarContainer>
-      <ErrorMSG>
-        {error && <div className="errordashboard">{error}</div>}
-      </ErrorMSG>
-    </Container>
-    {isShown && <div className="HoverText">On Phone? Rotate to Landscape to create your first chat!</div>}
-
+              <Logout onClick={handleLogout}>
+                {/* <img src={PowerOff} alt="logout" /> */}
+                <LogoutIcon />
+              </Logout>
+            </Details>
+          </Profile>
+        </SidebarContainer>
+        <ErrorMSG>
+          {error && <div className="errordashboard">{error}</div>}
+        </ErrorMSG>
+      </Container>
+      {isShown && (
+        <div className="HoverText">
+          On Phone? Rotate to Landscape to create your first chat!
+        </div>
+      )}
     </>
   );
 };

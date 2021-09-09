@@ -92,7 +92,7 @@ function NewTransaction({ addTrans }) {
       <TextField
         label="Total Amount (Enter negative value to indicate expense)"
         InputLabelProps={{
-          style: { color: "#fff" },
+          style: { color: "#fff", lineHeight: "150%" },
         }}
         InputProps={{
           className: apply.multilineColor,
