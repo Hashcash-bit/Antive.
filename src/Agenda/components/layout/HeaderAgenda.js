@@ -30,7 +30,7 @@ export const HeaderAgenda = () => {
         </div>
         <div className="settings">
           <ul>
-            <li className="settings__add">
+            {/* <li className="settings__add">
               <button
                 data-testid="quick-add-task-action"
                 aria-label="Quick add task"
@@ -46,7 +46,7 @@ export const HeaderAgenda = () => {
               >
                 +
               </button>
-            </li>
+            </li> */}
           
           </ul>
         </div>

@@ -10,14 +10,13 @@ export const IndividualProject = ({ project }) => {
   const { setSelectedProject } = useSelectedProjectValue();
 
   const deleteProject = (docId) => {
-    db
-      .collection("projects")
+    db.collection("projects")
       .doc(docId)
       .delete()
       .then(() => {
         setProjects([...projects]);
         setSelectedProject("INBOX");
-        window.location.reload()
+        // window.location.reload()
       });
   };
 

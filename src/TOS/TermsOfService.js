@@ -53,8 +53,8 @@ function TOS() {
   return (
     <TermsOfServiceContainer>
       <Container>
-        <Navbar />
-        <Sidebar />
+        {/* <Navbar />
+        <Sidebar /> */}
         <ContentWithPaddingXl>
           <Heading>
             <h1>Terms Of Use</h1>
@@ -825,7 +825,7 @@ function TOS() {
             <strong>notify.executives@gmail.com</strong>
           </Text>
         </ContentWithPaddingXl>
-        <MinimalFooter />
+        {/* <MinimalFooter /> */}
       </Container>
     </TermsOfServiceContainer>
   );

@@ -24,14 +24,9 @@ import TwoColHorizontalFeaturestwo from "../Sections/PlainServices/TwoColWithTwo
 import TwoColHorizontalFeaturesthree from "../Sections/PlainServices/TwoColWithTwoHorizontalFeaturesAndButton/TwoColHorizontalFeaturesthree";
 import TwoColHorizontalFeaturesfour from "../Sections/PlainServices/TwoColWithTwoHorizontalFeaturesAndButton/TwoColHorizontalFeaturesfour";
 import NewTestTestimonial from "../Sections/PlainTestimonials/TwoColRate+Img";
+import SimpleSummary from "../Sections/PlainSummary/SimpleSummary";
 
-const Container = styled.div`
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
-  /* position: relative; */
-`;
+const Container = styled.div``;
 
 const Infoonecontainer = styled.div`
   width: 100vw;
@@ -54,7 +49,8 @@ const OfficialHome = () => {
   return (
     <Container>
       <HeroSection />
-      <About />
+      {/* <About /> */}
+      <SimpleSummary />
       <TwoColHorizontalFeatures />
       <TwoColHorizontalFeaturestwo />
       <TwoColHorizontalFeaturesthree />

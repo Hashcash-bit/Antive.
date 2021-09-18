@@ -56,8 +56,8 @@ function PrivacyPolicy() {
   return (
     <PrivacyPolicyContainer>
       <Container>
-        <Navbar />
-        <Sidebar />
+        {/* <Navbar /> */}
+        {/* <Sidebar /> */}
         <ContentWithPaddingXl>
           <Heading>
             <h1>Privacy Policy</h1>
@@ -299,7 +299,7 @@ function PrivacyPolicy() {
             <strong>notify.executives@gmail.com</strong>
           </Text>
         </ContentWithPaddingXl>
-        <MinimalFooter />
+        {/* <MinimalFooter /> */}
       </Container>
     </PrivacyPolicyContainer>
   );
